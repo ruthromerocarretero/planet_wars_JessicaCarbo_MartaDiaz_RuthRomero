@@ -79,35 +79,12 @@ a:hover {
     background-size: cover;
     position: absolute;
     left: -100px;
-    top: 20%;
+    top: 30px;
     transform: translateY(-50%);
     animation: deslizar-nave 5s linear forwards;
 }
 
 
-/* @keyframes deslizar-nave {
-    0%, 30% {
-        left: -100px;
-    }
-    30%, 40% {
-        left: calc(50% - 50px);
-    }
-    40%, 45% {
-        top: calc(50% + 15px);
-    }
-    45%, 50% {
-        top: calc(50% - 10px); 
-    }
-    50%, 100% {
-        left: calc(100% + 100px);
-    }
-} */
-
-
-
-
-
-/*
 @keyframes deslizar-nave {
     0%, 30% {
         left: -100px;
@@ -116,32 +93,12 @@ a:hover {
         left: calc(50% - 50px); 
     }
     40%, 45% {
-        top: calc(25% + 15px);
+        top: 100%;
     }
     45%, 50% {
-        top: calc(20% - 10px); 
+        top: 40px; 
     }
     50%, 100% {
         left: calc(100% + 100px);
-    }
-}
-
-*/
-
-@keyframes deslizar-nave {
-    0%, 30% {
-        left: -100px; 
-    }
-    30%, 40% {
-        left: calc(50% - 40px);
-    }
-    40%, 45% {
-        top: calc(25% + 15px); 
-    }
-    45%, 50% {
-        top: calc(20% - 10px);
-    }
-    50%, 100% {
-        left: calc(100% + 100px);    
     }
 }
