@@ -1,3 +1,4 @@
+package planetWars;
 
 public abstract class Ship {
     private int armor;
@@ -5,6 +6,13 @@ public abstract class Ship {
     private int baseDamage;
     
     
+	public Ship(int armor, int baseDamage) {
+		super();
+		this.armor = armor;
+		this.baseDamage = baseDamage;
+	}
+
+
 	public int getArmor() {
 		return armor;
 	}
