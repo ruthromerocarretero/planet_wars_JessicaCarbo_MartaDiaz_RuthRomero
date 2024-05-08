@@ -25,12 +25,22 @@ public class Planet {
 	}
 	
 	 public void upgradeTechnologyDefense() throws ResourceException {
-	        if (deuterium >= upgradeDefenseTechnologyDeuteriumCost) {
-	            deuterium -= upgradeDefenseTechnologyDeuteriumCost;
-	            technologyDefense++;
+	        if (deuterium >= upgradeDefenseTechnologyDeuteriumCost) { // Verifica si hay suficiente "Deuterium"
+	            deuterium -= upgradeDefenseTechnologyDeuteriumCost; // Si se cumple, le resta el coste de la mejora
+	            technologyDefense++; // Lo incrementa en uno
 	            upgradeDefenseTechnologyDeuteriumCost *= 1.1;  // Incrementa el costo en un 10%
-	        } else {
+	        } else { // Si no se cumple la condicion, entonces lanza una excepcion, pq no hay suficiente "Deuterium" 
 	            throw new ResourceException("No hay suficiente deuterio para mejorar la tecnología de defensa.");
+	        }
+	    }
+	 
+	 public void upgradeTechnologyAttack() throws ResourceException {
+	        if (deuterium >= upgradeAttackTechnologyDeuteriumCost) {
+	            deuterium -= upgradeAttackTechnologyDeuteriumCost;
+	            technologyAtack++;
+	            upgradeAttackTechnologyDeuteriumCost *= 1.1;  // Incrementa el costo en un 10%
+	        } else {
+	            throw new ResourceException("No hay suficiente deuterio para mejorar la tecnología de ataque.");
 	        }
 	    }
 	
