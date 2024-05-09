@@ -8,10 +8,9 @@ public abstract class Ship implements MilitaryUnit {
     public Ship(int armor, int baseDamage) {
         this.armor = armor;
         this.baseDamage = baseDamage;
-        this.initialArmor = armor;  // Asegurando que el armor inicial sea establecido correctamente.
+        this.initialArmor = armor; 
     }
 
-    // Implementación de los métodos de MilitaryUnit
     @Override
     public int attack() {
         return getBaseDamage();  // Simplemente retorna el daño base.
@@ -32,25 +31,25 @@ public abstract class Ship implements MilitaryUnit {
         setArmor(getInitialArmor());
     }
 
-    // Los siguientes métodos dependen de detalles específicos no proporcionados
+
     @Override
     public int getMetalCost() {
-        return 0;  // Ejemplo, necesita detalles específicos.
+        return 0;
     }
 
     @Override
     public int getDeuteriumCost() {
-        return 0;  // Ejemplo, necesita detalles específicos.
+        return 0;  
     }
 
     @Override
     public int getChanceGeneratinWaste() {
-        return 0;  // Ejemplo, necesita detalles específicos.
+        return 0; 
     }
 
     @Override
     public int getChanceAttackAgain() {
-        return 0;  // Ejemplo, necesita detalles específicos.
+        return 0;  
     }
 
     // Getters y Setters
