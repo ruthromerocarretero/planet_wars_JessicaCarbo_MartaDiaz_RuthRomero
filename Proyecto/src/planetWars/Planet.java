@@ -24,6 +24,14 @@ public class Planet {
 		this.army = army;
 	}
 	
+	public Planet() {
+        // Suponiendo que hay 7 tipos de unidades y se inicializan aquí
+        army = new ArrayList[7];
+        for (int i = 0; i < army.length; i++) {
+            army[i] = new ArrayList<>();
+        }
+    }
+	
 	 public void upgradeTechnologyDefense() throws ResourceException {
 	        if (deuterium >= upgradeDefenseTechnologyDeuteriumCost) { // Verifica si hay suficiente "Deuterium"
 	            deuterium -= upgradeDefenseTechnologyDeuteriumCost; // Si se cumple, le resta el coste de la mejora
@@ -43,7 +51,23 @@ public class Planet {
 	            throw new ResourceException("No hay suficiente deuterio para mejorar la tecnología de ataque.");
 	        }
 	    }
-	
+	 
+	 public void newLightHunter(int n) throws ResourceException {
+	        int totalMetalCost = Variables.METAL_COST_LIGTHHUNTER * n;
+	        int totalDeuteriumCost = Variables.DEUTERIUM_COST_LIGTHHUNTER * n;
+
+	        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+	            metal -= totalMetalCost;
+	            deuterium -= totalDeuteriumCost;
+
+	            for (int i = 0; i < n; i++) {
+	                army[0].add(new LightHunter());  // Asumiendo que el índice 0 es para LightHunters
+	            }
+	        } else {
+	            throw new ResourceException("No hay suficientes recursos para producir " + n + " cazadores ligeros.");
+	        }
+	    }
+	 
 
 	public int getTechnologyDefense() {
 		return technologyDefense;
