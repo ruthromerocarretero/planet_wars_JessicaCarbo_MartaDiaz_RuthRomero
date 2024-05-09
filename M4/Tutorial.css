@@ -66,48 +66,6 @@ a {
 a:hover {
     color: rgb(0, 255, 128);
 }
-.main-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.article {
-    width: 70%;
-    padding: 20px;
-}
-
-.nave-espacial {
-    width: 100px;
-    height: 100px;
-    background-image: url('img/onvi.png');
-    background-size: cover;
-    position: absolute;
-    left: -100px;
-    top: 30px;
-    transform: translateY(-50%);
-    animation: deslizar-nave 5s linear forwards;
-}
-
-
-@keyframes deslizar-nave {
-    0%, 30% {
-        left: -100px;
-    }
-    30%, 40% {
-        left: calc(50% - 50px); 
-    }
-    40%, 45% {
-        top: 150px;
-    }
-    45%, 50% {
-        top: 40px; 
-    }
-    50%, 100% {
-        left: calc(100% + 100px);
-    }
-}
 
 footer {
     background-color: black;
