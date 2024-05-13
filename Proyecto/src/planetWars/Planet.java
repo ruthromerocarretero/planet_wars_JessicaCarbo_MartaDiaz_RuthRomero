@@ -54,7 +54,7 @@ public class Planet {
 	 public void upgradeTechnologyAttack() throws ResourceException {
 		    int currentUpgradeCost = upgradeAttackTechnologyDeuteriumCost;
 	        if (deuterium >=  currentUpgradeCost) {
-	            deuterium -=  currentUpgradeCost);
+	            deuterium -=  currentUpgradeCost;
 	            technologyAtack++;
 	            upgradeAttackTechnologyDeuteriumCost *= 1.1;  
 	        } else {
