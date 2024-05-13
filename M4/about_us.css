@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    background-color: aqua;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.banner {
+    width: 100%;
+    height: 220px;
+    padding-top:20px;
+    text-align: center;
+    background: url("img/estrellas.gif");
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+.banner h1 {
+    color: #f1f1f1;
+    font-size: 80px;
+    margin-top: 30px;
+    font-family: "Pixelify Sans";
+}
+.container {
+    width: 100%;
+    background-color: rgba(0, 0, 0,0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+.logo {
+    width: 100px;
+    margin: 0;
+}
+.logo img {
+    width: 100%;
+}
+.item-options {
+    color: #f1f1f1;
+    margin: 0 1.5rem;
+    text-decoration: none;
+}
+a {
+    color: white;
+    transition: color 0.5s;
+}
+a:hover {
+    color: rgb(0, 255, 128);
+}
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin-top: auto; /* Para colocar el footer al final de la página */
+    width: 100%; /* Para que el footer ocupe todo el ancho */
+}
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+    background-color: rgba(255, 255, 255, 0.86);
+    border-radius: 10px;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+}
+.image {
+    max-width: 100%;
+    height: auto;
+}
+.text {
+    max-width: 40%;
+}
+.nave-espacial {
+width: 100px;
+height: 100px;
+background-image: url('img/onvi.png');
+background-size: cover;
+position: absolute;
+left: -100px;
+top: 30px;
+transform: translateY(-50%);
+animation: deslizar-nave 5s linear forwards;
+}
+
+
+@keyframes deslizar-nave {
+0%, 30% {
+    left: -100px;
+}
+30%, 40% {
+    left: calc(50% - 50px); 
+}
+40%, 45% {
+    top: 150px;
+}
+45%, 50% {
+    top: 40px; 
+}
+50%, 100% {
+    left: calc(100% + 100px);
+}
+}
