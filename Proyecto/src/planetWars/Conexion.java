@@ -37,7 +37,7 @@ public class Conexion {
 
 
         } catch (SQLException e) {
-            // este catch es para los errores que puedan surgir
+            // este catch es para los posibles errores
             System.out.println("Error al conectar con la base de datos: " + e.getMessage());
       
         }
