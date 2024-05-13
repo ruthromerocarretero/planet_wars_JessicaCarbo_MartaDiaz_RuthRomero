@@ -1,8 +1,12 @@
-
 package planetWars;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 
 public class Planet {
 	private int technologyDefense;
@@ -12,6 +16,8 @@ public class Planet {
 	private int upgradeDefenseTechnologyDeuteriumCost;
 	private int upgradeAttackTechnologyDeuteriumCost;
 	private ArrayList<MilitaryUnit>[] army = new ArrayList[7];
+	
+	
 	
 	public Planet(int technologyDefense, int technologyAtack, int metal, int deuterium,
 			int upgradeDefenseTechnologyDeuteriumCost, int upgradeAttackTechnologyDeuteriumCost,
@@ -23,16 +29,14 @@ public class Planet {
 		this.deuterium = deuterium;
 		this.upgradeDefenseTechnologyDeuteriumCost = upgradeDefenseTechnologyDeuteriumCost;
 		this.upgradeAttackTechnologyDeuteriumCost = upgradeAttackTechnologyDeuteriumCost;
-		this.army = army;
+		this.army = new ArrayList[7];
+		
+        for (int i = 0; i < army.length; i++) {
+        	this.army[i] = new ArrayList<>();
+        }
 	}
 	
-	public Planet() {
-        // Suponiendo que hay 7 tipos de unidades y se inicializan aquí
-        army = new ArrayList[7];
-        for (int i = 0; i < army.length; i++) {
-            army[i] = new ArrayList<>();
-        }
-    }
+	
 	
 	 public void upgradeTechnologyDefense() throws ResourceException {
 	        if (deuterium >= upgradeDefenseTechnologyDeuteriumCost) { // Verifica si hay suficiente deuterium
@@ -63,7 +67,7 @@ public class Planet {
 	            deuterium -= totalDeuteriumCost;
 
 	            for (int i = 0; i < n; i++) {
-	                army[0].add(new LightHunter());  
+	                army[0].add(new LigthHunter(i, i));  
 	            }
 	        } else {
 	            throw new ResourceException("No hay suficientes recursos para producir " + n + " cazadores ligeros.");
@@ -151,8 +155,5 @@ public class Planet {
 		System.out.println("TECHNOLOGY");
 		
 	}
-
-	
-	
 
 }

@@ -1,6 +1,6 @@
 package planetWars;
 
-public abstract class Ship implements MilitaryUnit {
+public abstract class Ship implements MilitaryUnit, Variables {
     private int armor;
     private int initialArmor;
     private int baseDamage;
@@ -10,6 +10,11 @@ public abstract class Ship implements MilitaryUnit {
         this.baseDamage = baseDamage;
         this.initialArmor = armor;  // Asegurando que el armor inicial sea establecido correctamente.
     }
+    
+    
+    	
+
+    
 
     // Implementación de los métodos de MilitaryUnit
     @Override
