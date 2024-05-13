@@ -21,4 +21,4 @@ public class LigthHunter extends Ship{
      int technologyLevel = getAttackTechnologyLevel(); // Obtener el nivel de tecnología de ataque
      int plusDamage = technologyLevel * PLUS_ATTACK_LIGTHHUNTER_BY_TECHNOLOGY; // Calcular el plus de daño
      return baseDamage + (baseDamage * plusDamage / 100); // Calcular el daño base final
- }*/s
+ }*/
