@@ -18,3 +18,4 @@ public class BattleShip extends Ship{
 		setBaseDamage(BASE_DAMAGE_BATTLESHIP);
 		setInitialArmor(getArmor());
 	}
+}
