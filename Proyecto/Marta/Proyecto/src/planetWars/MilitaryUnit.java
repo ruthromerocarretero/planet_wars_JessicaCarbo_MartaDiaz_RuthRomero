@@ -1,4 +1,4 @@
-package primerasPruebas;
+package planetWars;
 
 public interface MilitaryUnit {
 	abstract int attack();

@@ -1,5 +1,7 @@
 package primerasPruebas;
 
+import planetWars.MilitaryUnit;
+
 public abstract class Defense implements MilitaryUnit, Variables {
     protected int armor;
     protected int initialArmor;
