@@ -1,21 +1,59 @@
 package planetWars;
 
 public class BattleShip extends Ship{
-//	private int ARMOR_LIGTHHUNTER;
+	//	private int ARMOR_LIGTHHUNTER;
 //	private int  PLUS_ARMOR_LIGTHHUNTER_BY_TECHNOLOGY;
+	private int technologyDefense;
+	private int technologyAttack;
+
 
 	public BattleShip(int armor, int baseDamage) {
-		super(armor, baseDamage);
-// TODO de donde saco nivelTecnologia? technologyDefense del planeta? hay que hacerlo en las dos
+		//super(armor, baseDamage);
 		setArmor(ARMOR_BATTLESHIP + (technologyDefense*PLUS_ARMOR_BATTLESHIP_BY_TECHNOLOGY)*1000/100);
-		setBaseDamage(BASE_DAMAGE_HEAVYHUNTER + (technologyAttack*PLUS_ARMOR_BATTLESHIP_BY_TECHNOLOGY)*1000/100);
-		setInitialArmor(armor);
+		setBaseDamage(BASE_DAMAGE_BATTLESHIP + (technologyAttack*PLUS_ARMOR_BATTLESHIP_BY_TECHNOLOGY)*1000/100);
+		this.setInitialArmor(armor);
 	}
 
 	public BattleShip() {
 		super();
 		setArmor(ARMOR_BATTLESHIP);
 		setBaseDamage(BASE_DAMAGE_BATTLESHIP);
-		setInitialArmor(getArmor());
+		setInitialArmor(ARMOR_BATTLESHIP);
 	}
+
+	public int attack(){
+		return getBaseDamage();
+	}
+
+	public void tekeDamage(int receivedDamage)
+	{setArmor(getActualArmor()-receivedDamage);
+	}
+
+	public int getActualArmor(){
+		return getArmor();
+	}
+
+	public int getMetalCost() {
+		return METAL_COST_BATTLESHIP;
+	}
+
+	public int getDeuteriumCost() {
+		return DEUTERIUM_COST_BATTLESHIP;
+	}
+
+	public int getChanceGeneratinWaste(){
+		return CHANCE_GENERATNG_WASTE_BATTLESHIP;
+	}
+
+	public int getChanceAttackAgain(){
+		return CHANCE_ATTACK_AGAIN_BATTLESHIP;
+	}
+
+
+	public void  resetArmor(){
+		setArmor(getInitialArmor());
+	}
+
+// TODO de donde saco nivelTecnologia? technologyDefense del planeta? hay que hacerlo en las dos
+//	TODO Cada una de estas clases tendrá que implementar los métodos definidos en la interfaz MilitaryUnit
 }
