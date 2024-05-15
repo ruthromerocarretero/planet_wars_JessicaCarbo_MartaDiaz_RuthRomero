@@ -6,17 +6,20 @@ public abstract class Ship implements MilitaryUnit, Variables {
     private int initialArmor;
     private int baseDamage;
 
-    public Ship(int armor, int initialArmor, int baseDamage) {
+    public Ship(int armor, int baseDamage) {
         super();
         this.armor = armor;
-        this.initialArmor = initialArmor;
+        this.initialArmor = armor;
         this.baseDamage = baseDamage;
+    }
+    public Ship(){
+
     }
 
 
 
     // Implementación de los métodos de MilitaryUnit
-    @Override
+
     public int attack() {
 
         return getBaseDamage();  // Simplemente retorna el daño base.
