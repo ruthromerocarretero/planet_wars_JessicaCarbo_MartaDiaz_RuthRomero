@@ -1,4 +1,4 @@
-package planetWars;
+package primerasPruebas;
 
 public interface Variables {
 	// resources available to create the first enemy fleet
