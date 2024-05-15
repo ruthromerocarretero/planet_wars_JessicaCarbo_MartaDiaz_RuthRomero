@@ -14,9 +14,8 @@ header, footer, .section h2 {
 .space-image {
     width: 100%; 
     height: auto; 
-    border-radius:8px;
+    border-radius: 8px;
 }
-
 
 .section {
     background: #fff;
@@ -46,3 +45,70 @@ footer {
     border-top: 1px solid #e1e1e1;
 }
 
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Centrar el carrusel */
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.carousel-images {
+    display: flex;
+    width: 300%; /* 3 slides */
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centrar imagen horizontalmente */
+    align-items: center; /* Centrar imagen verticalmente */
+    overflow: hidden;
+}
+
+.slide img {
+    width: auto;
+    height: 100%;
+    max-height: 400px;
+    object-fit: contain; /* Ajustar la imagen para que quepa sin recortarla */
+}
+
+.carousel a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* :target selector for CSS navigation */
+#slide1:target ~ .carousel-images {
+    transform: translateX(0%);
+}
+
+#slide2:target ~ .carousel-images {
+    transform: translateX(-33.33%);
+}
+
+#slide3:target ~ .carousel-images {
+    transform: translateX(-66.66%);
+}
