@@ -5,33 +5,36 @@ public abstract class Defense implements MilitaryUnit, Variables {
     protected int initialArmor;
     protected int baseDamage;
 
-    public Defense(int initialArmor, int baseDamage) {
+    public Defense(int armor, int initialArmor, int baseDamage) {
+        super();
+        this.armor = armor;
         this.initialArmor = initialArmor;
-        this.armor = initialArmor;
         this.baseDamage = baseDamage;
     }
 
-    public int getArmor() {
-        return armor;
-    }
-
-    public int getInitialArmor() {
-        return initialArmor;
-    }
-
-    public int getBaseDamage() {
+    public int attack() {
         return baseDamage;
     }
 
-    public void setArmor(int armor) {
-        this.armor = armor;
+    public void tekeDamage(int receivedDamage) {
+        this.armor -= receivedDamage;
+        if (this.armor < 0) {
+            this.armor = 0;
+        }
     }
 
-    public void setInitialArmor(int initialArmor) {
-        this.initialArmor = initialArmor;
+    public int getActualArmor() {
+        return this.armor;
     }
 
-    public void setBaseDamage(int baseDamage) {
-        this.baseDamage = baseDamage;
+    public void resetArmor() {
+        this.armor = this.initialArmor;
     }
+
+    // Métodos abstractos para ser implementados por las clases concretas de defensa
+    public abstract int getMetalCost();
+    public abstract int getDeuteriumCost();
+    public abstract int getChanceGeneratinWaste();
+    public abstract int getChanceAttackAgain();
+	
 }
