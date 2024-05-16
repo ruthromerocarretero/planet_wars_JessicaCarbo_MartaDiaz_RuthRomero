@@ -1,21 +1,17 @@
 package planetWars;
 
 public class BattleShip extends Ship{
-	//	private int ARMOR_LIGTHHUNTER;
-//	private int  PLUS_ARMOR_LIGTHHUNTER_BY_TECHNOLOGY;
 	private int technologyDefense;
 	private int technologyAttack;
 
 
 	public BattleShip(int armor, int baseDamage) {
-		//super(armor, baseDamage);
 		setArmor(ARMOR_BATTLESHIP + (technologyDefense*PLUS_ARMOR_BATTLESHIP_BY_TECHNOLOGY)*1000/100);
 		setBaseDamage(BASE_DAMAGE_BATTLESHIP + (technologyAttack*PLUS_ARMOR_BATTLESHIP_BY_TECHNOLOGY)*1000/100);
 		this.setInitialArmor(armor);
 	}
 
 	public BattleShip() {
-		super();
 		setArmor(ARMOR_BATTLESHIP);
 		setBaseDamage(BASE_DAMAGE_BATTLESHIP);
 		setInitialArmor(ARMOR_BATTLESHIP);

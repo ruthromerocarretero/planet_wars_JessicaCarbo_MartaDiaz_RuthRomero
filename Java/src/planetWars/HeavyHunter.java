@@ -1,21 +1,17 @@
 package planetWars;
 
 public class HeavyHunter extends Ship{
-	//	private int ARMOR_LIGTHHUNTER;
-//	private int  PLUS_ARMOR_LIGTHHUNTER_BY_TECHNOLOGY;
 	private int technologyDefense;
 	private int technologyAttack;
 
 
 	public HeavyHunter(int armor, int baseDamage) {
-		//super(armor, baseDamage);
 		setArmor(ARMOR_HEAVYHUNTER + (technologyDefense*PLUS_ARMOR_HEAVYHUNTER_BY_TECHNOLOGY)*1000/100);
 		setBaseDamage(BASE_DAMAGE_HEAVYHUNTER + (technologyAttack*PLUS_ARMOR_HEAVYHUNTER_BY_TECHNOLOGY)*1000/100);
 		this.setInitialArmor(armor);
 	}
 
 	public HeavyHunter() {
-		super();
 		setArmor(ARMOR_HEAVYHUNTER);
 		setBaseDamage(BASE_DAMAGE_HEAVYHUNTER);
 		setInitialArmor(ARMOR_HEAVYHUNTER);
