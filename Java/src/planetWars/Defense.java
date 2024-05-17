@@ -30,5 +30,4 @@ public abstract class Defense implements MilitaryUnit, Variables {
     public void setBaseDamage(int baseDamage) {
         this.baseDamage = baseDamage;
     }
-
 }
