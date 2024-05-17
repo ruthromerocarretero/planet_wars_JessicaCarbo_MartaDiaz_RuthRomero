@@ -7,7 +7,7 @@ public class HeavyHunter extends Ship{
 
 	public HeavyHunter(int armor, int baseDamage) {
 		setArmor(ARMOR_HEAVYHUNTER + (technologyDefense*PLUS_ARMOR_HEAVYHUNTER_BY_TECHNOLOGY)*1000/100);
-		setBaseDamage(BASE_DAMAGE_HEAVYHUNTER + (technologyAttack*PLUS_ARMOR_HEAVYHUNTER_BY_TECHNOLOGY)*1000/100);
+		setBaseDamage(BASE_DAMAGE_HEAVYHUNTER + (technologyAttack*PLUS_ATTACK_HEAVYHUNTER_BY_TECHNOLOGY)*1000/100);
 		this.setInitialArmor(armor);
 	}
 

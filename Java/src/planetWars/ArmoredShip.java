@@ -7,7 +7,7 @@ public class ArmoredShip extends Ship{
 
     public ArmoredShip(int armor, int baseDamage) {
         setArmor(ARMOR_ARMOREDSHIP + (technologyDefense*PLUS_ARMOR_ARMOREDSHIP_BY_TECHNOLOGY)*1000/100);
-        setBaseDamage(BASE_DAMAGE_ARMOREDSHIP + (technologyAttack*PLUS_ARMOR_ARMOREDSHIP_BY_TECHNOLOGY)*1000/100);
+        setBaseDamage(BASE_DAMAGE_ARMOREDSHIP + (technologyAttack*PLUS_ATTACK_ARMOREDSHIP_BY_TECHNOLOGY)*1000/100);
         this.setInitialArmor(armor);
     }
 
