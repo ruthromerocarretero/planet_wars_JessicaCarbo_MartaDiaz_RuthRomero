@@ -134,7 +134,7 @@ public class Planet {
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
-                army[4].add((MilitaryUnit) new MissileLauncher());  
+                army[4].add((MilitaryUnit) new MissileLauncher(i, i));  
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " MissileLauncher.");
