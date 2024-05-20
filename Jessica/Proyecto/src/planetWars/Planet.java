@@ -15,7 +15,7 @@ public class Planet {
 	private int deuterium;
 	private int upgradeDefenseTechnologyDeuteriumCost;
 	private int upgradeAttackTechnologyDeuteriumCost;
-	private ArrayList<MilitaryUnit>[] army = new ArrayList[7];
+	private ArrayList<MilitaryUnit>[] army;
 	
 	
 	
@@ -134,7 +134,7 @@ public class Planet {
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
-                army[4].add(new MissileLauncher(i, i));  
+                army[4].add((MilitaryUnit) new MissileLauncher());  
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " MissileLauncher.");

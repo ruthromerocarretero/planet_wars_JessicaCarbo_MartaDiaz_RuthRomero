@@ -7,18 +7,45 @@ public class LigthHunter extends Ship{
 		super(armor, baseDamage);
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+    public int attack() {
+    	
+        return getBaseDamage();  
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+    }
+
+    @Override
+    public int getActualArmor() {
+        return getArmor();
+    }
+
+    @Override
+    public void resetArmor() {
+        setArmor(getInitialArmor());
+    }
+
+    // Los siguientes métodos dependen de detalles específicos no proporcionados
+    @Override
+    public int getMetalCost() {
+        return 0;  // Ejemplo, necesita detalles específicos.
+    }
+
+    @Override
+    public int getDeuteriumCost() {
+        return 0;  // Ejemplo, necesita detalles específicos.
+    }
+
+    @Override
+    public int getChanceGeneratinWaste() {
+        return 0;  // Ejemplo, necesita detalles específicos.
+    }
+
+    @Override
+    public int getChanceAttackAgain() {
+        return 0;  // Ejemplo, necesita detalles específicos.
+    }
 
 }
-//método para calcular la armadura
-/*  protected int calculateArmor(int armor) {
-     int technologyLevel = getDefenseTechnologyLevel(); // Obtener el nivel de tecnología de defensa
-     int plusArmor = technologyLevel * PLUS_ARMOR_LIGTHHUNTER_BY_TECHNOLOGY; // Calcular el plus de armadura
-     return armor + (armor * plusArmor / 100); // Calcular la armadura final
- }
-
- // método para calcular el daño base
- protected int calculateBaseDamage(int baseDamage) {
-     int technologyLevel = getAttackTechnologyLevel(); // Obtener el nivel de tecnología de ataque
-     int plusDamage = technologyLevel * PLUS_ATTACK_LIGTHHUNTER_BY_TECHNOLOGY; // Calcular el plus de daño
-     return baseDamage + (baseDamage * plusDamage / 100); // Calcular el daño base final
- }*/
