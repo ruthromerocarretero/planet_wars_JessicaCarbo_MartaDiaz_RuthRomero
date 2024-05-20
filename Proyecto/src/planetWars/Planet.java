@@ -74,16 +74,27 @@ public class Planet {
 	                army[0].add(new LigthHunter(i, i));  
 	            }
 	        } else {
+<<<<<<< Updated upstream
 	            throw new ResourceException("No hay suficientes recursos para producir " + n + " LightHunter.");
+=======
+	            throw new ResourceException("No hay suficientes recursos para producir " + n + " LIGTHHUNTER .");
+>>>>>>> Stashed changes
 	        }
 	    }
 	 
 	public void newHeavyHunter(int n) throws ResourceException {
+<<<<<<< Updated upstream
         int totalMetalCost = Variables.METAL_COST_HEAVYHUNTER * n;
         int totalDeuteriumCost = Variables.DEUTERIUM_COST_HEAVYHUNTER * n;
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+		int totalMetalCost = Variables.METAL_COST_HEAVYHUNTER * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_HEAVYHUNTER;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
@@ -91,6 +102,7 @@ public class Planet {
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " HeavyHunter.");
+<<<<<<< Updated upstream
         }
     }
 	public void newBattleShip(int n) throws ResourceException {
@@ -99,6 +111,16 @@ public class Planet {
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+		
+        }
+	}
+	public void newBattleShip(int n) throws ResourceException {
+		int totalMetalCost = Variables.METAL_COST_BATTLESHIP * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_BATTLESHIP ;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
@@ -106,6 +128,7 @@ public class Planet {
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " BattleShip.");
+<<<<<<< Updated upstream
         }
     }
 	
@@ -115,6 +138,17 @@ public class Planet {
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+		
+        }
+	}
+	
+	public void newArmoredShip(int n) throws ResourceException  {
+		int totalMetalCost = Variables. METAL_COST_ARMOREDSHIP * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_ARMOREDSHIP ;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
@@ -122,6 +156,7 @@ public class Planet {
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " ArmoredShip.");
+<<<<<<< Updated upstream
         }
     }
 	
@@ -131,6 +166,17 @@ public class Planet {
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+		
+        }
+	}
+	
+	public  void newMissileLauncher(int n) throws ResourceException  {
+		int totalMetalCost = Variables.METAL_COST_MISSILELAUNCHER  * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_MISSILELAUNCHER ;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
@@ -138,6 +184,7 @@ public class Planet {
             }
         } else {
             throw new ResourceException("No hay suficientes recursos para producir " + n + " MissileLauncher.");
+<<<<<<< Updated upstream
         }
     }
 	public void newIonCannon(int n) throws ResourceException {
@@ -146,12 +193,24 @@ public class Planet {
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+		
+        }
+	}
+	
+	public void newIonCannon(int n)  throws ResourceException  {
+		int totalMetalCost = Variables.METAL_COST_IONCANNON * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_IONCANNON  ;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
                 army[5].add(new IonCannon(i, i));  
             }
         } else {
+<<<<<<< Updated upstream
             throw new ResourceException("No hay suficientes recursos para producir " + n + " IonCannon.");
         }
     }
@@ -161,15 +220,33 @@ public class Planet {
 
         if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
             metal -= totalMetalCost;
+=======
+            throw new ResourceException("No hay suficientes recursos para producir " + n + "IonCannon.");
+		
+        }
+	}
+	public void newPlasmaCannon(int n)  throws ResourceException  {
+		int totalMetalCost = Variables.METAL_COST_PLASMACANNON * n;
+		int totalDeuteriumCost = Variables.DEUTERIUM_COST_PLASMACANNON ;
+		if (metal >= totalMetalCost  && deuterium >= totalDeuteriumCost) {
+			metal -= totalMetalCost;
+>>>>>>> Stashed changes
             deuterium -= totalDeuteriumCost;
 
             for (int i = 0; i < n; i++) {
                 army[6].add(new PlasmaCannon(i, i));  
             }
         } else {
+<<<<<<< Updated upstream
             throw new ResourceException("No hay suficientes recursos para producir " + n + " PlasmaCannon.");
         }
     }
+=======
+            throw new ResourceException("No hay suficientes recursos para producir " + n + "PlasmaCannon.");
+		
+        }
+	}
+>>>>>>> Stashed changes
 	public int getTechnologyDefense() {
 		return technologyDefense;
 	}
