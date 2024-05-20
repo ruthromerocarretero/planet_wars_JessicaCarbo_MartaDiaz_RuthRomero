@@ -1,0 +1,210 @@
+.container {
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0,0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0px;
+  }
+  
+  
+  
+  .contenedor-productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: rgb(8, 8, 8);
+    
+  }
+  .contenedor-productos {
+    padding: 50px;
+    background: linear-gradient(to bottom right, rgb(10, 10, 10), rgb(41, 16, 33));
+  }
+  
+  .contenedor-productos h1 {
+    font-size: 50px; 
+  
+  }
+  * {
+    font-family: "Press Start 2P", system-ui;
+    color: rgb(255, 255, 255);
+  }
+  .contenedor-productos h2 {
+    margin-bottom: 60px;
+    font-size: 25px; 
+    border-bottom: 2px solid white;
+  }
+  
+  .producto {
+    width: 900px;
+    margin-bottom: 50px;
+    padding: 55px; 
+  }
+  .producto {
+    background-image: url('imagenes/48998.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+   
+  }
+  
+  
+  .carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel input {
+    display: none;
+  }
+  
+  .carousel-images {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease-in-out;
+    
+  }
+  
+  
+  .carousel-image {
+    width: 33.33%;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  
+  }
+  
+  
+  .carousel img {
+    padding: 30px;
+    width: 500px;
+    height: auto;
+    max-width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 40px;
+  }
+  .carousel-image h3,
+  .carousel-image p {
+    margin-top: 25px;
+  }
+  #image1:checked ~ .carousel-images {
+    transform: translateX(0);
+  }
+  
+  #image2:checked ~ .carousel-images {
+    transform: translateX(-33.33%);
+  }
+  
+  #image3:checked ~ .carousel-images {
+    transform: translateX(-66.66%);
+  }
+  
+  #image4:checked ~ .carousel-images {
+    transform: translateX(0);
+  }
+  #image5:checked ~ .carousel-images {
+    transform: translateX(-33.33%);
+  }
+  #image6:checked ~ .carousel-images {
+    transform: translateX(-66.66%);
+  }
+  #image7:checked ~ .carousel-images {
+    transform: translateX(0);
+  }
+  #image8:checked ~ .carousel-images {
+    transform: translateX(-33.33%); 
+  }
+  
+  #image9:checked ~ .carousel-images {
+    transform: translateX(-66.66%); 
+  }
+  #image10:checked ~ .carousel-images {
+    transform: translateX(0);
+  }
+  #image11:checked ~ .carousel-images {
+    transform: translateX(-33.33%); 
+  }
+  
+  #image12:checked ~ .carousel-images {
+    transform: translateX(-66.66%); 
+  }
+  
+  .carousel-controls {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .carousel-controls label {
+    display: inline-block;
+    background-color:  rgba(255, 255, 255, 0.849);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .carousel-controls label.prev {
+    margin-right: 20px;
+  }
+  
+  .carousel-controls label.next {
+    margin-left: 20px;
+  }
+  .carousel .buy-box {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(97, 50, 84);
+    color: rgb(253, 253, 253);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .buy-box:hover {
+    background-color: rgb(2, 2, 2); 
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .contenedor-productos {
+      padding: 20px;
+    }
+    
+    .producto {
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+    
+    .carousel img {
+      padding: 15px;
+      width: 100%;
+      border-radius: 20px;
+    }
+    
+    .carousel-image h3,
+    .carousel-image p {
+      margin-top: 15px;
+    }
+    
+    .carousel-controls label {
+      padding: 8px;
+      font-size: 18px;
+    }
+    
+    .carousel .buy-box {
+      padding: 8px 15px;
+      font-size: 16px;
+    }
+  }
+  
