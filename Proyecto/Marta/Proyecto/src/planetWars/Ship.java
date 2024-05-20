@@ -1,7 +1,6 @@
 package planetWars;
 
-import primerasPruebas.MilitaryUnit;
-import primerasPruebas.Variables;
+import planetWars.Variables;
 
 public abstract class Ship implements MilitaryUnit, Variables {
     private int armor;

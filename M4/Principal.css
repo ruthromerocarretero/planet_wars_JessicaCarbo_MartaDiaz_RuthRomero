@@ -49,7 +49,7 @@ footer {
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto; /* Centrar el carrusel */
+    margin: 0 auto; 
     overflow: hidden;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -58,7 +58,7 @@ footer {
 
 .carousel-images {
     display: flex;
-    width: 300%; /* 3 slides */
+    width: 300%; 
     transition: transform 0.5s ease-in-out;
 }
 
@@ -67,8 +67,8 @@ footer {
     flex-shrink: 0;
     position: relative;
     display: flex;
-    justify-content: center; /* Centrar imagen horizontalmente */
-    align-items: center; /* Centrar imagen verticalmente */
+    justify-content: center; 
+    align-items: center; 
     overflow: hidden;
 }
 
@@ -76,7 +76,7 @@ footer {
     width: auto;
     height: 100%;
     max-height: 400px;
-    object-fit: contain; /* Ajustar la imagen para que quepa sin recortarla */
+    object-fit: contain;
 }
 
 .carousel a {
