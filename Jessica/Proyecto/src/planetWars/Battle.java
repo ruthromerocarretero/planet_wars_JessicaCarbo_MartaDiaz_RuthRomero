@@ -1,6 +1,7 @@
 package planetWars;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Battle implements Variables {
 	private ArrayList<MilitaryUnit>[] planetArmy;
@@ -16,8 +17,11 @@ public class Battle implements Variables {
 	private int[][] initialArmies;
 	private int[] actualNumberUnitsPlanet;
 	private int[] actualNumberUnitsEnemy;
+	private Random random;
 	private int turno;
-	
+	private int [] ejercitoplanet;
+	private int[] ejercitoEnemigo;
+	private
 
 	    // Constructor
 	    public Battle(ArrayList<MilitaryUnit>[] planetArmy, ArrayList<MilitaryUnit>[] enemyArmy) {
@@ -36,6 +40,10 @@ public class Battle implements Variables {
 	        this.resourcesLooses = new int[2][3];
 	        this.actualNumberUnitsPlanet = new int[7];
 	        this.actualNumberUnitsEnemy = new int[7];
+	        this.random = new Random();
+	        this.turno = random.nextInt(2);
+	        this.ejercitoplanet = CHANCE_ATTACK_PLANET_UNITS;
+	        this.ejercitoEnemigo = CHANCE_ATTACK_ENEMY_UNITS ;
 	        
 	        
 	        //inicializo array armies
@@ -180,7 +188,7 @@ public class Battle implements Variables {
 	        return drops;
 	    }
 
-	    public String loseShip(MilitaryUnit ship, int type) {
+	    public void updateResourcesLooses (MilitaryUnit ship, int type) {
 	        // Actualizar las pérdidas de recursos
 	        resourcesLooses[turno][0] += ship.getMetalCost();
 	        resourcesLooses[turno][1] += ship.getDeuteriumCost();
@@ -195,7 +203,7 @@ public class Battle implements Variables {
 	            actualNumberUnitsPlanet[type] -= 1;
 	        }
 
-	        return ship.getClass().getSimpleName() + "Destroyed";
+	        //return ship.getClass().getSimpleName() + "Destroyed";
 	    }
 	    // Método para actualizar las cantidades de unidades actuales
 	    private void updateActualNumberUnits() {
@@ -231,5 +239,35 @@ public class Battle implements Variables {
 	            }
 	        }
 	    }
+	    //mecanica del juego 
+	    public void calculateTurnequipo() {
+	        if (turno == 0) {
+	        	attack(planetArmy, enemyArmy);
+	            turno = 1;  // Cambia el turno al enemigo
+	        } else {
+	            attack(enemyArmy, planetArmy);
+	            turno = 0;  // Cambia el turno al planeta
+	        }
+	        //return turno;
+	    }
+	    
+	    public int getGroupDefender(ArrayList<MilitaryUnit>[] army){
+	    	ejercitoplanet = CHANCE_ATTACK_PLANET_UNITS;
+	    	return turno = random.nextInt(2);
+
+	    	
+	    	
+	    }
+	    
+	   
+		private void attack(ArrayList<MilitaryUnit>[] planetArmy, ArrayList<MilitaryUnit>[] enemyArmy) {
+			// TODO Auto-generated method stub
+			
+			
+		}
+	    
+		
+		
+		
 }
 
