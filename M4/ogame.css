@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image:  url('img/fondoestrelladolargo2.jpg');
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+}
+
+/* onvi */
+.banner {
+    width: 100%;
+    height: 220px;
+    padding-top:20px;
+    text-align: center;
+    background: url("img/estrellas.gif");
+    background-blend-mode: soft-light;
+    background-size: 40%;
+    background-position: center;
+    box-sizing: border-box;
+}
+.banner h1 {
+    color: #f1f1f1;
+    font-size: 80px;
+    margin-top: 30px;
+    font-family: "Pixelify Sans";
+}
+.container {
+    width: 100%;
+    background-color: rgba(0, 0, 0,0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+.logo {
+    width: 100px;
+    margin: 0;
+}
+.logo img {
+    width: 100%;
+}
+.item-options {
+    color: #f1f1f1;
+    margin: 0 1.5rem;
+    text-decoration: none;
+}
+a {
+    color: white;
+    transition: color 0.5s;
+}
+a:hover {
+    color: rgb(0, 255, 128);
+}
+
+.nave-espacial {
+    width: 100px;
+    height: 100px;
+    background-image: url('img/onvi.png');
+    background-size: cover;
+    position: absolute;
+    left: -100px;
+    top: 30px;
+    transform: translateY(-50%);
+    animation: deslizar-nave 5s linear forwards;
+    }
+    
+    
+    @keyframes deslizar-nave {
+    0%, 30% {
+        left: -100px;
+    }
+    30%, 40% {
+        left: calc(50% - 50px); 
+    }
+    40%, 45% {
+        top: 150px;
+    }
+    45%, 50% {
+        top: 40px; 
+    }
+    50%, 100% {
+        left: calc(100% + 100px);
+    }
+    }
+
+.titulo {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 50px;
+
+}
+
+.slider-box {
+    width: 1200px;
+    height: 600px;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+.slider-box ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 20s infinite alternate ease-in-out;
+}
+
+.slider-box li {
+    width: 100%;
+    list-style: none;
+    position: relative;
+}
+
+.texto {
+    position: absolute;
+    text-align: center;
+    padding: 0 250px;
+    top: 250px;
+    color: #FFFFFF;
+}
+
+.texto h2 {
+    font-size: 45px;
+    margin-bottom: 35px;
+}
+
+.slider-box img {
+    width: 100%;
+}
+
+@keyframes slide {
+    0% {margin-left: 0;}
+    20% {margin-left: 0;}
+    25% {margin-left: -100%;}
+    45% {margin-left: -100%;}
+    50% {margin-left: -200%;}
+    70% {margin-left: -200%;}
+    75% {margin-left: -300%;}
+    100% {margin-left: -300%;}
+}
+
+/* footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #222b38;
+    color: white;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+.logo img {
+    justify-content: left;
+}
+
+.redes_sociales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    width: 400px;
+}
+
+.redes_sociales a {
+    text-align: center;
+    /* Para centrar el texto debajo de las imágenes */
+    margin: 5px;
+    /* Espacio entre los elementos */
+    flex: 0 0 calc(33.33% - 20px);
+    /* Calcula el ancho de cada elemento (1/3 del contenedor) con margen */
+    max-width: calc(33.33% - 20px);
+    /* Limita el ancho máximo de cada elemento */
+}
+
+.redes_sociales img {
+    display: block;
+    /* Para evitar espacios innecesarios debajo de las imágenes */
+    margin: 0 auto;
+    /* Para centrar las imágenes horizontalmente */
+    width: 35px;
+    /* Ajusta el tamaño máximo de las imágenes al ancho del contenedor */
+}
+
+footer .copyright {
+    background-color: #000;
+    color: white;
+    margin: 0;
+}
+
+footer .copyright p {
+    margin: 0;
+    padding: 10px;
+}
+
+.inicio_sesion div {
+    margin-bottom: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.text {
+    max-width: 40%;
+}
+
+label {
+    font-weight: bold;
+    width: 130px;
+    float: left;
+
+}
+
+.boton {
+    border-radius: 6px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
+
+/* cookies */
+.cookies-box {
+    position: fixed;
+    bottom: 0;
+    background: rgb(51, 51, 51);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -2px 0 15px 0px rgba(0, 0, 0, .5);
+}
+
+.cookies-box .container-cookies {
+    padding: 20px 0;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.cookies-box .container-cookies .parrafo p {
+    color: #fff;
+
+}
+
+.cookies-box .container-cookies .parrafo a {
+    color: #ccc;
+
+}
+
+.cookies-box .container-cookies .botones button {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 5px, 10px;
+    margin-bottom: 6px;
+    border-radius: 30px;
+    transition: all 200ms ease-in;
+}
+
+.cookies-box .container-cookies .botones {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.cookies-box .container-cookies .botones button:hover {
+    color: #dc143c;
+    border: 2px solid #dc143c;
+}
+
+.cookies-box .container-cookies .botones {
+    margin-top: 5px;
+}
+
+
+.cookies-box label>button {
+    pointer-events: none;
+    user-select: none;
+}
+
+.container-cookies {
+    display: none !important;
+}
+
+#cookiesCheckbox {
+    display: none;
+}
+
+#cookiesCheckbox:checked~.container-cookies {
+    display: flex !important;
+}
+
+/* logo */
+.logo img {
+    justify-content: left;
+}
+
+.redes_sociales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    width: 400px;
+}
+
+.redes_sociales a {
+    text-align: center;
+    /* Para centrar el texto debajo de las imágenes */
+    margin: 5px;
+    /* Espacio entre los elementos */
+    flex: 0 0 calc(33.33% - 20px);
+    /* Calcula el ancho de cada elemento (1/3 del contenedor) con margen */
+    max-width: calc(33.33% - 20px);
+    /* Limita el ancho máximo de cada elemento */
+}
+
+.redes_sociales img {
+    display: block;
+    /* Para evitar espacios innecesarios debajo de las imágenes */
+    margin: 0 auto;
+    /* Para centrar las imágenes horizontalmente */
+    width: 35px;
+    /* Ajusta el tamaño máximo de las imágenes al ancho del contenedor */
+}
+
+footer .copyright {
+    background-color: #000;
+    color: white;
+    margin: 0;
+}
+
+footer .copyright p {
+    margin: 0;
+    padding: 10px;
+}
+
+.boton-inicio-sesion {
+    background-color: rgba(0, 0, 0, 0.459);
+    color: white;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  
+  @keyframes sweep {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+  }
+
+@media(max-width:921px) {
+    body {
+        padding: 30px;
+    }
+    .slider-box {
+        width: 100%;
+    }
+    .texto {
+        top: 50px;
+        padding: 0 25px;
+    }
+    .texto h2 {
+        font-size: 35px;
+        margin-bottom: 15px;
+    }
+    .texto p {
+        font-size: 15px;
+    }
+}
+
+/* Próximos sitios donde iremos*/
+.firaDeCornella {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.firaDeCornellaImg img{
+    width: 519px;
+    height: 240px;
+    margin-right: 20px;
+}
+
+.firaDeCornellaImg p img{
+    width: 25px;
+    height: 25px;
+}
+
+.firaDeBarcelona {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.firaDeBarcelonaImg img{
+    width: 519px;
+    height: 240px;
+    margin-right: 20px;
+}
+
+.firaDeBarcelonaImg p img{
+    width: 25px;
+    height: 25px;
+}
+
+.firesCatalanes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px #77758b;
+    color: white;
+
+}
+
+.firesCatalanesImg img{
+    width: 519px;
+    height: 240px;
+    margin-right: 20px;
+    color: white;
+}
+
+.firesCatalanesImg p img{
+    width: 25px;
+    height: 25px;
+}
+/* Contacta con nosotros */
+.contacta {
+    width: 80%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px #77758b;
+}
+
+.contactoMapa {
+    width: 100%;
+    height: auto;
+    flex: 50%;
+}
+
+.contactoMapa iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.formContacto {
+    width: 100%;
+    height: auto;
+    flex: 50%;
+    padding: 30px;
+}
+
+.formContacto {
+    margin-bottom: 10px;
+    text-align: center;
+    color: rgb(233 202 36);
+}
+
+.formContacto h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.formContactoTxt {
+    width: 100%;
+    height: 40px;
+    color: #000;
+    border: 1px solid #bcbcbc;
+    border-radius: 50px;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.formContactoTxt::placeholder {
+    color:#aaa;  
+}
+
+.formContactoTextarea {
+    width: 100%;
+    height: 130px;
+    color: #000;
+    border: 1px solid #bcbcbc;
+    border-radius: 50px;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+.formContactoTextarea::placeholder {
+    color:#aaa;  
+}
+
+.contactoFormBtn {
+    width: 200px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: rgba(7, 7, 66, 0.5);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+.contactoFormBtn:hover {
+    background-color: rgba(7, 7, 66, 0.719);
+    color: rgb(233 202 36);
+    font-weight: bold;
+    box-shadow: 0px 0px 10px 0px #77758b;
+}
+
+/* Titulo */
+h2 {
+    color: rgb(233 202 36);
+}
+
+h1 {
+    color: rgb(233 202 36);
+    text-align: center;
+}
