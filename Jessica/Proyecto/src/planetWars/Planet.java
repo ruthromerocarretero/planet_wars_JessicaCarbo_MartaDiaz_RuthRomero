@@ -62,114 +62,224 @@ public class Planet {
 	        }
 	    }
 	 
-	 public void newLightHunter(int n) throws ResourceException {
-	        int totalMetalCost = Variables.METAL_COST_LIGTHHUNTER * n;
-	        int totalDeuteriumCost = Variables.DEUTERIUM_COST_LIGTHHUNTER * n;
 
-	        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-	            metal -= totalMetalCost;
-	            deuterium -= totalDeuteriumCost;
+	 public int newLightHunter(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_LIGTHHUNTER * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_LIGTHHUNTER * n;
 
-	            for (int i = 0; i < n; i++) {
-	                army[0].add(new LigthHunter(i, i));  
-	            }
-	        } else {
-	            throw new ResourceException("No hay suficientes recursos para producir " + n + " LightHunter.");
-	        }
-	    }
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
+
+		        for (int i = 0; i < n; i++) {
+		            army[0].add(new LigthHunter(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_LIGTHHUNTER, deuterium / Variables.DEUTERIUM_COST_LIGTHHUNTER);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_LIGTHHUNTER * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_LIGTHHUNTER * maxBuildable;
+
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
+
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[0].add(new LigthHunter(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Light Hunters.");
+		        }
+		    }
+		}
+
 	 
-	public void newHeavyHunter(int n) throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_HEAVYHUNTER * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_HEAVYHUNTER * n;
+	 public int newHeavyHunter(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_HEAVYHUNTER * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_HEAVYHUNTER * n;
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
 
-            for (int i = 0; i < n; i++) {
-                army[1].add(new HeavyHunter(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " HeavyHunter.");
-        }
-    }
-	public void newBattleShip(int n) throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_BATTLESHIP * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_BATTLESHIP * n;
+		        for (int i = 0; i < n; i++) {
+		            army[1].add(new HeavyHunter(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_HEAVYHUNTER, deuterium / Variables.DEUTERIUM_COST_HEAVYHUNTER);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_HEAVYHUNTER * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_HEAVYHUNTER * maxBuildable;
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
 
-            for (int i = 0; i < n; i++) {
-                army[2].add(new BattleShip(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " BattleShip.");
-        }
-    }
-	
-	public void newArmoredShip(int n) throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_ARMOREDSHIP * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_ARMOREDSHIP * n;
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[1].add(new HeavyHunter(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Heavy Hunters.");
+		        }
+		    }
+		}
+	 public int newBattleShip(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_BATTLESHIP * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_BATTLESHIP * n;
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
 
-            for (int i = 0; i < n; i++) {
-                army[3].add(new ArmoredShip(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " ArmoredShip.");
-        }
-    }
-	
-	public  void newMissileLauncher(int n) throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_MISSILELAUNCHER  * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_MISSILELAUNCHER * n;
+		        for (int i = 0; i < n; i++) {
+		            army[2].add(new BattleShip(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_BATTLESHIP, deuterium / Variables.DEUTERIUM_COST_BATTLESHIP);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_BATTLESHIP * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_BATTLESHIP * maxBuildable;
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
 
-            for (int i = 0; i < n; i++) {
-                army[4].add((MilitaryUnit) new MissileLauncher(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " MissileLauncher.");
-        }
-    }
-	public void newIonCannon(int n) throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_IONCANNON  * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_IONCANNON * n;
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[2].add(new BattleShip(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Battle Ships.");
+		        }
+		    }
+		}
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		public int newArmoredShip(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_ARMOREDSHIP * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_ARMOREDSHIP * n;
 
-            for (int i = 0; i < n; i++) {
-                army[5].add(new IonCannon(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " IonCannon.");
-        }
-    }
-	public void newPlasmaCannon(int n)  throws ResourceException {
-        int totalMetalCost = Variables.METAL_COST_PLASMACANNON * n;
-        int totalDeuteriumCost = Variables.DEUTERIUM_COST_PLASMACANNON * n;
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
 
-        if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
-            metal -= totalMetalCost;
-            deuterium -= totalDeuteriumCost;
+		        for (int i = 0; i < n; i++) {
+		            army[3].add(new ArmoredShip(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_ARMOREDSHIP, deuterium / Variables.DEUTERIUM_COST_ARMOREDSHIP);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_ARMOREDSHIP * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_ARMOREDSHIP * maxBuildable;
 
-            for (int i = 0; i < n; i++) {
-                army[6].add(new PlasmaCannon(i, i));  
-            }
-        } else {
-            throw new ResourceException("No hay suficientes recursos para producir " + n + " PlasmaCannon.");
-        }
-    }
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
+
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[3].add(new ArmoredShip(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Armored Ships.");
+		        }
+		    }
+		}
+
+		public int newMissileLauncher(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_MISSILELAUNCHER * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_MISSILELAUNCHER * n;
+
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
+
+		        for (int i = 0; i < n; i++) {
+		            army[4].add(new MissileLauncher(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_MISSILELAUNCHER, deuterium / Variables.DEUTERIUM_COST_MISSILELAUNCHER);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_MISSILELAUNCHER * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_MISSILELAUNCHER * maxBuildable;
+
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
+
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[4].add(new MissileLauncher(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Missile Launchers.");
+		        }
+		    }
+		}
+
+		public int newIonCannon(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_IONCANNON * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_IONCANNON * n;
+
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
+
+		        for (int i = 0; i < n; i++) {
+		            army[5].add(new IonCannon(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_IONCANNON, deuterium / Variables.DEUTERIUM_COST_IONCANNON);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_IONCANNON * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_IONCANNON * maxBuildable;
+
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
+
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[5].add(new IonCannon(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Ion Cannons.");
+		        }
+		    }
+		}
+
+		public int newPlasmaCannon(int n) throws ResourceException {
+		    int totalMetalCost = Variables.METAL_COST_PLASMACANNON * n;
+		    int totalDeuteriumCost = Variables.DEUTERIUM_COST_PLASMACANNON * n;
+
+		    if (metal >= totalMetalCost && deuterium >= totalDeuteriumCost) {
+		        metal -= totalMetalCost;
+		        deuterium -= totalDeuteriumCost;
+
+		        for (int i = 0; i < n; i++) {
+		            army[6].add(new PlasmaCannon(i, i));  
+		        }
+		        return n;
+		    } else {
+		        int maxBuildable = Math.min(metal / Variables.METAL_COST_PLASMACANNON, deuterium / Variables.DEUTERIUM_COST_PLASMACANNON);
+		        if (maxBuildable > 0) {
+		            int partialMetalCost = Variables.METAL_COST_PLASMACANNON * maxBuildable;
+		            int partialDeuteriumCost = Variables.DEUTERIUM_COST_PLASMACANNON * maxBuildable;
+
+		            metal -= partialMetalCost;
+		            deuterium -= partialDeuteriumCost;
+
+		            for (int i = 0; i < maxBuildable; i++) {
+		                army[6].add(new PlasmaCannon(i, i));  
+		            }
+		            throw new ResourceException(maxBuildable + " Light Hunters added.");
+		        } else {
+		            throw new ResourceException("Not enough resources to build any Plasma Cannons.");
+		        }
+		    }
+		}
+
 	public int getTechnologyDefense() {
 		return technologyDefense;
 	}
