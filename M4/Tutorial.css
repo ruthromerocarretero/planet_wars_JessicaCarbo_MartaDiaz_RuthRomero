@@ -1,28 +1,25 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins';
     background-color: aqua;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .banner {
     width: 100%;
     height: 220px;
-    padding-top:20px;
+    padding-top: 20px;
     text-align: center;
     background: url("img/estrellas.gif");
     background-blend-mode: soft-light;
-    background-size: cover;
+    background-size: 40%;
     background-position: center;
     box-sizing: border-box;
 }
-
 
 .banner h1 {
     color: #f1f1f1;
@@ -33,15 +30,15 @@ body {
 
 .container {
     width: 100%;
-    height: 60px;
-    background-color: rgba(0, 0, 0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5rem;
+    padding: 10px 5rem;
     box-sizing: border-box;
     position: sticky;
-    top: 0px;
+    top: 0;
+    z-index: 1;
 }
 
 .logo {
@@ -51,6 +48,10 @@ body {
 
 .logo img {
     width: 100%;
+}
+
+.footer .logo {
+    width: 200px;
 }
 
 .item-options {
@@ -63,6 +64,7 @@ a {
     color: white;
     transition: color 0.5s;
 }
+
 a:hover {
     color: rgb(0, 255, 128);
 }
@@ -71,41 +73,570 @@ footer {
     background-color: black;
     color: white;
     text-align: center;
+    margin-top: auto;
+    /* Para colocar el footer al final de la página */
+    width: 100%;
+    /* Para que el footer ocupe todo el ancho */
 }
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Establecer la altura mínima del cuerpo para ocupar toda la pantalla */
-    flex-direction: column; /* Asegurar que los elementos flexibles se apilen en columnas */
-}
-
-#main {
-    background-color: #f0f0f0;
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-}
-
-.small-div {
-    width: 30%;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.86);
     border-radius: 10px;
-    float: left;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
 }
 
-.container {
+.row {
     display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
 }
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.text {
+    max-width: 40%;
+}
+
+.nave-espacial {
+    width: 100px;
+    height: 100px;
+    background-image: url('img/onvi.png');
+    background-size: cover;
+    position: absolute;
+    left: -100px;
+    top: 30px;
+    transform: translateY(-50%);
+    animation: deslizar-nave 5s linear forwards;
+}
+
+
+@keyframes deslizar-nave {
+
+    0%,
+    30% {
+        left: -100px;
+    }
+
+    30%,
+    40% {
+        left: calc(50% - 50px);
+    }
+
+    40%,
+    45% {
+        top: 150px;
+    }
+
+    45%,
+    50% {
+        top: 40px;
+    }
+
+    50%,
+    100% {
+        left: calc(100% + 100px);
+        display: none;
+    }
+}
+
+h2 {
+    scroll-margin-top: 40px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 * {
     box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-image: url('img/fondoestrelladolargo2.jpg');
+    /* background-repeat: no-repeat; */
+    background-size: contain;
+}
+
+
+.juegos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #0000008a;
+    border-radius: 24px;
+}
+
+.juegos>div {
+    margin-bottom: 75px;
+    margin-top: 50px;
+}
+
+.juegos>div a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.primera_imagen {
+    background-image: url('img/space-invaders.png');
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.primera_imagen:hover {
+    background-image: url('img/space-invaders.gif');
+}
+
+
+.segunda_imagen {
+    background-image: url('img/nomanssky.png');
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.segunda_imagen:hover {
+    background-image: url('img/nomanssky.gif');
+}
+
+.tercera_imagen {
+    background-image: url('img/stellaris.png');
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.tercera_imagen:hover {
+    background-image: url('img/stellaris.gif');
+}
+
+.cuarta_imagen {
+    background-image: url('img/alien_isolation.png');
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cuarta_imagen:hover {
+    background-image: url('img/alien_isolation.gif');
+}
+
+div.estrellas {
+    display: flex;
+    justify-content: center;
+}
+
+.estrellaDorada {
+    color: rgb(233 202 36);
+}
+
+.estrellaGris {
+    color: rgb(77, 77, 77);
+}
+
+.juegos a {
+    margin-top: 210px;
+    display: block;
+    text-align: center;
+}
+
+main {
+    width: 90%;
+    max-width: 1240px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    /* margin-top: 72px;
+    margin-bottom: 48px; */
+    font-size: 32px;
+    color: rgb(255 238 148);
+}
+
+.accordion {
+    margin-bottom: 24px;
+}
+
+.accordion-container {
+    margin: 0 auto;
+    border: 3px solid rgb(233 202 36);
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+
+.accordion-item {
+    width: 100%;
+}
+
+.accordion-trigger {
+    width: 100%;
+    display: block;
+    background-color: rgb(17 16 49 / 51%);
+    color: rgb(233 202 36);
+    padding: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    border: none;
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.accordion-icon {
+    transition: transform 0.5s;
+}
+
+.accordion-item[open] .accordion-icon {
+    transform: rotate(45deg);
+}
+
+.accordion-item:not(:first-of-type) .accordion-trigger {
+    border-top: 3px solid rgb(233 202 36);
+}
+
+.accordion-content p {
+    margin: 24px;
+    color: white;
+}
+
+.accordion-title h4 {
+    font-weight: normal;
+    margin: 0;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #222b38;
+    color: white;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-bottom: 28px;
+
+}
+
+.form div {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.form div>*:nth-child(2) {
+    flex-grow: 1;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #0000008a;
+    border-radius: 24px;
+    color: white;
+}
+
+.main-content h4 {
+    color: rgb(233 202 36);
+}
+
+.inicio_sesion div {
+    margin-bottom: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+.text {
+    max-width: 40%;
+}
+
+label {
+    font-weight: bold;
+    width: 130px;
+    float: left;
+
+}
+
+.boton {
+    border-radius: 6px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
+.cookies-box {
+    position: fixed;
+    bottom: 0;
+    background: rgb(51, 51, 51);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-shadow: -2px 0 15px 0px rgba(0, 0, 0, .5);
+}
+
+.cookies-box .container-cookies {
+    padding: 20px 0;
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+}
+
+.cookies-box .container-cookies .parrafo p {
+    color: #fff;
+
+}
+
+.cookies-box .container-cookies .parrafo a {
+    color: #ccc;
+
+}
+
+.cookies-box .container-cookies .botones button {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 5px, 10px;
+    margin-bottom: 6px;
+    border-radius: 30px;
+    transition: all 200ms ease-in;
+}
+
+.cookies-box .container-cookies .botones {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.cookies-box .container-cookies .botones button:hover {
+    color: #dc143c;
+    border: 2px solid #dc143c;
+}
+
+.cookies-box .container-cookies .botones {
+    margin-top: 5px;
+}
+
+
+.cookies-box label>button {
+    pointer-events: none;
+    user-select: none;
+}
+
+.container-cookies {
+    display: none !important;
+}
+
+#cookiesCheckbox {
+    display: none;
+}
+
+#cookiesCheckbox:checked~.container-cookies {
+    display: flex !important;
+}
+
+/* indice */
+
+.indice {
+    background-color: rgb(17 16 49 / 51%);
+    border: 3px solid rgb(233 202 36);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    max-width: 400px;
+    margin: auto;
+    /* Cambiado a 'left' para alinear el texto de la lista a la izquierda */
+}
+
+.indice a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.indice a:hover {
+    text-decoration: underline;
+}
+
+.indice ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.indice li::marker {
+    color: rgb(233 202 36);
+}
+
+
+/* footer */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
+
+/*
+.redes_sociales {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.redes_sociales img {
+    width: 30px;
+} */
+/* logo */
+.logo img {
+    justify-content: left;
+}
+
+.redes_sociales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* Para centrar los elementos horizontalmente */
+    width: 400px;
+}
+
+.redes_sociales a {
+    text-align: center;
+    /* Para centrar el texto debajo de las imágenes */
+    margin: 5px;
+    /* Espacio entre los elementos */
+    flex: 0 0 calc(33.33% - 20px);
+    /* Calcula el ancho de cada elemento (1/3 del contenedor) con margen */
+    max-width: calc(33.33% - 20px);
+    /* Limita el ancho máximo de cada elemento */
+}
+
+.redes_sociales img {
+    display: block;
+    /* Para evitar espacios innecesarios debajo de las imágenes */
+    margin: 0 auto;
+    /* Para centrar las imágenes horizontalmente */
+    width: 35px;
+    /* Ajusta el tamaño máximo de las imágenes al ancho del contenedor */
+}
+
+footer .copyright {
+    background-color: #000;
+    color: white;
+    margin: 0;
+}
+
+footer .copyright p {
+    margin: 0;
+    padding: 10px;
+}
+
+.boton-inicio-sesion {
+    background-color: rgba(0, 0, 0, 0.459);
+    color: white;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+details[open] summary~* {
+    animation: sweep .5s ease-in-out;
+}
+
+.imagen_grande {
+    display: block;
+}
+
+.imagen_pequena {
+    display: none;
+}
+
+.imagen_pequena img {
+    display: block;
+    margin: auto;
+}
+
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        margin-left: -10px
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .footer {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .imagen_grande {
+        display: none;
+    }
+    
+    .imagen_pequena {
+        display: block;
+    }
+    .text {
+        max-width: 100%;
+    }
+    .form div {
+        flex-direction: column;
+    }
+    main {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 
 .slider {
     width: 300px;
@@ -169,7 +700,7 @@ body {
     color: white;
 }
 
-img {
+.slider img {
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -199,32 +730,37 @@ img {
     background: #000;
 }
 
-/* Don't need button navigation */
-@supports (scroll-snap-type) {
-    .slider > a {
-        display: none;
+main {
+    display: flex;
+    margin-top: 20px;
+}
+
+.aparecer_derecha {
+    position: relative;
+    animation-name: aparecer_derecha;
+    animation-duration: 1.5s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    right: -50vw;
+}
+
+@keyframes aparecer_derecha {
+    0% {
+        right: -50vw;
+    }
+    100%{
+        right: 0px;
     }
 }
 
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to bottom, #74ABE2, #5563DE);
-    font-family: 'Ropa Sans', sans-serif;
-    flex-grow: 1; /* Hacer que el cuerpo ocupe todo el espacio restante */
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
+.small-div {
     padding: 20px;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px #77758b;
+    color: white;
+
 }
+
+/*  */
