@@ -85,8 +85,10 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.86);
+    background-color: rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px #77758b;
     border-radius: 10px;
+
 }
 
 .row {
@@ -96,9 +98,10 @@ footer {
     margin-bottom: 20px;
 }
 
-.image {
-    max-width: 100%;
-    height: auto;
+.image img {
+    max-width: 450px;
+    height: 300px;
+    border-radius: 15px;
 }
 
 .text {
