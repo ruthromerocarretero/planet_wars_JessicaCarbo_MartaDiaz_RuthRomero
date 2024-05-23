@@ -7,34 +7,26 @@ import java.util.TimerTask;
 
 public class Main {
     
-    private static Planet myPlanet;
+    private static final int ArrayList = 0;
+	private static Planet myPlanet;
 
     public static void main(String[] args) {
-    	TimerTask task1 = new TimerTask() {
-            public void run() {
-                System.out.println("Hola mundo");
-            }
-        };
+        ArrayList<MilitaryUnit>[] planetArmy = createPlanetArmy();
+        ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
+        Battle battle = new Battle(planetArmy, enemyArmy);
+        battle.startBattle();
 
-        // Segunda tarea: imprimir "Segunda tarea ejecutada" cada 10 segundos
-        TimerTask task2 = new TimerTask() {
-            public void run() {
-                System.out.println("Segunda tarea ejecutada");
-            }
-        };
-
-        // Crear un objeto Timer
+        // Inicializar timer para iniciar automáticamente la batalla
         Timer timer = new Timer();
+        TimerTask battleTask = new TimerTask() {
+            public void run() {
+            	String battleDevelopment = battle.getBattleDevelopment();
+                System.out.println(battleDevelopment);
+            }
+        };
+        timer.scheduleAtFixedRate(battleTask, 5000, 10000);
 
-        // Programar la primera tarea para que se ejecute después de 10 segundos (10000 milisegundos)
-        // y luego se repita cada 5 segundos (5000 milisegundos)
-        timer.schedule(task1, 10000, 5000);
-
-        // Programar la segunda tarea para que se ejecute después de 15 segundos (15000 milisegundos)
-        // y luego se repita cada 10 segundos (10000 milisegundos)
-        timer.schedule(task2, 15000, 10000);
-        myPlanet = new Planet(0, 0, 50000, 50000, 0, 01, new ArrayList[7]); // Inicializamos el planeta
-        
+        myPlanet = new Planet(0, 0, 50000, 50000, 0, 01, new ArrayList[7]); 
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
@@ -70,6 +62,38 @@ public class Main {
         scanner.close();
     }
 
+    private static ArrayList<MilitaryUnit>[] createPlanetArmy() {
+        @SuppressWarnings("unchecked")
+        ArrayList<MilitaryUnit>[] planetArmy = new ArrayList[7];
+        for (int i = 0; i < 7; i++) {
+            planetArmy[i] = new ArrayList<>();
+        }
+        planetArmy[0].add(new LigthHunter());
+        planetArmy[1].add(new HeavyHunter());
+        planetArmy[2].add(new BattleShip());
+        planetArmy[3].add(new ArmoredShip());
+        planetArmy[4].add(new MissileLauncher(0, 0));
+        planetArmy[5].add(new IonCannon(0, 0));
+        planetArmy[6].add(new PlasmaCannon(0, 0));
+        return planetArmy;
+    }
+
+    private static ArrayList<MilitaryUnit>[] createEnemyArmy() {
+        @SuppressWarnings("unchecked")
+        ArrayList<MilitaryUnit>[] enemyArmy = new ArrayList[7];
+        for (int i = 0; i < 7; i++) {
+            enemyArmy[i] = new ArrayList<>();
+        }
+        enemyArmy[0].add(new LigthHunter());
+        enemyArmy[1].add(new HeavyHunter());
+        enemyArmy[2].add(new BattleShip());
+        enemyArmy[3].add(new ArmoredShip());
+        enemyArmy[4].add(new MissileLauncher(0, 0));
+        enemyArmy[5].add(new IonCannon(0, 0));
+        enemyArmy[6].add(new PlasmaCannon(0, 0));
+        return enemyArmy;
+    }
+
     private static void mostrarMenu() {
         myPlanet.printStats();
         System.out.println("\n===== Main Menu =====");
@@ -79,14 +103,13 @@ public class Main {
         System.out.println("4) View Battle Reports");
         System.out.println("5) View Thread Coming");
         System.out.println("0) Exit");
-        System.out.print("Option > ");
+        System.out.print("Option > \n");
     }
 
     private static void viewPlanetStats() {
         System.out.println("Viewing Planet Stats");
         // Lógica para ver las estadísticas del planeta
     }
-
     private static void build() {
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -146,7 +169,7 @@ public class Main {
     private static void handleBuildTroops(String troopType) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Amount of Units");
-        System.out.print("Amount: > ");
+        System.out.print("Amount: > \n");
         int amount = scanner.nextInt();
         scanner.nextLine();
 
@@ -206,7 +229,7 @@ public class Main {
     private static void handleBuildDefenses(String defenseType) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Amount of Units");
-        System.out.print("Amount: > ");
+        System.out.print("Amount: >\n ");
         int amount = scanner.nextInt();
         scanner.nextLine();
 
@@ -241,8 +264,9 @@ public class Main {
     }
 
     private static void viewBattleReports() {
-        System.out.println("Viewing Battle Reports...");
-        // Lógica para ver los informes de batalla
+        System.out.println("Viewing Battle Reports");
+        
+
     }
 
     private static void viewThreadComing() {
@@ -277,3 +301,6 @@ public class Main {
     }
 
 }
+
+
+

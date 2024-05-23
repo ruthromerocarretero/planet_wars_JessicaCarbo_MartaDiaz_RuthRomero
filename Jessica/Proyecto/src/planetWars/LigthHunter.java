@@ -22,10 +22,14 @@ public class LigthHunter extends Ship{
 	}
 
 	public int attack(){
-		return getBaseDamage();
+		int calculatedDamage = getBaseDamage() + (technologyAttack * PLUS_ATTACK_LIGTHHUNTER_BY_TECHNOLOGY);
+	    
+	    // Aplica cualquier otro factor que pueda afectar el ataque
+	    
+	    return calculatedDamage;
 	}
 
-	public void tekeDamage(int receivedDamage)
+	public void takeDamage(int receivedDamage)
 	{setArmor(getActualArmor()-receivedDamage);
 	}
 
@@ -54,11 +58,7 @@ public class LigthHunter extends Ship{
 		setArmor(getInitialArmor());
 	}
 
-	@Override
-	public void takeDamage(int receivedDamage) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 // TODO de donde saco nivelTecnologia? technologyDefense del planeta? hay que hacerlo en las dos
 //	TODO Cada una de estas clases tendrá que implementar los métodos definidos en la interfaz MilitaryUnit
