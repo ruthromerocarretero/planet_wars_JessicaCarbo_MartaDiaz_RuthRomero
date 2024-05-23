@@ -5,6 +5,7 @@ body {
     background-image: url('fondoestrelladolargo2.jpg');
     color: #000000;
     text-align: center; 
+    line-height: 1.6;
 }
 
 p {
@@ -19,7 +20,7 @@ header, footer, .section h2 {
     text-align: center; 
 }
 
-.space-image {
+video {
     width: 100%; 
     height: auto; 
     border-radius: 8px;
@@ -32,7 +33,6 @@ header, footer, .section h2 {
     padding: 20px;
     width: 80%;
     max-width: 960px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 20px;
 }
 
@@ -203,4 +203,31 @@ li {
     height: 20px;
     font-size: 20px;
     border-radius: 100%;
+}
+
+.accordion-item .accordion-trigger span.accordion-title {
+    color: white;
+    text-align: left;
+}
+
+.accordion-item .accordion-trigger span.accordion-icon {
+    color: white;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
 }
