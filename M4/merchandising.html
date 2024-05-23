@@ -12,26 +12,27 @@
 </head>
 
 <body>
-    <header class="container">
-        <figure class="logo">
-            <a href="ogame.html">
-                <img src="img/OGame_logo.png">
-            </a>
-        </figure>
-    
-        <nav>
-            <a href="Principal.html" class="item-options">Inicio</a>
-            <a href="Tutorial.html" class="item-options">Galeria</a>
-            <a href="merchandasing.html" class="item-options">Merchandising</a>
-            <a href="#" class="item-options">Ayuda</a>
-            <a href="#" class="item-options">Contacto</a>
-        </nav>
-    </header>
+  <div class="banner">
+    <h1>Planet Wars</h1>
+    <div class="nave-espacial"></div>
+  </div>
+  <header class="container">
+    <figure class="logo">
+        <a href="ogame.html">
+            <img src="img/OGame_logo.png">
+        </a>
+    </figure>
+
+    <nav>
+        <a href="Principal.html" class="item-options">Inicio</a>
+        <a href="Tutorial.html" class="item-options">Tutorial</a>
+        <a href="merchandising.html" class="item-options">Merchandising</a>
+        <a href="about_us.html" class="item-options">About Us</a>
+    </nav>
+</header>
     
     <main  class="contenedor-productos">
-        
-        <h1>PLANET WARS</h1>
-        <h1>Merchandising </h1>
+        <h2>Merchandising</h2>
         <div class="producto">
             <div class="carousel">
                 <input type="radio" name="carousel" id="image1" checked>
@@ -42,11 +43,28 @@
                 
                 <div class="carousel-images">
                     <div class="carousel-image">
-                        <img src="img/nave2.png" alt="Image 1">
+                        <img src="img/avion_carrousel_1.webp" alt="Image 1">
                         <h3>Nave Plasma Cannon.</h3>
                         <p>Precio: 273.14€.</p>
                         <a href="https://www.ebay.com/itm/165513692012?norover=1&mkevt=1&mkrid=711-169407-664636-0&mkcid=2&itemid=165513692012&targetid=293946777986&device=c&mktype=pla&googleloc=20270&poi=&campaignid=20532618473&mkgroupid=154037846315&rlsatarget=pla-293946777986&abcId=&merchantid=5085164431&gad_source=1"><div class="buy-box">Comprar</div></a>
-                    </div>
+                        <div class="comentarios">
+                          <h3 class="puntuacion">4,5</h3>
+                          <div class="estrellas">
+                            <span class="estrellaDorada">★★★</span>
+                            <span class="estrellaGris">★★</span>
+                          </div>
+                          <div class="estrellas">
+                            <span class="estrellaDorada">★★★</span>
+                            <span class="estrellaGris">★★</span>
+                          </div>
+                          <div class="estrellas">
+                            <span class="estrellaDorada">★★★</span>
+                            <span class="estrellaGris">★★</span>
+                          </div>
+                      </div>
+
+                      </div>
+
                     <div class="carousel-image">
                         <img src="img/coleccionis.jpg" alt="Image 2">
                         <h3>Nave Heavy Hunter.</h3>
@@ -62,10 +80,17 @@
                     </div>
                 </div>
                 
+                
                 <div class="carousel-controls">
-                    <label for="image1" class="prev"></label>
-                    <label for="image2" class="next"></label>
-                    <label for="image3" class="next"></label>
+                    <label for="image1" class="prev">
+                      <figure></figure>
+                    </label> 
+                    <label for="image2" class="next">
+                      <figure></figure>
+                    </label>
+                    <label for="image3" class="last">
+                      <figure></figure>
+                    </label>
                     
 
                 </div>
@@ -174,6 +199,13 @@
                     <label for="image12" class="next"></label>
                 </div>
             </div>   
+        </div>
+        <div class="envio">
+          <h2>Envio</h2>
+          <p>En nuestra tienda, nos enorgullece ofrecer productos de alta calidad y un servicio de envío eficiente. Normalmente, los envíos de nuestros productos tardan aproximadamente 4 días en llegar a su destino después de ser despachados.
+            Este plazo puede variar ligeramente dependiendo de la ubicación del destinatario y de posibles eventualidades en el proceso de transporte. Trabajamos arduamente para asegurarnos de que tu pedido llegue lo antes posible y en perfectas condiciones.
+            Te agradecemos por tu paciencia y confianza en nuestros servicios. Si tienes alguna pregunta o necesitas asistencia con tu envío, no dudes en contactarnos a través de nuestro <a href="#">Centro de Atención al Cliente</a>. Estamos aquí para ayudarte y asegurarnos de que tu experiencia de compra sea excelente. </p>
+          
         </div>
     </main>
     <footer>

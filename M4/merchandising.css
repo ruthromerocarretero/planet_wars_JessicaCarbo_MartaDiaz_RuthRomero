@@ -6,13 +6,98 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, h2 {
+/* h1, h2 {
   font-family: "Press Start 2P", system-ui;
-}
+  margin-top: 20px;
+} */
 body {
   background-image: url('img/fondoestrelladolargo2.jpg');
+  overflow-x: hidden;
 
 }
+/* banner */
+.banner {
+  width: 100%;
+  height: 220px;
+  padding-top:20px;
+  text-align: center;
+  background: url("img/estrellas.gif");
+  background-blend-mode: soft-light;
+  background-size: 40%;
+  background-position: center;
+  box-sizing: border-box;
+}
+.banner h1 {
+  color: #f1f1f1;
+  font-size: 80px;
+  margin-top: 30px;
+  font-family: "Pixelify Sans";
+}
+.container {
+  width: 100%;
+  background-color: rgba(0, 0, 0,0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5rem;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.logo {
+  width: 100px;
+  margin: 0;
+}
+.logo img {
+  width: 100%;
+}
+.item-options {
+  color: #f1f1f1;
+  margin: 0 1.5rem;
+  text-decoration: none;
+}
+a {
+  color: white;
+  transition: color 0.5s;
+}
+a:hover {
+  color: rgb(0, 255, 128);
+}
+
+.nave-espacial {
+  width: 100px;
+  height: 100px;
+  background-image: url('img/onvi.png');
+  background-size: cover;
+  position: absolute;
+  left: -100px;
+  top: 30px;
+  transform: translateY(-50%);
+  animation: deslizar-nave 5s linear forwards;
+  }
+  
+  
+  @keyframes deslizar-nave {
+  0%, 30% {
+      left: -100px;
+  }
+  30%, 40% {
+      left: calc(50% - 50px); 
+  }
+  40%, 45% {
+      top: 150px;
+  }
+  45%, 50% {
+      top: 40px; 
+  }
+  50%, 100% {
+      left: calc(100% + 100px);
+  }
+  }
+
+
+
 .container {
   width: 100%;
   height: 60px;
@@ -80,7 +165,6 @@ body {
   display: flex;
   width: 300%;
   transition: transform 0.5s ease-in-out;
-  
 }
 
 
@@ -91,10 +175,7 @@ body {
   flex-direction: column;
   align-items: center;
   
-
 }
-
-
 .carousel img {
   padding: 30px;
   width: 500px;
@@ -103,10 +184,31 @@ body {
   max-height: 500px;
   object-fit: cover;
   border-radius: 40px;
+  filter: drop-shadow(0 0 0.75rem crimson);
 }
+
 .carousel-image h3,
 .carousel-image p {
   margin-top: 25px;
+}
+
+.comentarios {
+  background-color: aliceblue;
+}
+.carousel-image .comentarios h3.puntuacion{
+  text-align: left;
+  width: 100%;
+}
+
+.estrellas {
+  margin-right: 15px;
+}
+.estrellaDorada {
+  color: rgb(233 202 36);
+}
+
+.estrellaGris {
+  color: rgb(77, 77, 77);
 }
 #image1:checked ~ .carousel-images {
   transform: translateX(0);
@@ -155,22 +257,45 @@ body {
   width: 100%;
   text-align: center;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .carousel-controls label {
-  display: inline-block;
-  background-color:  rgba(255, 255, 255, 0.849);
+  background-color: rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 10px 0px #77758b;
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  
 }
 
-.carousel-controls label.prev {
-  margin-right: 20px;
+.carousel-controls label.prev figure{
+  width: 20px;
+  height: 20px;
+  background-image: url('img/cohete.png');
+  background-size: contain;
+
 }
 
-.carousel-controls label.next {
-  margin-left: 20px;
+
+.carousel-controls label.next figure {
+  width: 20px;
+  height: 20px;
+  background-image: url('img/lunallena.png');
+  background-size: contain;
+}
+
+.carousel-controls label.last figure {
+  width: 20px;
+  height: 20px;
+  background-image: url('img/onvilabel.png');
+  background-size: contain;
 }
 .carousel .buy-box {
   margin-top: 10px;
@@ -445,3 +570,11 @@ footer .copyright p {
       gap: 50px;
   }
 }
+
+
+
+.carousel-controls label .prev img {
+  width: 100%;
+  z-index: 1;
+}
+                  
