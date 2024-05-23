@@ -8,25 +8,42 @@ import java.util.TimerTask;
 public class Main {
     
     private static final int ArrayList = 0;
-	private static Planet myPlanet;
+	private static Planet planet;
+    private static Battle battle;
 
     public static void main(String[] args) {
-        ArrayList<MilitaryUnit>[] planetArmy = createPlanetArmy();
-        ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
-        Battle battle = new Battle(planetArmy, enemyArmy);
-        battle.startBattle();
+        //ArrayList<MilitaryUnit>[] planetArmy = createPlanetArmy();
 
-        // Inicializar timer para iniciar automáticamente la batalla
+
+        //  planet = new Planet(0, 0, 50000, 50000, 0, 01, new ArrayList[7]);
+        planet = new Planet(0, 0, 50000, 50000, 0, 01, createPlanetArmy());
+        battle = new Battle(planet.getArmy(), null);
+
+        // Cada 3 minutos generar flota enemiga y hacer batalla
         Timer timer = new Timer();
         TimerTask battleTask = new TimerTask() {
             public void run() {
-            	String battleDevelopment = battle.getBattleDevelopment();
+                ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
+                battle.setEnemyArmy(enemyArmy);
+                battle.setPlanetArmy(planet.getArmy());
+                battle.startBattle();
+            }
+        };
+
+        TimerTask reportTask = new TimerTask() {
+            public void run() {
+                String battleDevelopment = battle.getBattleDevelopment();
                 System.out.println(battleDevelopment);
             }
         };
-        timer.scheduleAtFixedRate(battleTask, 5000, 10000);
 
-        myPlanet = new Planet(0, 0, 50000, 50000, 0, 01, new ArrayList[7]); 
+        // Cada 3 minutos (180000ms) generar flota enemiga, actualizar la nuestra y hacer batalla
+        timer.scheduleAtFixedRate(battleTask, 18000, 10000);
+
+        // Cada 5 minutos (300000ms) generar reporte de batalla
+        timer.scheduleAtFixedRate(reportTask, 30000, 10000);
+
+
         Scanner scanner = new Scanner(System.in);
         int opcion;
 
@@ -95,7 +112,7 @@ public class Main {
     }
 
     private static void mostrarMenu() {
-        myPlanet.printStats();
+        planet.printStats();
         System.out.println("\n===== Main Menu =====");
         System.out.println("1) View Planet Stats");
         System.out.println("2) Build");
@@ -182,16 +199,16 @@ public class Main {
             int built = 0;
             switch (troopType) {
                 case "Light Hunter":
-                    built = myPlanet.newLightHunter(amount);
+                    built = planet.newLightHunter(amount);
                     break;
                 case "Heavy Hunter":
-                    built = myPlanet.newHeavyHunter(amount);
+                    built = planet.newHeavyHunter(amount);
                     break;
                 case "Battle Ship":
-                    built = myPlanet.newBattleShip(amount);
+                    built = planet.newBattleShip(amount);
                     break;
                 case "Armored Ship":
-                    built = myPlanet.newArmoredShip(amount);
+                    built = planet.newArmoredShip(amount);
                     break;
             }
             System.out.println("Added " + built + " " + troopType + "(s) to the fleet.");
@@ -242,13 +259,13 @@ public class Main {
             int built = 0;
             switch (defenseType) {
                 case "Missile Launcher":
-                    built = myPlanet.newMissileLauncher(amount);
+                    built = planet.newMissileLauncher(amount);
                     break;
                 case "Ion Cannon":
-                    built = myPlanet.newIonCannon(amount);
+                    built = planet.newIonCannon(amount);
                     break;
                 case "Plasma Cannon":
-                    built = myPlanet.newPlasmaCannon(amount);
+                    built = planet.newPlasmaCannon(amount);
                     break;
             }
             System.out.println("Added " + built + " " + defenseType + "(s) to the defenses.");
@@ -301,6 +318,7 @@ public class Main {
     }
 
 }
+
 
 
 

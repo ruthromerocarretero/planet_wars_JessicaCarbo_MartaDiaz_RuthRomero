@@ -29,11 +29,7 @@ public class Planet {
 		this.deuterium = deuterium;
 		this.upgradeDefenseTechnologyDeuteriumCost = upgradeDefenseTechnologyDeuteriumCost;
 		this.upgradeAttackTechnologyDeuteriumCost = upgradeAttackTechnologyDeuteriumCost;
-		this.army = new ArrayList[7];
-		
-        for (int i = 0; i < army.length; i++) {
-        	this.army[i] = new ArrayList<>();
-        }
+		this.army = army;
 	}
 	
 	
@@ -354,7 +350,5 @@ public class Planet {
 	    System.out.println(String.format("%-20s %20d", "METAL:", metal));
 	    System.out.println(String.format("%-20s %20d", "DEUTERIUM:", deuterium));
 	}
-
-	
 
 }
