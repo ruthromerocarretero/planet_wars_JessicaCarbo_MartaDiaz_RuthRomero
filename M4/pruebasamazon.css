@@ -1,0 +1,95 @@
+.personas img {
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+.estrellaDorada {
+    color: rgb(233 202 36);
+}
+
+.estrellaGris {
+    color: rgb(77, 77, 77);
+}
+
+.compraVerificada {
+    color: rgb(255 0 0);
+}
+
+.sesion img {
+    width: 60px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sesion {
+    width: 90px;
+    justify-content: center;
+    margin: 0;
+}
+
+.tuOpinion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.escribeTuOpinion span { 
+    color: grey;
+    
+}
+
+.escribeTuOpinion  { 
+    display: flex;
+    flex-direction: column;
+}
+
+
+span.tituloOpinion {
+    font-weight: bold;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movies {
+    padding: 50px 0 150px 0;
+}
+
+.movies h2 {
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.swiper {
+    width: 100%;
+}
+
+.swiper-slide {
+    background-position:center;
+    background-size: cover;
+    width: 250px;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+
+}
+
+@media(max-width:991px) {
+    .movies {
+        padding: 30px;
+    }
+}
