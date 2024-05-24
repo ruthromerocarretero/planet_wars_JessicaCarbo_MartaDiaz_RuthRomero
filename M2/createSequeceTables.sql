@@ -1,13 +1,13 @@
 /*primero creamos la conexion en oracle*/
-nombre BD : PlanetWars
+/*nombre BD : PlanetWars
 user  = planet
-contraseña = 12345*/
+contraseña = 12345*/*/
 /*codigo para tener permisos para hacer modificaciones*/
 
 alter session set "_ORACLE_SCRIPT"=true;
 
 
-CREATE USER planet IDENTIFIED BY PlanetWars;
+CREATE USER planet IDENTIFIED BY 12345;
 GRANT ALL PRIVILEGES TO PlanetWars;
 
 COMMIT;
@@ -29,7 +29,16 @@ CREATE TABLE Planet_stats (
     resource_deuterion_amount NUMBER,
     technology_defense_level NUMBER,
     technology_attack_level NUMBER,
-    battles_counter NUMBER
+    battles_counter NUMBER,
+    missile_launcher_remaining NUMBER,
+    ion_cannon_remaining NUMBER,
+    plasma_cannon_remaining NUMBER,
+    light_hunter_remaining NUMBER,
+    heavy_hunter_remaining NUMBER,
+    battleship_remaining NUMBER,
+    armored_ship_remaining NUMBER
+ 
+
 );
 
 CREATE TABLE Battle_stats (

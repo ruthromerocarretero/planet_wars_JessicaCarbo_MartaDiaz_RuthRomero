@@ -1,5 +1,6 @@
 package planetWars;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Timer;
@@ -10,8 +11,13 @@ public class Main {
     private static final int ArrayList = 0;
 	private static Planet planet;
     private static Battle battle;
-
+    private static Connection conn;
     public static void main(String[] args) {
+    	
+    	
+    	try {
+            // Establecer conexión con la base de datos al inicio del programa
+            conn = Conexion.getConnection();
         //ArrayList<MilitaryUnit>[] planetArmy = createPlanetArmy();
 
 
@@ -77,6 +83,12 @@ public class Main {
         } while (opcion != 0);
         
         scanner.close();
+    	}catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            // Cerrar la conexión al finalizar el programa
+            Conexion.closeConnection();
+        }
     }
 
     private static ArrayList<MilitaryUnit>[] createPlanetArmy() {

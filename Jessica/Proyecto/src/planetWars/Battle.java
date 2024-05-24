@@ -1,19 +1,21 @@
 package planetWars;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Battle implements Variables {
+	private static Connection conn;
 	private ArrayList<MilitaryUnit>[] planetArmy;
 	private ArrayList<MilitaryUnit>[] enemyArmy;
 	private ArrayList[][] armies;
 	StringBuilder battleDevelopment;
 	private int[][] initialCostFleet ;
 	private int initialNumberUnitsPlanet, initialNumberUnitsEnemy;
-
 	/** TODO Tienes que asignar a estos atributos los valores actuales con el método calculateActualNumberUnits(); **/
 	private int totalActualNumberUnitsPlanet, totalActualNumberUnitsEnemy;
-
 	private int[] wasteMetalDeuterium;
 	private int[] enemyDrops;
 	private int[] planetDrops;
@@ -21,6 +23,7 @@ public class Battle implements Variables {
 	private int[][] initialArmies;
 	private int[] actualNumberUnitsPlanet;
 	private int[] actualNumberUnitsEnemy;
+	private String name;
 	private int turno;
 	
 
@@ -177,40 +180,59 @@ public class Battle implements Variables {
 		 return unit.getClass().getSimpleName() + " Destroyed";
 	 }
 	
-	 // Método para actualizar las cantidades de unidades actuales
-	 private void updateActualNumberUnits() {
-		 // Reiniciar las cantidades de unidades
-		 for (int i = 0; i < 7; i++) {
-			 actualNumberUnitsPlanet[i] = 0;
-			 actualNumberUnitsEnemy[i] = 0;
-		 }
-	        
-		 // Contar las unidades en el ejército del planeta
-		 for (ArrayList<MilitaryUnit> units : planetArmy) {
-			 for (MilitaryUnit unit : units) {
-				 if (unit instanceof LigthHunter) {
-					 actualNumberUnitsPlanet[0]++;
-				 } else if (unit instanceof HeavyHunter) {
-					 actualNumberUnitsPlanet[1]++;
-				 } else if (unit instanceof BattleShip) {
-					 actualNumberUnitsPlanet[2]++;
-				 } // Y así sucesivamente para cada tipo de unidad
-			 }
-		 }
+	 private void updateAndCalculateActualNumberUnits() {
+	        // Reiniciar las cantidades de unidades
+	        for (int i = 0; i < 7; i++) {
+	            actualNumberUnitsPlanet[i] = 0;
+	            actualNumberUnitsEnemy[i] = 0;
+	        }
 
-		 // Contar las unidades en el ejército enemigo
-		 for (ArrayList<MilitaryUnit> units : enemyArmy) {
-			 for (MilitaryUnit unit : units) {
-				 if (unit instanceof LigthHunter) {
-					 actualNumberUnitsEnemy[0]++;
-				 } else if (unit instanceof HeavyHunter) {
-					 actualNumberUnitsEnemy[1]++;
-				 } else if (unit instanceof BattleShip) {
-					 actualNumberUnitsEnemy[2]++;
-				 }
-			 }
-		 }
+	        // Contar las unidades en el ejército del planeta y calcular el total
+	        totalActualNumberUnitsPlanet = 0;
+	        for (ArrayList<MilitaryUnit> units : planetArmy) {
+	            for (MilitaryUnit unit : units) {
+	                if (unit instanceof LigthHunter) {
+	                    actualNumberUnitsPlanet[0]++;
+	                } else if (unit instanceof HeavyHunter) {
+	                    actualNumberUnitsPlanet[1]++;
+	                } else if (unit instanceof BattleShip) {
+	                    actualNumberUnitsPlanet[2]++;
+	                } else if (unit instanceof ArmoredShip) {
+	                	actualNumberUnitsPlanet[3]++;
+	                }else if (unit instanceof MissileLauncher) {
+	                	actualNumberUnitsPlanet[4]++;
+	                }else if (unit instanceof IonCannon) {
+	                	actualNumberUnitsPlanet[5]++;
+	                }else if (unit instanceof PlasmaCannon) {
+	                	actualNumberUnitsPlanet[6]++;
+	                }
+	            }
+	        }
+	        
+	        for (int unitNumber : actualNumberUnitsPlanet) {
+	            totalActualNumberUnitsPlanet += unitNumber;
+	        }
+
+	        // Contar las unidades en el ejército enemigo y calcular el total
+	        totalActualNumberUnitsEnemy = 0;
+	        for (ArrayList<MilitaryUnit> units : enemyArmy) {
+	            for (MilitaryUnit unit : units) {
+	                if (unit instanceof LigthHunter) {
+	                    actualNumberUnitsEnemy[0]++;
+	                } else if (unit instanceof HeavyHunter) {
+	                    actualNumberUnitsEnemy[1]++;
+	                } else if (unit instanceof BattleShip) {
+	                    actualNumberUnitsEnemy[2]++;
+	                }else if (unit instanceof ArmoredShip) {
+	                	actualNumberUnitsEnemy[3]++;
+	                }
+	            }
+	        }
+	        for (int unitNumber : actualNumberUnitsEnemy) {
+	            totalActualNumberUnitsEnemy += unitNumber;
+	        }
 	 }
+	
 
 	 private int getGroupDefender(ArrayList<MilitaryUnit>[] army) {
 		if (army == null || army.length == 0) {
@@ -280,7 +302,8 @@ public class Battle implements Variables {
 		String attackerType = getTypeByIndex(atacker);
 		String defenderType = getTypeByIndex(defense);
 		battleDevelopment.append("Attacks fleet Planet: " + attackerType + " attacks " + defenderType + "\n");
-
+		battleDevelopment.append("Army           "+"planetUnits  "+"  Drops"+"Initial Army Enemy"     +"Units  "+"Drops  ");
+		/*battleDevelopment.append();*/
 		for (ArrayList<MilitaryUnit> units : planetArmy) {
 			for (MilitaryUnit unit : units) {
 				if ((unit instanceof LigthHunter && atacker == 0) ||
@@ -294,20 +317,20 @@ public class Battle implements Variables {
 					int attackPower = unit.attack();
 					int damage = attackPower * attackerChance;
 					unit.takeDamage(damage);
+					battleDevelopment.append(attackerType  );
 					battleDevelopment.append(attackerType + " generates damage = " + damage + "\n");
 				}
 			}
 		}
 	}
-
+	
 	public void startBattle() {
+		battleDevelopment = new StringBuilder(); 
 		initialArmies();
 		setArmies();
 		calculateInitialCostFleet();
 		calculateInitialNumberUnits();
-
-		// TODO Implementar este método para rellenar las variables totalActualNumberUnitsPlanet, totalActualNumberUnitsEnemy 
-		//calculateActualNumberUnits();
+		updateAndCalculateActualNumberUnits();
 
 		 battleDevelopment.append("******************** CHANGE ATTACKER ********************\n");
 
@@ -316,6 +339,7 @@ public class Battle implements Variables {
 		 while(!(totalActualNumberUnitsPlanet < initialNumberUnitsEnemy*0.2) || !(totalActualNumberUnitsEnemy < initialNumberUnitsPlanet*0.2 )) {
 
 			if (turno == 0) {
+				
 				attack(getPlanetGroupAttacker(), getGroupDefender(enemyArmy), Variables.CHANCE_ATTACK_PLANET_UNITS[getPlanetGroupAttacker()]);
 			} else {
 				attack(getEnemyGroupAttacker(), getGroupDefender(planetArmy), Variables.CHANCE_ATTACK_ENEMY_UNITS[getEnemyGroupAttacker()]);
@@ -369,7 +393,32 @@ public class Battle implements Variables {
 			 }
 		 }
 	 }
-
+	 /*public void saveBattle() {
+		 try {
+			 Connection connection = Conexion.getConnection();
+	            CallableStatement savePlanetStat = connection.prepareCall("{CALL savePlanetStat(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
+	            /*callableStatement.setString(1, nombrePlaneta);
+	            callableStatement.setInt(2, resourceMetalAmount);
+	            callableStatement.setInt(3, resourceDeuterionAmount);
+	            callableStatement.setInt(4, technologyDefenseLevel);
+	            callableStatement.setInt(5, technologyAttackLevel);
+	            callableStatement.setInt(6, battlesCounter);
+	            callableStatement.setInt(7, missileLauncherRemaining);
+	            callableStatement.setInt(8, ionCannonRemaining);
+	            callableStatement.setInt(9, plasmaCannonRemaining);
+	            callableStatement.setInt(10, lightHunterRemaining);
+	            callableStatement.setInt(11, heavyHunterRemaining);
+	            callableStatement.setInt(12, battleshipRemaining);
+	            callableStatement.setInt(13, armoredShipRemaining);
+	            
+	            
+	            savePlanetStat.close();
+	            connection.close();
+	        } catch (SQLException e) {
+	            e.printStackTrace();
+	        }
+	    }*/
+		
 	 private void setArmies() {
 		 this.armies[0] = this.planetArmy;
 		 this.armies[1] = this.enemyArmy;
