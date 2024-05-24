@@ -13,8 +13,8 @@ public class Conexion {
     	// Datos para la  conexión a la base de datos
     	
     	String urlDatos = "jdbc:oracle:thin:@localhost:1521/orcl";
-        String usuario = "admin";
-        String pass = "admin";
+        String usuario = "planet";
+        String pass = "12345";
         String query= "select * from planet_stats";
         System.out.println("hola");
         
