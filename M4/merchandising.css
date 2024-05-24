@@ -763,3 +763,22 @@ label[for=rs5]:before {
 }
 
 */
+
+.side-images {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 20px; /* Espacio entre las imágenes y el carrusel */
+}
+
+.side-images .imagenes {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-images .imagenes img {
+  margin-bottom: 10px;
+  max-width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
