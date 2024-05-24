@@ -1,5 +1,5 @@
 * {
-  
+
   color: rgb(255, 255, 255);
   margin: 0;
   padding: 0;
@@ -7,19 +7,20 @@
 }
 
 /* h1, h2 {
-  font-family: "Press Start 2P", system-ui;
-  margin-top: 20px;
+font-family: "Press Start 2P", system-ui;
+margin-top: 20px;
 } */
 body {
   background-image: url('img/fondoestrelladolargo2.jpg');
   overflow-x: hidden;
 
 }
+
 /* banner */
 .banner {
   width: 100%;
   height: 220px;
-  padding-top:20px;
+  padding-top: 20px;
   text-align: center;
   background: url("img/estrellas.gif");
   background-blend-mode: soft-light;
@@ -27,15 +28,17 @@ body {
   background-position: center;
   box-sizing: border-box;
 }
+
 .banner h1 {
   color: #f1f1f1;
   font-size: 80px;
   margin-top: 30px;
   font-family: "Pixelify Sans";
 }
+
 .container {
   width: 100%;
-  background-color: rgba(0, 0, 0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,22 +48,27 @@ body {
   top: 0;
   z-index: 1;
 }
+
 .logo {
   width: 100px;
   margin: 0;
 }
+
 .logo img {
   width: 100%;
 }
+
 .item-options {
   color: #f1f1f1;
   margin: 0 1.5rem;
   text-decoration: none;
 }
+
 a {
   color: white;
   transition: color 0.5s;
 }
+
 a:hover {
   color: rgb(0, 255, 128);
 }
@@ -75,33 +83,32 @@ a:hover {
   top: 30px;
   transform: translateY(-50%);
   animation: deslizar-nave 5s linear forwards;
-  }
-  
-  
-  @keyframes deslizar-nave {
+}
+
+
+@keyframes deslizar-nave {
   0%, 30% {
       left: -100px;
   }
   30%, 40% {
-      left: calc(50% - 50px); 
+      left: calc(50% - 50px);
   }
   40%, 45% {
       top: 150px;
   }
   45%, 50% {
-      top: 40px; 
+      top: 40px;
   }
   50%, 100% {
       left: calc(100% + 100px);
   }
-  }
-
+}
 
 
 .container {
   width: 100%;
   height: 60px;
-  background-color: rgba(0, 0, 0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,42 +119,43 @@ a:hover {
 }
 
 
-
 .contenedor-productos {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px;
   background-color: rgb(8, 8, 8);
-  
+
 }
+
 .contenedor-productos {
   padding: 50px;
   background: linear-gradient(to bottom right, rgb(10, 10, 10), rgb(41, 16, 33));
 }
 
 .contenedor-productos h1 {
-  font-size: 50px; 
+  font-size: 50px;
 
 }
 
 .contenedor-productos h2 {
   margin-bottom: 60px;
-  font-size: 25px; 
+  font-size: 25px;
   border-bottom: 2px solid white;
 }
 
 .producto {
   width: 900px;
   margin-bottom: 50px;
-  padding: 55px; 
+  padding: 55px;
 }
+
 .producto {
   background-image: url('imagenes/48998.png');
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat; 
- 
+  background-repeat: no-repeat;
+
 }
 
 
@@ -174,8 +182,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
 }
+
 .carousel img {
   padding: 30px;
   width: 500px;
@@ -195,7 +204,8 @@ a:hover {
 .comentarios {
   background-color: aliceblue;
 }
-.carousel-image .comentarios h3.puntuacion{
+
+.carousel-image .comentarios h3.puntuacion {
   text-align: left;
   width: 100%;
 }
@@ -203,6 +213,7 @@ a:hover {
 .estrellas {
   margin-right: 15px;
 }
+
 .estrellaDorada {
   color: rgb(233 202 36);
 }
@@ -210,6 +221,7 @@ a:hover {
 .estrellaGris {
   color: rgb(77, 77, 77);
 }
+
 #image1:checked ~ .carousel-images {
   transform: translateX(0);
 }
@@ -225,31 +237,37 @@ a:hover {
 #image4:checked ~ .carousel-images {
   transform: translateX(0);
 }
+
 #image5:checked ~ .carousel-images {
   transform: translateX(-33.33%);
 }
+
 #image6:checked ~ .carousel-images {
   transform: translateX(-66.66%);
 }
+
 #image7:checked ~ .carousel-images {
   transform: translateX(0);
 }
+
 #image8:checked ~ .carousel-images {
-  transform: translateX(-33.33%); 
+  transform: translateX(-33.33%);
 }
 
 #image9:checked ~ .carousel-images {
-  transform: translateX(-66.66%); 
+  transform: translateX(-66.66%);
 }
+
 #image10:checked ~ .carousel-images {
   transform: translateX(0);
 }
+
 #image11:checked ~ .carousel-images {
-  transform: translateX(-33.33%); 
+  transform: translateX(-33.33%);
 }
 
 #image12:checked ~ .carousel-images {
-  transform: translateX(-66.66%); 
+  transform: translateX(-66.66%);
 }
 
 .carousel-controls {
@@ -262,7 +280,7 @@ a:hover {
 }
 
 .carousel-controls label {
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 10px 0px #77758b;
   padding: 10px;
   cursor: pointer;
@@ -272,10 +290,10 @@ a:hover {
   height: 20px;
   margin-right: 30px;
   margin-bottom: 15px;
-  
+
 }
 
-.carousel-controls label.prev figure{
+.carousel-controls label.prev figure {
   width: 20px;
   height: 20px;
   background-image: url('img/cohete.png');
@@ -297,6 +315,7 @@ a:hover {
   background-image: url('img/onvilabel.png');
   background-size: contain;
 }
+
 .carousel .buy-box {
   margin-top: 10px;
   display: inline-block;
@@ -307,41 +326,42 @@ a:hover {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .buy-box:hover {
-  background-color: rgb(2, 2, 2); 
+  background-color: rgb(2, 2, 2);
 }
 
 
 @media screen and (max-width: 768px) {
   .contenedor-productos {
-    padding: 20px;
+      padding: 20px;
   }
-  
+
   .producto {
-    width: 100%;
-    margin-bottom: 30px;
-    padding: 20px;
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 20px;
   }
-  
+
   .carousel img {
-    padding: 15px;
-    width: 100%;
-    border-radius: 20px;
+      padding: 15px;
+      width: 100%;
+      border-radius: 20px;
   }
-  
+
   .carousel-image h3,
   .carousel-image p {
-    margin-top: 15px;
+      margin-top: 15px;
   }
-  
+
   .carousel-controls label {
-    padding: 8px;
-    font-size: 18px;
+      padding: 8px;
+      font-size: 18px;
   }
-  
+
   .carousel .buy-box {
-    padding: 8px 15px;
-    font-size: 16px;
+      padding: 8px 15px;
+      font-size: 16px;
   }
 }
 
@@ -365,6 +385,7 @@ footer a {
   color: inherit;
   text-decoration: none;
 }
+
 .logo img {
   justify-content: left;
 }
@@ -496,7 +517,7 @@ label {
 }
 
 
-.cookies-box label>button {
+.cookies-box label > button {
   pointer-events: none;
   user-select: none;
 }
@@ -509,7 +530,7 @@ label {
   display: none;
 }
 
-#cookiesCheckbox:checked~.container-cookies {
+#cookiesCheckbox:checked ~ .container-cookies {
   display: flex !important;
 }
 
@@ -572,12 +593,164 @@ footer .copyright p {
 }
 
 
-
 .carousel-controls label .prev img {
   width: 100%;
   z-index: 1;
 }
 
+/* estrellas */
+.rating-stars {
+  display: block;
+  padding: 1vmin;
+  background: linear-gradient(90deg, #ffffff90 40vmin, #fff0 40vmin 100%);
+  border-radius: 5vmin;
+  position: relative;
+}
+
+.rating-counter {
+  font-size: 5.5vmin;
+  font-family: Arial, Helvetica, serif;
+  color: #9aacc6;
+  width: 10vmin;
+  text-align: center;
+  background: #0006;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  border-radius: 0 5vmin 5vmin 0;
+  line-height: 10vmin;
+}
+
+.rating-counter:before {
+  content: "0";
+  transition: all 0.25s ease 0s;
+}
+
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  width: 5vmin;
+  height: 5vmin;
+  background: #000b;
+  display: inline-flex;
+  cursor: pointer;
+  margin: 0.5vmin 0.65vmin;
+  transition: all 1s ease 0s;
+  clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
+}
+
+.rating-stars > label:nth-of-type(1) {
+  display: none;
+}
+
+.rating-stars label:before {
+  width: 90%;
+  height: 90%;
+  content: "";
+  background: orange;
+  z-index: -1;
+  display: block;
+  margin-left: 5%;
+  margin-top: 5%;
+  clip-path: polygon(50% 0%, 66% 32%, 100% 38%, 78% 64%, 83% 100%, 50% 83%, 17% 100%, 22% 64%, 0 38%, 34% 32%);
+  background: linear-gradient(90deg, yellow, orange 30% 50%, #184580 50%, 70%, #173a75 100%);
+  background-size: 205% 100%;
+  background-position: 0 0;
+}
+
+.rating-stars label:hover:before {
+  transition: all 0.25s ease 0s;
+}
+
+.rating-stars input:checked + label ~ label:before {
+  background-position: 100% 0;
+  transition: all 0.25s ease 0s;
+}
+
+.rating-stars input:checked + label ~ label:hover:before {
+  background-position: 0% 0
+}
+
+label + input:checked ~ .rating-counter:before {
+  color: #ffab00 !important;
+  transition: all 0.25s ease 0s;
+}
+
+
+label:hover ~ .rating-counter:before {
+  color: #9aacc6 !important;
+  transition: all 0.5s ease 0s;
+  animation: pulse 1s ease 0s infinite;
+}
+
+@keyframes pulse {
+  50% {
+      font-size: 6.25vmin;
+  }
+}
+
+
+input:checked:hover ~ .rating-counter:before {
+  animation: none !important;
+  color: #ffab00 !important;
+}
+
+
+/*** INITIAL ANIMATION - Not Necessary ***/
+/*** I want to make a loop here ***/
+/*
+label + input + label:before {
+  animation: start 0.5s ease 0s 1;
+}
+
+.rating-stars:hover label + input + label:before {
+  animation: none;
+}
+
+label[for=rs2]:before {
+animation-delay: 0.1s;
+}
+
+label[for=rs3]:before {
+animation-delay: 0.2s;
+}
+
+label[for=rs4]:before {
+animation-delay: 0.3s;
+}
+
+label[for=rs5]:before {
+animation-delay: 0.4s;
+}
+
+@keyframes start {
+10%, 90% { background-position: 0% 0; }
+}
+
+*/
+
+.side-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 20px; /* Espacio entre las imágenes y el carrusel */
+}
+
+.side-images .imagenes {
+  display: flex;
+  flex-direction: column;
+}
+
+.side-images .imagenes img {
+  margin-bottom: 10px;
+  max-width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
 /* comprar */
 .carousel-images .carousel-image button {
@@ -587,7 +760,7 @@ footer .copyright p {
   color: #fff;
   font-size: 24px;
   border-radius: 16px;
-  border:none;
+  border: none;
   outline: none;
   position: relative;
   background-color: #100720;
@@ -599,9 +772,9 @@ footer .copyright p {
   width: 100%;
   height: 100%;
   background: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgba(255,94,247,1) 18%,
-    rgba(2,245,255,1) 100%
+          circle farthest-corner at 10% 20%,
+          rgba(255, 94, 247, 1) 18%,
+          rgba(2, 245, 255, 1) 100%
   );
   filter: blur(15px);
   position: absolute;
@@ -618,9 +791,9 @@ footer .copyright p {
 
 @keyframes move {
   0% {
-    background-position: 0 0;
+      background-position: 0 0;
   }
   100% {
-    background-position: 200px 440px;
+      background-position: 200px 440px;
   }
 }
