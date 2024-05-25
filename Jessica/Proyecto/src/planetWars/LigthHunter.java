@@ -23,9 +23,6 @@ public class LigthHunter extends Ship{
 
 	public int attack(){
 		int calculatedDamage = getBaseDamage() + (technologyAttack * PLUS_ATTACK_LIGTHHUNTER_BY_TECHNOLOGY);
-	    
-	    // Aplica cualquier otro factor que pueda afectar el ataque
-	    
 	    return calculatedDamage;
 	}
 

@@ -21,12 +21,12 @@ public class ArmoredShip extends Ship implements MilitaryUnit{
         return getBaseDamage();
     }
 
-    public void tekeDamage(int receivedDamage)
+    public void takeDamage(int receivedDamage)
     {setArmor(getActualArmor()-receivedDamage);
     }
 
     public int getActualArmor(){
-        return getArmor();
+        return ARMOR_ARMOREDSHIP;
     }
 
     public int getMetalCost() {
@@ -50,11 +50,7 @@ public class ArmoredShip extends Ship implements MilitaryUnit{
         setArmor(getInitialArmor());
     }
 
-	@Override
-	public void takeDamage(int receivedDamage) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 // TODO de donde saco nivelTecnologia? technologyDefense del planeta? hay que hacerlo en las dos
 //	TODO Cada una de estas clases tendrá que implementar los métodos definidos en la interfaz MilitaryUnit

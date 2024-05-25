@@ -24,30 +24,22 @@ public class Main {
         //  planet = new Planet(0, 0, 50000, 50000, 0, 01, new ArrayList[7]);
         planet = new Planet(0, 0, 50000, 50000, 0, 01, createPlanetArmy());
         battle = new Battle(planet.getArmy(), null);
-
+     
         // Cada 3 minutos generar flota enemiga y hacer batalla
         Timer timer = new Timer();
-        TimerTask battleTask = new TimerTask() {
-            public void run() {
-                ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
-                battle.setEnemyArmy(enemyArmy);
-                battle.setPlanetArmy(planet.getArmy());
-                battle.startBattle();
-            }
-        };
-
+       
         TimerTask reportTask = new TimerTask() {
             public void run() {
                 String battleDevelopment = battle.getBattleDevelopment();
-                System.out.println(battleDevelopment);
+                System.out.println("WE HAVE BEEN ATTACKED!!!\n");
             }
         };
 
         // Cada 3 minutos (180000ms) generar flota enemiga, actualizar la nuestra y hacer batalla
-        timer.scheduleAtFixedRate(battleTask, 18000, 10000);
+       
 
         // Cada 5 minutos (300000ms) generar reporte de batalla
-        timer.scheduleAtFixedRate(reportTask, 30000, 10000);
+        timer.scheduleAtFixedRate(reportTask, 8000, 30000);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -70,9 +62,7 @@ public class Main {
                     break;
                 case 4:
                     viewBattleReports();
-                    break;
-                case 5:
-                    viewThreadComing();
+                    savePlanetStats();
                     break;
                 case 0:
                     System.out.println("Saliendo del juego...");
@@ -89,6 +79,7 @@ public class Main {
             // Cerrar la conexión al finalizar el programa
             Conexion.closeConnection();
         }
+    	
     }
 
     private static ArrayList<MilitaryUnit>[] createPlanetArmy() {
@@ -97,13 +88,37 @@ public class Main {
         for (int i = 0; i < 7; i++) {
             planetArmy[i] = new ArrayList<>();
         }
-        planetArmy[0].add(new LigthHunter());
-        planetArmy[1].add(new HeavyHunter());
-        planetArmy[2].add(new BattleShip());
-        planetArmy[3].add(new ArmoredShip());
-        planetArmy[4].add(new MissileLauncher(0, 0));
-        planetArmy[5].add(new IonCannon(0, 0));
-        planetArmy[6].add(new PlasmaCannon(0, 0));
+        
+        int lightHunterCount = 10;
+        int heavyHunterCount = 5;
+        int battleShipCount = 3;
+        int armoredShipCount = 4;
+        int missileLauncherCount = 8;
+        int ionCannonCount = 6;
+        int plasmaCannonCount = 2;
+
+        for (int i = 0; i < lightHunterCount; i++) {
+            planetArmy[0].add(new LigthHunter());
+        }
+        for (int i = 0; i < heavyHunterCount; i++) {
+            planetArmy[1].add(new HeavyHunter());
+        }
+        for (int i = 0; i < battleShipCount; i++) {
+            planetArmy[2].add(new BattleShip());
+        }
+        for (int i = 0; i < armoredShipCount; i++) {
+            planetArmy[3].add(new ArmoredShip());
+        }
+        for (int i = 0; i < missileLauncherCount; i++) {
+            planetArmy[4].add(new MissileLauncher(0, 0));
+        }
+        for (int i = 0; i < ionCannonCount; i++) {
+            planetArmy[5].add(new IonCannon(0, 0));
+        }
+        for (int i = 0; i < plasmaCannonCount; i++) {
+            planetArmy[6].add(new PlasmaCannon(0, 0));
+        }
+        
         return planetArmy;
     }
 
@@ -113,31 +128,43 @@ public class Main {
         for (int i = 0; i < 7; i++) {
             enemyArmy[i] = new ArrayList<>();
         }
-        enemyArmy[0].add(new LigthHunter());
-        enemyArmy[1].add(new HeavyHunter());
-        enemyArmy[2].add(new BattleShip());
-        enemyArmy[3].add(new ArmoredShip());
-        enemyArmy[4].add(new MissileLauncher(0, 0));
-        enemyArmy[5].add(new IonCannon(0, 0));
-        enemyArmy[6].add(new PlasmaCannon(0, 0));
+
+        int lightHunterCount = 8;
+        int heavyHunterCount = 7;
+        int battleShipCount = 5;
+        int armoredShipCount = 3;
+
+        for (int i = 0; i < lightHunterCount; i++) {
+            enemyArmy[0].add(new LigthHunter());
+        }
+        for (int i = 0; i < heavyHunterCount; i++) {
+            enemyArmy[1].add(new HeavyHunter());
+        }
+        for (int i = 0; i < battleShipCount; i++) {
+            enemyArmy[2].add(new BattleShip());
+        }
+        for (int i = 0; i < armoredShipCount; i++) {
+            enemyArmy[3].add(new ArmoredShip());
+        }
+
         return enemyArmy;
     }
 
     private static void mostrarMenu() {
-        planet.printStats();
+        
         System.out.println("\n===== Main Menu =====");
         System.out.println("1) View Planet Stats");
         System.out.println("2) Build");
         System.out.println("3) Upgrade Technology");
         System.out.println("4) View Battle Reports");
-        System.out.println("5) View Thread Coming");
         System.out.println("0) Exit");
         System.out.print("Option > \n");
     }
 
     private static void viewPlanetStats() {
         System.out.println("Viewing Planet Stats");
-        // Lógica para ver las estadísticas del planeta
+        planet.printStats();
+        
     }
     private static void build() {
         Scanner scanner = new Scanner(System.in);
@@ -287,22 +314,71 @@ public class Main {
     }
 
 
-    private static void upgradeTechnology() {
-        System.out.println("Upgrading Technology...");
-        // Lógica para mejorar tecnologías
+    	
+    private static void upgradeTechnology() throws ResourceException {
+        System.out.println("Upgrading Technology");
+        int technologyAttack = planet.getTechnologyAtack();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Upgrade Technology");
+            System.out.println("Actual Defense Technology: " + planet.getTechnologyDefense());
+            System.out.println("Actual Attack Technology: " + planet.getTechnologyAtack());
+            System.out.println();
+            System.out.println("1) Upgrade Defense Technology. Cost: 2000 Deuterium");
+            System.out.println("2) Upgrade Attack Technology. Cost: 2000 Deuterium");
+            System.out.println("3) Go back");
+            System.out.println();
+            System.out.println("Deuterium resources = " + planet.getDeuterium());
+            System.out.print("Option > ");
+
+            int option = scanner.nextInt();
+
+            switch (option) {
+                case 1:
+                    planet.upgradeTechnologyDefense();
+                    break;
+                case 2:
+                    planet.upgradeTechnologyAttack();
+                    break;
+                case 3:
+                    return;
+                default:
+                    System.out.println("Invalid option. Please enter a number between 1 and 3.");
+            }
+        }
     }
+   
 
     private static void viewBattleReports() {
-        System.out.println("Viewing Battle Reports");
-        
+    	
+    	 ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
+    	    battle.setEnemyArmy(enemyArmy);
+    	    battle.setPlanetArmy(planet.getArmy());
+    	    battle.startBattle();
+    	    
+    	    // Crear e iniciar el timer
+    	    Timer timer = new Timer();
+    	    TimerTask reportTask = new TimerTask() {
+    	        public void run() {
+    	            String battleDevelopment = battle.getBattleDevelopment();
+    	            if (battleDevelopment != null) {
+    	                System.out.println(battleDevelopment);
+    	            } else {
+    	                System.out.println("No battle reports available.");
+    	            }
+    	        }
+    	    };
+    	    
+    	    // Programar tarea para que se ejecute periódicamente
+    	    timer.scheduleAtFixedRate(reportTask, 1000, 3000); // Cada 10 segundos
+    	    
+    	    System.out.println("Viewing Battle Reports");
+    	    
+    	    
+    	}
 
-    }
-
-    private static void viewThreadComing() {
-        System.out.println("Viewing Thread Coming...");
-        // Lógica para ver la flota enemiga próxima a atacar
-    }
-
+ 
     private static void mostrarSubMenuBuild() {
         System.out.println("\nBuild\n");
         System.out.println("1) Build troops");
@@ -327,6 +403,15 @@ public class Main {
         System.out.println("3) Build Plasma Cannon");
         System.out.println("4) Go Back");
         System.out.print("Option > ");
+    }
+    private static void savePlanetStats() {
+        try {
+            Conexion conn = new Conexion();
+            Conexion.saveBattle(planet, new int[]{planet.getMetal(), planet.getDeuterium()});
+            System.out.println("Planet stats saved successfully.");
+        } catch (Exception e) {
+            System.out.println("Error saving planet stats: " + e.getMessage());
+        }
     }
 
 }

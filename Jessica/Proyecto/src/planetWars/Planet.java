@@ -42,6 +42,7 @@ public class Planet {
 	        	// Si se cumple, le resta el coste de la mejora
 	            technologyDefense++; // Lo incrementa en uno
 	            upgradeDefenseTechnologyDeuteriumCost *= 1.1;  // Incrementa el costo en un 10%
+	            System.out.println("Actual Defense Technology:  "+technologyDefense);
 	        } else { // Si no se cumple la condicion, entonces lanza una excepcion pq no hay suficiente "Deuterium" 
 	            throw new ResourceException("Insufficient deuterium to upgrade defense technology.");
 	        }
@@ -53,6 +54,7 @@ public class Planet {
 	            deuterium -=  currentUpgradeCost;
 	            technologyAtack++;
 	            upgradeAttackTechnologyDeuteriumCost *= 1.1;  
+	            System.out.println("Actual Attack Technology:  "+technologyAtack);
 	        } else {
 	            throw new ResourceException("No hay suficiente deuterio para mejorar la tecnología de ataque.");
 	        }
@@ -275,7 +277,9 @@ public class Planet {
 		        }
 		    }
 		}
-
+	public int getUnitRemaining(int unitTypeIndex) {
+	    return army[unitTypeIndex].size();
+	}
 	public int getTechnologyDefense() {
 		return technologyDefense;
 	}
@@ -335,8 +339,8 @@ public class Planet {
 	public void printStats() {
 	    System.out.println("Planet Stats");
 	    System.out.println("TECHNOLOGY");
-	    System.out.println(String.format("%-20s %20d", "Atack Technology:", technologyAtack)); // Corrección aquí
-	    System.out.println(String.format("%-20s %20d", "Defense Technology:", technologyDefense)); // Corrección aquí
+	    System.out.println(String.format("%-20s %20d", "Atack Technology:", technologyAtack)); 
+	    System.out.println(String.format("%-20s %20d", "Defense Technology:", technologyDefense)); 
 	    System.out.println("DEFENSES");
 	    System.out.println(String.format("%-20s %20d", "Missile Launcher:", army[4].size()));
 	    System.out.println(String.format("%-20s %20d", "Ion Cannon:", army[5].size()));
@@ -347,8 +351,8 @@ public class Planet {
 	    System.out.println(String.format("%-20s %20d", "Battle Ship:", army[2].size()));
 	    System.out.println(String.format("%-20s %20d", "Armored Ship:", army[3].size()));
 	    System.out.println("RESOURCES");
-	    System.out.println(String.format("%-20s %20d", "METAL:", metal));
-	    System.out.println(String.format("%-20s %20d", "DEUTERIUM:", deuterium));
+	    System.out.println(String.format("%-20s %20d", "METAL:", getMetal()));
+	    System.out.println(String.format("%-20s %20d", "DEUTERIUM:", getDeuterium()));
 	}
 
 }

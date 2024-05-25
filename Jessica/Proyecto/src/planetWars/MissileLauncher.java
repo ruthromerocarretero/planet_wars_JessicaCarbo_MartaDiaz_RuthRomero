@@ -13,12 +13,12 @@ public class MissileLauncher extends Defense implements MilitaryUnit{
         return getBaseDamage();
     }
 
-    public void tekeDamage(int receivedDamage)
+    public void takeDamage(int receivedDamage)
     {setArmor(getActualArmor()-receivedDamage);
     }
 
     public int getActualArmor(){
-        return getArmor();
+        return ARMOR_MISSILELAUNCHER;
     }
 
     public int getMetalCost() {
@@ -41,9 +41,5 @@ public class MissileLauncher extends Defense implements MilitaryUnit{
     public void  resetArmor(){
         setArmor(getInitialArmor());
     }
-	@Override
-	public void takeDamage(int receivedDamage) {
-		// TODO Auto-generated method stub
-		
-	}
+
 }
