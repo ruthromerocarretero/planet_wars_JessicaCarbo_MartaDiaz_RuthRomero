@@ -328,11 +328,12 @@ label {
 }
 
 .redes_sociales {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* Para centrar los elementos horizontalmente */
-    width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Para centrar los elementos horizontalmente */
+  width: 100%;
+  max-width: 400px;
 }
 
 .redes_sociales a {
@@ -378,6 +379,9 @@ footer .copyright p {
         flex-direction: column;
         gap: 50px;
     }
+    .redes_sociales a {
+        width: calc(33.33% - 50px);
+      }
 }
 
 details[open] summary ~ * {

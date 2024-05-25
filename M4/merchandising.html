@@ -5,99 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos-PlanetWars</title>
-    <link rel="stylesheet" href="merchandising.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="merchandising.css">
 </head>
 
 <body>
-<div class="banner">
-    <h1>Planet Wars</h1>
-    <div class="nave-espacial"></div>
-</div>
-<header class="container">
-    <figure class="logo">
-        <a href="ogame.html">
-            <img src="img/OGame_logo.png">
-        </a>
-    </figure>
+    <div class="banner">
+        <h1>Planet Wars</h1>
+        <div class="nave-espacial"></div>
+    </div>
+    <header class="container">
+        <figure class="logo">
+            <a href="ogame.html">
+                <img src="img/OGame_logo.png">
+            </a>
+        </figure>
 
-    <nav>
-        <a href="Principal.html" class="item-options">Inicio</a>
-        <a href="Tutorial.html" class="item-options">Tutorial</a>
-        <a href="merchandising.html" class="item-options">Merchandising</a>
-        <a href="about_us.html" class="item-options">About Us</a>
-    </nav>
-</header>
+        <nav>
+            <a href="Principal.html" class="item-options">Inicio</a>
+            <a href="Tutorial.html" class="item-options">Tutorial</a>
+            <a href="merchandising.html" class="item-options">Merchandising</a>
+            <a href="about_us.html" class="item-options">About Us</a>
+        </nav>
+    </header>
 
-<main class="contenedor-productos">
-    <h2>Merchandising</h2>
-    <div class="producto">
-        <div class="carousel">
-            <input type="radio" name="carousel" id="image1" checked>
-            <input type="radio" name="carousel" id="image2">
-            <input type="radio" name="carousel" id="image3">
+    <main class="contenedor-productos">
+        <h2>Merchandising</h2>
+        <div class="producto">
+            <div class="carousel">
+                <input type="radio" name="carousel" id="image1" checked>
+                <input type="radio" name="carousel" id="image2">
+                <input type="radio" name="carousel" id="image3">
 
-            <h2>Coleccionista</h2>
+                <h2>Coleccionista</h2>
 
-            <div class="carousel-images">
-                <div class="carousel-image">
-                    <div class="side-images">
-                        <div class="imagenes">
-                            <img src="image1.jpg" alt="Imagen 1">
-                            <img src="image2.jpg" alt="Imagen 2">
-                            <img src="image3.jpg" alt="Imagen 3">
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/caja_nave1.jpg" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave.menu1.jpg" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/imagen_nave_1.jpg" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/avion_carrousel_1.webp" alt="Image 1">
                         </div>
-                        <img src="img/avion_carrousel_1.webp" alt="Image 1">
-                    </div>
-                    <h3>Nave Plasma Cannon.</h3>
-                    <p>Precio: 273.14€.</p>
-                    <a href="https://www.ebay.com/itm/165513692012?norover=1&mkevt=1&mkrid=711-169407-664636-0&mkcid=2&itemid=165513692012&targetid=293946777986&device=c&mktype=pla&googleloc=20270&poi=&campaignid=20532618473&mkgroupid=154037846315&rlsatarget=pla-293946777986&abcId=&merchantid=5085164431&gad_source=1">
-                        <button>Comprar</button>
-                    </a>
-                    <div>
-                        <div class="comentarios">
-                            <h3 class="puntuacion">4,5</h3>
-                            <div class="estrellas">
-                                <span class="estrellaDorada">★★★</span>
-                                <span class="estrellaGris">★★</span>
-                            </div>
-                            <div class="estrellas">
-                                <span class="estrellaDorada">★★★</span>
-                                <span class="estrellaGris">★★</span>
-                            </div>
-                            <div class="estrellas">
-                                <span class="estrellaDorada">★★★</span>
-                                <span class="estrellaGris">★★</span>
-                            </div>
+                        <div>
+                            <h3>Nave Plasma Cannon</h3>
+                            <h3 class="coste">273.<sup>14€</sup></h3>
                         </div>
+                        <a
+                            href="https://www.ebay.com/itm/165513692012?norover=1&mkevt=1&mkrid=711-169407-664636-0&mkcid=2&itemid=165513692012&targetid=293946777986&device=c&mktype=pla&googleloc=20270&poi=&campaignid=20532618473&mkgroupid=154037846315&rlsatarget=pla-293946777986&abcId=&merchantid=5085164431&gad_source=1">
+                            <button>Comprar</button>
+                        </a>
                     </div>
-                    <div class="rating-stars">
-                        <input type="radio" name="rating" id="rs0" checked><label for="rs0"></label>
-                        <input type="radio" name="rating" id="rs1"><label for="rs1"></label>
-                        <input type="radio" name="rating" id="rs2"><label for="rs2"></label>
-                        <input type="radio" name="rating" id="rs3"><label for="rs3"></label>
-                        <input type="radio" name="rating" id="rs4"><label for="rs4"></label>
-                        <input type="radio" name="rating" id="rs5"><label for="rs5"></label>
-                        <!--                        <span class="rating-counter"></span>-->
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/nave2_caja.jpg" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave2.jpg" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave2_foto.jpg" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/coleccionis.jpg" alt="Image 2">
+                        </div>
+                        <div>
+                            <h3>Nave Heavy Hunter</h3>
+                            <h3 class="coste">200€</h3>
+                        </div>
+                        <a
+                            href="https://shopping.mattel.com/es-es/products/hot-wheels-star-wars-nave-espacial-hhr14-es-es">
+                            <button>Comprar</button>
+                        </a>
                     </div>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/coleccionis.jpg" alt="Image 2">
-                    <h3>Nave Heavy Hunter.</h3>
-                    <p>Precio: 200€.</p>
-                    <a href="https://shopping.mattel.com/es-es/products/hot-wheels-star-wars-nave-espacial-hhr14-es-es">
-                        <div class="buy-box">Comprar</div>
-                    </a>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/s-l1600.jpg" alt="Image 3">
-                    <h3>Ion Cannon</h3>
-                    <p>Precio: 129.99€.</p>
-                    <a href="https://www.ebay.es/itm/305555698272?itmmeta=01HY9QW81W4GE01GWZH8VNWWK2&hash=item472489f260:g:3bUAAOSwBJBmPEJS&amdata=enc%3AAQAJAAAA4A7Y9A8ipZnj0tOHuwHl0Zov9%2Bhyys3%2FswGYC5HMjtkr1Kw2yxvJW1vI6Vlg%2BJQ0MWZrydrnJDZCR5iWQH3SFlol5OQllDxIlcpzIxkvbG8Ev%2FPL%2F077GV7PSn5UgoLA0PDY0kD%2FpbTYZY4MT4QdCsEDvHIJYxv6vUFhqQJjtw6qhycfjjdaF11RkdQravBcs90UhxgQA8VZWXX9KIQkxmlWjbb7X67tFwuzSqxdIMqF6HnKJlkZuA24ipbArH3ng6z3gOU2Twc2aVfYcwOWxuEgFFzH%2BVVWF3GrgWli5WGU%7Ctkp%3ABFBMhIHxt_Jj">
-                        <button>Comprar</button>
-                    </a>
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/caja_nave3.jpg" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave3_segundafoto.jpg" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave3_por_detras.jpg" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/nave3_carousel.jpg" alt="Image 3">
+                        </div>
+                        <div>
+                            <h3>Ion Cannon</h3>
+                            <h3 class="coste">129.<sup>99€</sup></h3>
+                        </div>
+                        <a
+                            href="https://www.ebay.es/itm/305555698272?itmmeta=01HY9QW81W4GE01GWZH8VNWWK2&hash=item472489f260:g:3bUAAOSwBJBmPEJS&amdata=enc%3AAQAJAAAA4A7Y9A8ipZnj0tOHuwHl0Zov9%2Bhyys3%2FswGYC5HMjtkr1Kw2yxvJW1vI6Vlg%2BJQ0MWZrydrnJDZCR5iWQH3SFlol5OQllDxIlcpzIxkvbG8Ev%2FPL%2F077GV7PSn5UgoLA0PDY0kD%2FpbTYZY4MT4QdCsEDvHIJYxv6vUFhqQJjtw6qhycfjjdaF11RkdQravBcs90UhxgQA8VZWXX9KIQkxmlWjbb7X67tFwuzSqxdIMqF6HnKJlkZuA24ipbArH3ng6z3gOU2Twc2aVfYcwOWxuEgFFzH%2BVVWF3GrgWli5WGU%7Ctkp%3ABFBMhIHxt_Jj">
+                            <button>Comprar</button>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="carousel-controls">
@@ -111,206 +131,459 @@
                     <figure></figure>
                 </label>
             </div>
+            <div class="tuOpinion">
+                <div class="sesion">
+                    <img src="img/sinsesion.jpg" alt="">
+                    <a href="#"><span>Inicia sesión</span></a>
+                </div>
+                <div class="escribeTuOpinion">
+                    <div class="rating-stars">
+                        <input type="radio" name="rating" id="rs0" checked><label for="rs0"></label>
+                        <input type="radio" name="rating" id="rs1"><label for="rs1"></label>
+                        <input type="radio" name="rating" id="rs2"><label for="rs2"></label>
+                        <input type="radio" name="rating" id="rs3"><label for="rs3"></label>
+                        <input type="radio" name="rating" id="rs4"><label for="rs4"></label>
+                        <input type="radio" name="rating" id="rs5"><label for="rs5"></label>
+                        <!--                        <span class="rating-counter"></span>-->
+                    </div>
+                    <form action="">
+                        <label for="nombre">Escribe tu opinión:</label>
+                        <input type="text" id="nombre" name="nombre" />
+                        <span>En el caso que no inicies sesión, pondrás una opinión anónima.</span>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="producto">
-        <div class="carousel">
-            <input type="radio" name="carousel2" id="image4" checked>
-            <input type="radio" name="carousel2" id="image5">
-            <input type="radio" name="carousel2" id="image6">
-            <h2>LEGO</h2>
+        <div class="producto">
+            <div class="carousel">
+                <input type="radio" name="carousel2" id="image4" checked>
+                <input type="radio" name="carousel2" id="image5">
+                <input type="radio" name="carousel2" id="image6">
+                <h2>LEGO</h2>
 
-            <div class="carousel-images">
-                <div class="carousel-image">
-                    <img src="img/legonave.jpg" alt="Image 4">
-                    <h3>LEGO City Nave Espacial Interestelar.</h3>
-                    <p>Precio: 15.99€.</p>
-                    <a href="https://www.amazon.es/LEGO-Interestelar-Construcci%C3%B3n-Minifigura-60430/dp/B0CFW17QG2">
-                        <div class="buy-box">Comprar</div>
-                    </a>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/legonave2.jpg" alt="Image 5">
-                    <h3>LEGO City Estación Espacial Modular.</h3>
-                    <p>Precio: 86€.</p>
-                    <a href="https://www.amazon.es/LEGO-Laboratorio-Exploraci%C3%B3n-Minifiguras-60433/dp/B0CFVY3H2G/ref=sr_1_2_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24QY63767ZUPJ&dib=eyJ2IjoiMSJ9.s-vHrcvRqUulrGYZPexrZvdbFHxBjqhxovY1k9DUyg7bOPrN-LN8sSY6NTeSH1XydFOlvnA2DOcRzwK2o-mZvR9MXpOzr5z0gleYBdDjKLUqQgwBU3TArc-72WzeL0NQDtKZM-MTPR2QOE9Ajf04R8DswqisJO7mtnxXYwzjFLobSmbf5Uw5zWPBvJk_asNpKlXdCN4-VMSece3XDUJhToPvDEzvZCXIXHH9uWWGHOirE8BCzahaV4BFyO52SH4ujOZj6WHkjYSgSfGjHHwCafA-Wu5Rka2itkU2zxCAgFE.e5dW5Q8_1mPOjsShLSmhLFeeIrsywHNnqDxqtj7XrbQ&dib_tag=se&keywords=lego+space&qid=1716165640&sprefix=lego+space%2Caps%2C110&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">
-                        <div class="buy-box">Comprar</div>
-                    </a>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/nave3.jpg" alt="Image 6">
-                    <h3>LEGO 75336 Planet Wars</h3>
-                    <p>Precio: 147.20€.</p>
-                    <a href="https://www.amazon.es/LEGO-75336-Transporte-Inquisitorial-Inquisidor/dp/B09QFZCJYY/ref=sr_1_22?crid=1ZI1MNBAB24MC&dib=eyJ2IjoiMSJ9._jYUTGl9SPGuz27Pk52juQLBzTFdzW5dq3Nu6nZSvPNlUTAgti9dMBG8YcKEUiv5KdwHOvaUgmyl9L1Vt62Cq7KFErAwqBU3et3U9qV1UpuBLJNmCUQh3CEQyaiTrAZcXz9E5f2exzi6dReayFALU3w9SBpki7dfJ_Ycy2RlsbsWJbUG1BmeXF6WvZXO0f-DRthdc3vfX2y2ph_WE7wK0HMV6nQgA6GRSWGrLIgjNXqXyhFcsLnOEDNXo-xOHFfFEkM-vWGQUesjpppWEl17p4tlMDbqo0aNMMwoOr325lU.1w5TfmvKQU71ZT-iRUCWhbdN_hWte9t0GhtuJ9CyVLc&dib_tag=se&keywords=lego+nave+imperial&qid=1716153706&sprefix=lego+nave%2Caps%2C118&sr=8-22">
-                        <div class="buy-box">Comprar</div>
-                    </a>
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/legonave0jpg.jpg" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/legonave0_1.jpg" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/legonave1.jpg" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/legonave.jpg" alt="Image 4">
+                        </div>
+                        <div>
+                            <h3>LEGO City Nave Espacial Interestelar</h3>
+                            <h3 class="coste">15.<sup>99€</sup></h3>
+                        </div>
+                        <a
+                            href="https://www.amazon.es/LEGO-Interestelar-Construcci%C3%B3n-Minifigura-60430/dp/B0CFW17QG2">
+                            <button>Comprar</button>
+                        </a>
+                    </div>
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/legonave2.avif" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/legonave2_1webp.webp" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/legonave2_3.avif" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/legonave2.jpg" alt="Image 5">
+                        </div>
+                        <div>
+                            <h3>LEGO City Estación Espacial Modular</h3>
+                            <h3 class="coste">86€</h3>
+                        </div>
+                        <a
+                            href="https://www.amazon.es/LEGO-Laboratorio-Exploraci%C3%B3n-Minifiguras-60433/dp/B0CFVY3H2G/ref=sr_1_2_sspa?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24QY63767ZUPJ&dib=eyJ2IjoiMSJ9.s-vHrcvRqUulrGYZPexrZvdbFHxBjqhxovY1k9DUyg7bOPrN-LN8sSY6NTeSH1XydFOlvnA2DOcRzwK2o-mZvR9MXpOzr5z0gleYBdDjKLUqQgwBU3TArc-72WzeL0NQDtKZM-MTPR2QOE9Ajf04R8DswqisJO7mtnxXYwzjFLobSmbf5Uw5zWPBvJk_asNpKlXdCN4-VMSece3XDUJhToPvDEzvZCXIXHH9uWWGHOirE8BCzahaV4BFyO52SH4ujOZj6WHkjYSgSfGjHHwCafA-Wu5Rka2itkU2zxCAgFE.e5dW5Q8_1mPOjsShLSmhLFeeIrsywHNnqDxqtj7XrbQ&dib_tag=se&keywords=lego+space&qid=1716165640&sprefix=lego+space%2Caps%2C110&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1">
+                            <button>Comprar</button>
+                        </a>
+                    </div>
+                    <div class="carousel-image">
+                        <div class="side-images">
+                            <div class="imagenes">
+                                <div class="hoverContainer">
+                                    <img src="img/nave3_1.jpg" alt="Imagen 1">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/nave3_2.jpg" alt="Imagen 2">
+                                </div>
+                                <div class="hoverContainer">
+                                    <img src="img/legonave2_3.jpg" alt="Imagen 3">
+                                </div>
+                            </div>
+                            <img src="img/nave3.jpg" alt="Image 6">
+                        </div>
+                        <div>
+                            <h3>LEGO 75336 Planet Wars</h3>
+                            <h3 class="coste">147.<sup>20€</sup></h3>
+                        </div>
+                        <a
+                            href="https://www.amazon.es/LEGO-75336-Transporte-Inquisitorial-Inquisidor/dp/B09QFZCJYY/ref=sr_1_22?crid=1ZI1MNBAB24MC&dib=eyJ2IjoiMSJ9._jYUTGl9SPGuz27Pk52juQLBzTFdzW5dq3Nu6nZSvPNlUTAgti9dMBG8YcKEUiv5KdwHOvaUgmyl9L1Vt62Cq7KFErAwqBU3et3U9qV1UpuBLJNmCUQh3CEQyaiTrAZcXz9E5f2exzi6dReayFALU3w9SBpki7dfJ_Ycy2RlsbsWJbUG1BmeXF6WvZXO0f-DRthdc3vfX2y2ph_WE7wK0HMV6nQgA6GRSWGrLIgjNXqXyhFcsLnOEDNXo-xOHFfFEkM-vWGQUesjpppWEl17p4tlMDbqo0aNMMwoOr325lU.1w5TfmvKQU71ZT-iRUCWhbdN_hWte9t0GhtuJ9CyVLc&dib_tag=se&keywords=lego+nave+imperial&qid=1716153706&sprefix=lego+nave%2Caps%2C118&sr=8-22">
+                            <button>Comprar</button>
+                        </a>
 
+                    </div>
                 </div>
             </div>
             <div class="carousel-controls">
-                <label for="image4" class="prev"></label>
-                <label for="image5" class="next"></label>
-                <label for="image6" class="next"></label>
+                <label for="image4" class="prev">
+                    <figure></figure>
+                </label>
+                <label for="image5" class="next">
+                    <figure></figure>
+                </label>
+                <label for="image6" class="last">
+                    <figure></figure>
+                </label>
+            </div>
+            <div class="tuOpinion">
+                <div class="sesion">
+                    <img src="img/sinsesion.jpg" alt="">
+                    <a href="#"><span>Inicia sesión</span></a>
+                </div>
+                <div class="escribeTuOpinion">
+                    <div class="rating-stars">
+                        <input type="radio" name="rating" id="rs6" checked><label for="rs6"></label>
+                        <input type="radio" name="rating" id="rs7"><label for="rs7"></label>
+                        <input type="radio" name="rating" id="rs8"><label for="rs8"></label>
+                        <input type="radio" name="rating" id="rs9"><label for="rs9"></label>
+                        <input type="radio" name="rating" id="rs10"><label for="rs10"></label>
+                        <input type="radio" name="rating" id="rs11"><label for="rs11"></label>
+                        <!--                        <span class="rating-counter"></span>-->
+                    </div>
+                    <form action="">
+                        <label for="nombre">Escribe tu opinión:</label>
+                        <input type="text" id="nombre" name="nombre" />
+                        <span>En el caso que no inicies sesión, pondrás una opinión anónima.</span>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="producto">
-        <div class="carousel">
-            <input type="radio" name="carousel3" id="image7" checked>
-            <input type="radio" name="carousel3" id="image8">
-            <input type="radio" name="carousel3" id="image9">
-            <h2>POSTERS</h2>
+        <div class="producto">
+            <div class="carousel">
+                <input type="radio" name="carousel3" id="image7" checked>
+                <input type="radio" name="carousel3" id="image8">
+                <input type="radio" name="carousel3" id="image9">
+                <h2>POSTERS</h2>
 
-            <div class="carousel-images">
-                <div class="carousel-image">
-                    <img src="img/BattleOfCoruscantiPad.jpg" alt="Image 7">
-                    <h3>Poster Planet</h3>
-                    <p>Medida: 70x100 cm</p>
-                    <p>Precio: 20€.</p>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/poster2.jpg" alt="Image 8">
-                    <h3>Poster Acorazado</h3>
-                    <p>Medida: 60x80 cm</p>
-                    <p>Precio: 20€.</p>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/latest-1632816391.jpeg" alt="Image 9">
-                    <h3>Poster Batalla</h3>
-                    <p>Medida: 60x80 cm</p>
-                    <p>Precio: 20€.</p>
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <img src="img/BattleOfCoruscantiPad.jpg" alt="Image 7">
+                        <div>
+                            <h3>Planet (Sólo disponible en tienda)</h3>
+                            <p>Medida: 70x100 cm</p>
+                            <h3 class="coste">20€</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-image">
+                        <img src="img/poster2.jpg" alt="Image 8">
+                        <div>
+                            <h3>Acorazado (Sólo disponible en tienda)</h3>
+                            <p>Medida: 60x80 cm</p>
+                            <h3 class="coste">20€</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-image">
+                        <img src="img/latest-1632816391.jpeg" alt="Image 9">
+                        <div>
+                            <h3>Batalla (Sólo disponible en tienda)</h3>
+                            <p>Medida: 60x80 cm</p>
+                            <h3 class="coste">20€</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div class="carousel-controls">
-                <label for="image7" class="prev"></label>
-                <label for="image8" class="next"></label>
-                <label for="image9" class="next"></label>
+                <label for="image7" class="prev">
+                    <figure></figure>
+                </label>
+                <label for="image8" class="next">
+                    <figure></figure>
+                </label>
+                <label for="image9" class="last">
+                    <figure></figure>
+                </label>
+            </div>
+            <div class="tuOpinion">
+                <div class="sesion">
+                    <img src="img/sinsesion.jpg" alt="">
+                    <a href="#"><span>Inicia sesión</span></a>
+                </div>
+                <div class="escribeTuOpinion">
+                    <div class="rating-stars">
+                        <input type="radio" name="rating" id="rs12" checked><label for="rs12"></label>
+                        <input type="radio" name="rating" id="rs13"><label for="rs13"></label>
+                        <input type="radio" name="rating" id="rs14"><label for="rs14"></label>
+                        <input type="radio" name="rating" id="rs15"><label for="rs15"></label>
+                        <input type="radio" name="rating" id="rs16"><label for="rs16"></label>
+                        <input type="radio" name="rating" id="rs17"><label for="rs17"></label>
+                    </div>
+                    <form action="">
+                        <label for="nombre">Escribe tu opinión:</label>
+                        <input type="text" id="nombre" name="nombre" />
+                        <span>En el caso que no inicies sesión, pondrás una opinión anónima.</span>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="producto">
-        <div class="carousel">
-            <input type="radio" name="carousel4" id="image10" checked>
-            <input type="radio" name="carousel4" id="image11">
-            <input type="radio" name="carousel4" id="image12">
-            <h2>Videojuegos</h2>
+        <div class="producto">
+            <div class="carousel">
+                <input type="radio" name="carousel4" id="image10" checked>
+                <input type="radio" name="carousel4" id="image11">
+                <input type="radio" name="carousel4" id="image12">
+                <h2>Videojuegos</h2>
 
-            <div class="carousel-images">
-                <div class="carousel-image">
-                    <img src="img/juego 1.jpeg" alt="Image 10">
-                    <h3>Planet Wars Edición especial.</h3>
-                    <p>Precio: 45€.</p>
+                <div class="carousel-images">
+                    <div class="carousel-image">
+                        <img src="img/juego 1.jpeg" alt="Image 10">
+                        <div>
+                            <h3>Planet Wars Edición especial (Sólo disponible en tienda física)</h3>
+                            <h3 class="coste">45€</h3>
+                        </div>
 
-                </div>
-                <div class="carousel-image">
-                    <img src="img/juego.jpeg" alt="Image 11">
-                    <h3>Planet Wars Destrucción final.</h3>
-                    <p>Precio: 30€.</p>
-                </div>
-                <div class="carousel-image">
-                    <img src="img/juegoedicionespecial.jpeg" alt="Image 12">
-                    <h3>Planet Wars Final War.</h3>
-                    <p>Precio: 25€.</p>
+                    </div>
+                    <div class="carousel-image">
+                        <img src="img/juego.jpeg" alt="Image 11">
+                        <div>
+                            <h3>Planet Wars Destrucción final (Agotado)</h3>
+                            <h3 class="coste agotado">30€</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-image">
+                        <img src="img/juegoedicionespecial.jpeg" alt="Image 12">
+                        <div>
+                            <h3>Planet Wars Final War (Sólo disponible en tienda física)</h3>
+                            <h3 class="coste">25€</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="carousel-controls">
-                <label for="image10" class="prev"></label>
-                <label for="image11" class="next"></label>
-                <label for="image12" class="next"></label>
+                <label for="image10" class="prev">
+                    <figure></figure>
+                </label>
+                <label for="image11" class="next">
+                    <figure></figure>
+                </label>
+                <label for="image12" class="last">
+                    <figure></figure>
+                </label>
+            </div>
+            <div class="tuOpinion">
+                <div class="sesion">
+                    <img src="img/sinsesion.jpg" alt="">
+                    <a href="#"><span>Inicia sesión</span></a>
+                </div>
+                <div class="escribeTuOpinion">
+                    <div class="rating-stars">
+                        <input type="radio" name="rating" id="rs18" checked><label for="rs18"></label>
+                        <input type="radio" name="rating" id="rs19"><label for="rs19"></label>
+                        <input type="radio" name="rating" id="rs20"><label for="rs20"></label>
+                        <input type="radio" name="rating" id="rs21"><label for="rs21"></label>
+                        <input type="radio" name="rating" id="rs22"><label for="rs22"></label>
+                        <input type="radio" name="rating" id="rs23"><label for="rs23"></label>
+                        <!--                        <span class="rating-counter"></span>-->
+                    </div>
+                    <form action="">
+                        <label for="nombre">Escribe tu opinión:</label>
+                        <input type="text" id="nombre" name="nombre" />
+                        <span>En el caso que no inicies sesión, pondrás una opinión anónima.</span>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="envio">
-        <h2>Envio</h2>
-        <p>En nuestra tienda, nos enorgullece ofrecer productos de alta calidad y un servicio de envío eficiente. Normalmente, los envíos de nuestros productos tardan aproximadamente 4 días en llegar a su destino después de ser despachados.
-            Este plazo puede variar ligeramente dependiendo de la ubicación del destinatario y de posibles eventualidades en el proceso de transporte. Trabajamos arduamente para asegurarnos de que tu pedido llegue lo antes posible y en perfectas condiciones.
-            Te agradecemos por tu paciencia y confianza en nuestros servicios. Si tienes alguna pregunta o necesitas asistencia con tu envío, no dudes en contactarnos a través de nuestro <a href="#">Centro de Atención al Cliente</a>. Estamos aquí para ayudarte y asegurarnos de que tu experiencia de compra sea excelente. </p>
-        <div class="inicio_sesion">
-            <form action="">
-                <div>
-                    <label for="name">Nombre:</label>
-                    <input type="text" name="name" id="name">
+        <section class="moviesContainer">
+            <h2>Películas</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/AD_ASTRA.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/BATTLESHIP.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/EL_JUEGO_DE_ENDER.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/Guardianes_de_la_galaxia.jpeg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/STAR_TREK.jpg" alt="">
+                    </div>
                 </div>
-            </form>
-        </div>
-    </div>
-</main>
-<footer>
-    <div class="footer">
-        <div class="logo">
-            <img src="img/OGame_logo.png" alt="">
-        </div>
+            </div>
+            <p><i>*Se requiere Prime Video para poder visualizar este contenido audivisual.*</i></p>
+        </section>
         <div>
-            <h4>ENLACES</h4>
-            <p>Inicio</p>
-            <a href="about_us.html"><p>About Us</p></a>
-            <a href="about_us.html"><p>Tutorial</p></a>
-            <p>Merchandaising</p>
+            <h2>Comentarios de clientes</h2>
+            <div class="comentarios">
+                <div class="personas">
+                    <img src="img/maria_jose.jpg" alt="">
+                    <span>María José</span>
+                </div>
+                <div class="estrellas">
+                    <span class="estrellaDorada">★★★★★</span> <span class="tituloOpinion">Es
+                        perfecto</span><br>
+                    <p>10 de diciembre de 2017</p>
+                    <span>Estilo: Nave Plasma Cannon</span> | <span class="compraVerificada">Compra
+                        verificada</span>
+                </div>
+                <div class="opinion">
+                    <p>Es sencillamente impresionante. Cada detalle ha sido cuidadosamente esculpido
+                        para capturar la esencia y el diseño futurista de la nave del juego. Los
+                        materiales de alta calidad y la pintura meticulosa hacen que esta figura se
+                        destaque como una pieza de colección imprescindible. La fidelidad al diseño
+                        original es asombrosa, permitiendo a los fans apreciar la nave en todo su
+                        esplendor, fuera de la pantalla. Es perfecta para exhibir en cualquier lugar, ya
+                        sea en tu escritorio, estantería o vitrina.</p>
+                </div>
+                <div class="personas">
+                    <img src="img/Federico_Alarcon.jpg" alt="">
+                    <span>Federico Alarcon</span>
+                </div>
+                <div class="estrellas">
+                    <span class="estrellaDorada">★★★</span><span class="estrellaGris">★★</span><span
+                        class="tituloOpinion">¡Impresionante Detalle y Calidad!</span><br>
+                    <p>2 de julio de 2017</p>
+                    <span>Estilo: Nave Plasma Cannon</span> | <span class="compraVerificada">Compra
+                        verificada</span>
+                </div>
+                <div class="opinion">
+                    <p>La atención al detalle es impresionante. Cada panel, arma y motor está
+                        meticulosamente recreado, replicando con precisión el diseño de la nave en el
+                        juego. Los colores son vibrantes y fieles al modelo original, lo que la hace
+                        destacar en mi estantería.</p>
+                </div>
+            </div>
         </div>
-        <div class="redes_sociales">
-            <a href="https://www.facebook.com/OGame/">
-                <img src="img/facebook.png" alt="Facebook">
-                <p>Facebook</p>
-            </a>
-            <a href="https://www.youtube.com/channel/UC_-ztPBowfj7ElVQ13XPdwA">
-                <img src="img/youtube.png" alt="Youtube">
-                <p>Youtube</p>
-            </a>
-            <a href="https://ogame.support.gameforge.com/index.php?fld=es">
-                <img src="img/asistencia.png" alt="Asistencia">
-                <p>Asistencia</p>
-            </a>
-            <a href="https://forum.es.ogame.gameforge.com/">
-                <img src="img/foro.png" alt="Foro">
-                <p>Foro</p>
-            </a>
-            <a href="https://lobby.ogame.gameforge.com/es_ES/">
-                <img src="img/herramientas.png" alt="Herramientas">
-                <p>Herramientas</p>
-            </a>
-            <a href="https://discord.com/invite/OGame">
-                <img src="img/discord.png" alt="Discord">
-                <p>Discord</p>
-            </a>
+        <div class="envio">
+            <h2>Envio</h2>
+            <p>En nuestra tienda, nos enorgullece ofrecer productos de alta calidad y un servicio de envío eficiente.
+                Normalmente, los envíos de nuestros productos tardan aproximadamente 4 días en llegar a su destino
+                después de ser despachados.
+                Este plazo puede variar ligeramente dependiendo de la ubicación del destinatario y de posibles
+                eventualidades en el proceso de transporte. Trabajamos arduamente para asegurarnos de que tu pedido
+                llegue lo antes posible y en perfectas condiciones.
+                Te agradecemos por tu paciencia y confianza en nuestros servicios. Si tienes alguna pregunta o necesitas
+                asistencia con tu envío, no dudes en contactarnos a través de nuestro <a href="#">Centro de Atención al
+                    Cliente</a>. Estamos aquí para ayudarte y asegurarnos de que tu experiencia de compra sea excelente.
+            </p>
+            <div class="inicio_sesion">
+                <form action="">
+                    <div class="input-field">
+                        <input type="text" required>
+                        <label>Nombre completo:</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" required>    
+                        <label>Dirección (calle, número, código postal)</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" required>    
+                        <label>Teléfono de contacto:</label>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" required>    
+                        <label>Correo electrónico:</label>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="inicio_sesion">
-            <form action="">
-                <div>
-                    <label for="name">Nombre:</label>
-                    <input type="text" name="name" id="name">
-                </div>
-                <div>
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="text" name="contrasena" id="contrasena">
-                </div>
-                <div>
-                    <input class="boton-inicio-sesion" type="submit" value="Inicio de sesión">
-                </div>
-            </form>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="logo">
+                <img src="img/OGame_logo.png" alt="">
+            </div>
+            <div>
+                <h4>ENLACES</h4>
+                <p>Inicio</p>
+                <a href="about_us.html">
+                    <p>About Us</p>
+                </a>
+                <a href="about_us.html">
+                    <p>Tutorial</p>
+                </a>
+                <p>Merchandaising</p>
+            </div>
+            <div class="redes_sociales">
+                <a href="https://www.facebook.com/OGame/">
+                    <img src="img/facebook.png" alt="Facebook">
+                    <p>Facebook</p>
+                </a>
+                <a href="https://www.youtube.com/channel/UC_-ztPBowfj7ElVQ13XPdwA">
+                    <img src="img/youtube.png" alt="Youtube">
+                    <p>Youtube</p>
+                </a>
+                <a href="https://ogame.support.gameforge.com/index.php?fld=es">
+                    <img src="img/asistencia.png" alt="Asistencia">
+                    <p>Asistencia</p>
+                </a>
+                <a href="https://forum.es.ogame.gameforge.com/">
+                    <img src="img/foro.png" alt="Foro">
+                    <p>Foro</p>
+                </a>
+                <a href="https://lobby.ogame.gameforge.com/es_ES/">
+                    <img src="img/herramientas.png" alt="Herramientas">
+                    <p>Herramientas</p>
+                </a>
+                <a href="https://discord.com/invite/OGame">
+                    <img src="img/discord.png" alt="Discord">
+                    <p>Discord</p>
+                </a>
+            </div>
+            <div class="inicio_sesion">
+                <form action="">
+                    <div>
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" id="name">
+                    </div>
+                    <div>
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="text" name="contrasena" id="contrasena">
+                    </div>
+                    <div>
+                        <input class="boton-inicio-sesion" type="submit" value="Inicio de sesión">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© Derechos Reservados</p>
+        </div>
+    </footer>
+    <div class="cookies-box">
+        <input id="cookiesCheckbox" class="css-modal-check" type="checkbox" checked />
+        <div class="container-cookies">
+            <div class="parrafo">
+                <p>Este sitio web utiliza cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra
+                    política
+                    de cookies. <a href="">Policias de cookies</a></p>
+            </div>
+            <div class="botones">
+                <label for="cookiesCheckbox" class="close">
+                    <button>Aceptar</button>
+                    <button id="close">Cerrar</button>
+                </label>
+            </div>
         </div>
     </div>
-    <div class="copyright">
-        <p>© Derechos Reservados</p>
-    </div>
-</footer>
-<div class="cookies-box">
-    <input id="cookiesCheckbox" class="css-modal-check" type="checkbox" checked/>
-    <div class="container-cookies">
-        <div class="parrafo">
-            <p>Este sitio web utiliza cookies para mejorar su experiencia. Al continuar navegando, acepta nuestra
-                política
-                de cookies. <a href="">Policias de cookies</a></p>
-        </div>
-        <div class="botones">
-            <label for="cookiesCheckbox" class="close">
-                <button>Aceptar</button>
-                <button id="close">Cerrar</button>
-            </label>
-        </div>
-    </div>
-</div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js" ></script>
 </body>
 </html>

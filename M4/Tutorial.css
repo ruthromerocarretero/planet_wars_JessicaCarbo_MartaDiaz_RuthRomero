@@ -543,8 +543,9 @@ label {
     flex-wrap: wrap;
     justify-content: center;
     /* Para centrar los elementos horizontalmente */
-    width: 400px;
-}
+    width: 100%;
+    max-width: 400px;
+  }
 
 .redes_sociales a {
     text-align: center;
@@ -618,6 +619,9 @@ details[open] summary~* {
         flex-direction: column;
         gap: 50px;
     }
+    .redes_sociales a {
+        width: calc(33.33% - 50px);
+      }
     .imagen_grande {
         display: none;
     }
