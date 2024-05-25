@@ -1,0 +1,230 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('fondoestrelladolargo2.jpg');
+    color: #000000;
+    text-align: center; 
+    line-height: 1.6;
+}
+
+p {
+    color: white; 
+}
+
+h1, h2 {
+    color: rgb(255 238 148);
+}
+
+header, footer, .section h2 {
+    text-align: center; 
+}
+
+video {
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+}
+
+.section {
+    background-color: rgb(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 0px #77758b;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 960px;
+    border-radius: 20px;
+}
+
+section ul {
+    text-align: left; 
+    padding-left: 20px;
+}
+
+section li p {
+    text-align: left; 
+}
+
+footer {
+    background: #fafafa;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    border-top: 1px solid #e1e1e1;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; 
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.carousel-images {
+    display: flex; 
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    overflow: hidden;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.carousel a {
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* :target selector for CSS navigation */
+#slide1:target ~ .carousel-images {
+    transform: translateX(0%);
+}
+
+#slide2:target ~ .carousel-images {
+    transform: translateX(-33.33%);
+}
+
+#slide3:target ~ .carousel-images {
+    transform: translateX(-66.66%);
+}
+
+
+#kiko-slider {
+    font-family: sans-serif;
+    margin: auto;
+    background-color: white;
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#kiko-slider>ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#kiko-slider>ul.slider {
+    position: relative;
+    max-width: 800px;
+    width: 100%;
+    height: 300px;
+}
+
+#kiko-slider>ul.slider h1 {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%, -50%);
+}
+
+#kiko-slider>ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background: #fff;
+}
+
+#kiko-slider>ul.slider li img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+#kiko-slider>ul.slider li:first-child {
+    opacity: 1;
+    /*Mostramos el primer <li>*/
+}
+
+#kiko-slider>ul.slider li:target {
+    opacity: 1;
+    /*Mostramos el <li> del enlace que pulsemos*/
+}
+
+#kiko-slider>.menu {
+    text-align: center;
+    margin: 20px;
+}
+
+#kiko-slider>.menu li {
+    display: inline-block;
+    text-align: center;
+}
+
+#kiko-slider>.menu li a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: grey;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border-radius: 100%;
+}
+
+.accordion-item .accordion-trigger span.accordion-title {
+    color: white;
+    text-align: left;
+}
+
+.accordion-item .accordion-trigger span.accordion-icon {
+    color: white;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #917c14;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
