@@ -193,18 +193,7 @@ public class Battle implements Variables {
 	 }
 	
 	
-    public int probabilityAtackAgain(MilitaryUnit unit) {
-    	    if (unit instanceof LigthHunter) return Variables.CHANCE_ATTACK_AGAIN_LIGTHHUNTER;
-    	    if (unit instanceof HeavyHunter) return Variables.CHANCE_ATTACK_AGAIN_HEAVYHUNTER;
-    	    if (unit instanceof BattleShip) return Variables.CHANCE_ATTACK_AGAIN_BATTLESHIP;
-    	    if (unit instanceof ArmoredShip) return Variables.CHANCE_ATTACK_AGAIN_ARMOREDSHIP;
-    	    if (unit instanceof MissileLauncher) return Variables.CHANCE_ATTACK_AGAIN_MISSILELAUNCHER;
-    	    if (unit instanceof IonCannon) return Variables.CHANCE_ATTACK_AGAIN_IONCANNON;
-    	    if (unit instanceof PlasmaCannon) return Variables.CHANCE_ATTACK_AGAIN_PLASMACANNON;
-    	    return -1; // Si el tipo de unidad no coincide
-    	}
-    	
-    	
+
 
 	public int getGroupDefender(ArrayList<MilitaryUnit>[] army) {
         if (army == null || army.length == 0) {
@@ -370,19 +359,19 @@ public class Battle implements Variables {
 	    System.out.println(String.format("%-18s %-10s %-10s %-20s %-10s %-10s",
 	            "Army Planet", "Units", "Drops", "Initial Army Enemy", "Units", "Drops"));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Light Hunter", initialArmies[0][0], actualNumberUnitsPlanet[0], "Light Hunter", initialArmies[1][0], enemyDrops[0]));
+	            "Light Hunter", initialArmies[0][0], actualNumberUnitsPlanet[0], "Light Hunter", initialArmies[1][0], actualNumberUnitsEnemy[0]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Heavy Hunter", initialArmies[0][1], planetDrops[1], "Heavy Hunter", initialArmies[1][1], enemyDrops[1]));
+	            "Heavy Hunter", initialArmies[0][1], actualNumberUnitsPlanet[1], "Heavy Hunter", initialArmies[1][1], actualNumberUnitsEnemy[1]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Battle Ship", initialArmies[0][2], planetDrops[2], "Battle Ship", initialArmies[1][2], enemyDrops[2]));
+	            "Battle Ship", initialArmies[0][2], actualNumberUnitsPlanet[2], "Battle Ship", initialArmies[1][2], actualNumberUnitsEnemy[2]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Armored Ship", initialArmies[0][3], planetDrops[3], "Armored Ship", initialArmies[1][3], enemyDrops[3]));
+	            "Armored Ship", initialArmies[0][3], actualNumberUnitsPlanet[3], "Armored Ship", initialArmies[1][3], actualNumberUnitsEnemy[3]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Missile Launcher", initialArmies[0][4], planetDrops[4], "Missile Launcher", initialArmies[1][4], enemyDrops[4]));
+	            "Missile Launcher", initialArmies[0][4], actualNumberUnitsPlanet[4]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Ion Cannon", initialArmies[0][5], planetDrops[5], "Ion Cannon", initialArmies[1][5], enemyDrops[5]));
+	            "Ion Cannon", initialArmies[0][5], actualNumberUnitsPlanet[5]));
 	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Plasma Cannon", initialArmies[0][6], planetDrops[6], "Plasma Cannon", initialArmies[1][6], enemyDrops[6]));
+	            "Plasma Cannon", initialArmies[0][6], actualNumberUnitsPlanet[6]));
 
 	    System.out.println("\n");
 	    System.out.println("**********************************************************************************");
