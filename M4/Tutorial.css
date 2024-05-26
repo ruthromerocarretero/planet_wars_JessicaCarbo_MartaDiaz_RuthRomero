@@ -212,7 +212,7 @@ body {
 }
 
 .segunda_imagen:hover {
-    background-image: url('img/nomanssky.gif');
+    background-image: url('img/nomanssky.webp');
 }
 
 .tercera_imagen {
@@ -226,7 +226,7 @@ body {
 }
 
 .tercera_imagen:hover {
-    background-image: url('img/stellaris.gif');
+    background-image: url('img/stellaris.webp');
 }
 
 .cuarta_imagen {
