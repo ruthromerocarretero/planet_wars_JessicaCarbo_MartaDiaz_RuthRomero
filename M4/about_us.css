@@ -37,7 +37,7 @@ body {
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    z-index: 1;
+    z-index: 4;
 }
 
 .logo {
@@ -96,6 +96,119 @@ footer {
     width: 80%;
     margin-bottom: 20px;
 }
+.container__cards{
+    max-width: 1200px;
+    margin: auto;
+    /* margin-top: 100px; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    max-width: 300px;
+    margin: 10px;
+    transition: all 300ms;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover{
+    max-width: 350px;
+}
+
+.card .cover{
+    width: 100%;
+    height: 334px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card .cover img{
+    width: 250px;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 40px;
+    z-index: 1;
+    filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.5));
+    transition: all 400ms;
+}
+
+.card:hover .cover img{
+    top: 0px;
+    filter: none;
+}
+
+.card .img__back{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    background-size: cover;
+    border-radius: 20px;
+    transition: all 300ms;
+}
+
+.card:nth-of-type(1) .img__back{
+    background-image: url('img/fondoespaciomarta.avif');
+}
+
+.card:nth-of-type(2) .img__back{
+    background-image: url('img/fondoespaciojessica.avif');
+}
+
+.card:nth-of-type(3) .img__back{
+    background-image: url('img/fotoespacioruth.avif');
+}
+
+.card:hover .img__back{
+    bottom: -40px;
+}
+
+.card .description{
+    background: #04163d7d;
+    margin-top: -10px;
+    padding: 20px;
+    border-radius: 0px 0px 20px 20px;
+    transition: all 300ms;
+    color: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover .description{
+    padding: 40px;
+}
+
+.card .description h2{
+    margin-top: 10px;
+}
+
+.card .description p{
+    margin-top: 10px;
+    flex-grow: 1;
+    max-width: 260px;
+}
+
+.card .description input{
+    padding: 10px 40px;
+    margin-top: 20px;
+    border: none;
+    background: #A6359D;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 300ms;
+}
+
+.card .description input:hover{
+    background: #83277b;
+}
+
 
 .image img {
     max-width: 450px;
@@ -365,6 +478,26 @@ footer a {
     flex-grow: 1;
 }
 
+.form input, .form select {
+    border-radius: 5px;
+    background-color: #07103f52;
+    height: 27px;
+    /* border: 2px solid rgb(233 202 36); */
+    padding-left: 5px;
+    padding-right: 5px;
+    color: white;
+}
+
+.form input.boton {
+    border-radius: 6px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.459);
+}
+
+.form input[type="file" i] {
+    height: 100%;
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
@@ -407,13 +540,8 @@ label {
 
 }
 
-.boton {
-    border-radius: 6px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.459);
-}
-
 .cookies-box {
+    z-index: 100;
     position: fixed;
     bottom: 0;
     background: rgb(51, 51, 51);
@@ -637,4 +765,15 @@ details[open] summary~* {
     .form div {
         flex-direction: column;
     }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+      }
+    
+      .item-options {
+        margin: 0 0.5rem;
+      }
 }
