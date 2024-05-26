@@ -1,30 +1,30 @@
-CREATE OR REPLACE PROCEDURE savePlanetBattleArmy (
-    p_num_battle IN NUMBER,
-    p_light_hunter_built IN NUMBER,
+CREATE OR REPLACE PROCEDURE saveEnemyArmy (
+    p_light_hunter_threat IN NUMBER,
     p_light_hunter_destroyed IN NUMBER,
-    p_heavy_hunter_built IN NUMBER,
+    p_heavy_hunter_threat IN NUMBER,
     p_heavy_hunter_destroyed IN NUMBER,
-    p_battleship_built IN NUMBER,
+    p_battleship_threat IN NUMBER,
     p_battleship_destroyed IN NUMBER,
-    p_armored_ship_built IN NUMBER,
+    p_armored_ship_threat IN NUMBER,
     p_armored_ship_destroyed IN NUMBER
 )
 AS
-    v_planet_id NUMBER;
+    v_battle_planet_id NUMBER;
+    v_num_battle NUMBER;
 BEGIN
-    SELECT planet_id INTO v_planet_id
-    FROM Battle_stats
-    WHERE num_battle = p_num_battle;
 
-    INSERT INTO Planet_battle_army (
-        planet_id, num_battle, light_hunter_built, light_hunter_destroyed,
-        heavy_hunter_built, heavy_hunter_destroyed, battleship_built, battleship_destroyed,
-        armored_ship_built, armored_ship_destroyed
+    SELECT MAX(planet_id), MAX(num_battle) INTO v_battle_planet_id, v_num_battle
+    FROM Battle_stats;
+    INSERT INTO Enemy_army (
+        planet_id, num_battle, light_hunter_threat, light_hunter_destroyed,
+        heavy_hunter_threat, heavy_hunter_destroyed, battleship_threat, battleship_destroyed,
+        armored_ship_threat, armored_ship_destroyed
     ) VALUES (
-        v_planet_id, p_num_battle, p_light_hunter_built, p_light_hunter_destroyed,
-        p_heavy_hunter_built, p_heavy_hunter_destroyed, p_battleship_built, p_battleship_destroyed,
-        p_armored_ship_built, p_armored_ship_destroyed
+        v_battle_planet_id, v_num_battle, p_light_hunter_threat, p_light_hunter_destroyed,
+        p_heavy_hunter_threat, p_heavy_hunter_destroyed, p_battleship_threat, p_battleship_destroyed,
+        p_armored_ship_threat, p_armored_ship_destroyed
     );
+
     COMMIT;
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
@@ -33,4 +33,3 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
 /
-

@@ -12,7 +12,18 @@ public class Main {
 	private static Planet planet;
     private static Battle battle;
     private static Connection conn;
-    public static void main(String[] args) {
+    private static int lightHunterBuilt = 0;
+    private static int  heavyHunterBuilt = 0;
+    private static int  battleshipBuilt= 0;
+    private static int  armoredShipBuilt= 0;
+    private static int  missileLauncherBuilt= 0;
+    private static int  ionCannonBuilt= 0;
+    private static int  plasmaCannonBuilt= 0;
+    private static int lightHunterCount = 8;
+    private static int heavyHunterCount = 7;
+    private static int battleShipCount = 5;
+    private static int armoredShipCount = 3;
+    public static void main(String[] args){
     	
     	
     	try {
@@ -35,11 +46,7 @@ public class Main {
             }
         };
 
-        // Cada 3 minutos (180000ms) generar flota enemiga, actualizar la nuestra y hacer batalla
-       
-
-        // Cada 5 minutos (300000ms) generar reporte de batalla
-        timer.scheduleAtFixedRate(reportTask, 8000, 30000);
+        timer.scheduleAtFixedRate(reportTask, 800000, 300000);
 
 
         Scanner scanner = new Scanner(System.in);
@@ -62,7 +69,7 @@ public class Main {
                     break;
                 case 4:
                     viewBattleReports();
-                    savePlanetStats();
+                    saveStats();
                     break;
                 case 0:
                     System.out.println("Saliendo del juego...");
@@ -81,6 +88,7 @@ public class Main {
         }
     	
     }
+
 
     private static ArrayList<MilitaryUnit>[] createPlanetArmy() {
         @SuppressWarnings("unchecked")
@@ -129,10 +137,7 @@ public class Main {
             enemyArmy[i] = new ArrayList<>();
         }
 
-        int lightHunterCount = 8;
-        int heavyHunterCount = 7;
-        int battleShipCount = 5;
-        int armoredShipCount = 3;
+        
 
         for (int i = 0; i < lightHunterCount; i++) {
             enemyArmy[0].add(new LigthHunter());
@@ -235,22 +240,26 @@ public class Main {
         }
 
         try {
-            int built = 0;
+            int unitsBuilt = 0;
             switch (troopType) {
                 case "Light Hunter":
-                    built = planet.newLightHunter(amount);
+                    unitsBuilt = planet.newLightHunter(amount);
+                    lightHunterBuilt += unitsBuilt;
                     break;
                 case "Heavy Hunter":
-                    built = planet.newHeavyHunter(amount);
+                    unitsBuilt = planet.newHeavyHunter(amount);
+                    heavyHunterBuilt += unitsBuilt;
                     break;
                 case "Battle Ship":
-                    built = planet.newBattleShip(amount);
+                    unitsBuilt = planet.newBattleShip(amount);
+                    battleshipBuilt += unitsBuilt;
                     break;
                 case "Armored Ship":
-                    built = planet.newArmoredShip(amount);
+                    unitsBuilt = planet.newArmoredShip(amount);
+                    armoredShipBuilt += unitsBuilt;
                     break;
             }
-            System.out.println("Added " + built + " " + troopType + "(s) to the fleet.");
+            System.out.println("Added " + unitsBuilt + " " + troopType + "(s) to the fleet.");
         } catch (ResourceException e) {
             System.out.println(e.getMessage());
         }
@@ -295,23 +304,27 @@ public class Main {
         }
 
         try {
-            int built = 0;
+            int unitsBuilt = 0;
             switch (defenseType) {
                 case "Missile Launcher":
-                    built = planet.newMissileLauncher(amount);
+                    unitsBuilt = planet.newMissileLauncher(amount);
+                    missileLauncherBuilt += unitsBuilt;
                     break;
                 case "Ion Cannon":
-                    built = planet.newIonCannon(amount);
+                    unitsBuilt = planet.newIonCannon(amount);
+                    ionCannonBuilt += unitsBuilt;
                     break;
                 case "Plasma Cannon":
-                    built = planet.newPlasmaCannon(amount);
+                    unitsBuilt = planet.newPlasmaCannon(amount);
+                    plasmaCannonBuilt += unitsBuilt;
                     break;
             }
-            System.out.println("Added " + built + " " + defenseType + "(s) to the defenses.");
+            System.out.println("Added " + unitsBuilt + " " + defenseType + "(s) to the defenses.");
         } catch (ResourceException e) {
             System.out.println(e.getMessage());
         }
     }
+
 
 
     	
@@ -357,24 +370,24 @@ public class Main {
     	    battle.setPlanetArmy(planet.getArmy());
     	    battle.startBattle();
     	    
+    	  
+    	    
+    	   
     	    // Crear e iniciar el timer
     	    Timer timer = new Timer();
     	    TimerTask reportTask = new TimerTask() {
     	        public void run() {
     	            String battleDevelopment = battle.getBattleDevelopment();
-    	            if (battleDevelopment != null) {
-    	                System.out.println(battleDevelopment);
-    	            } else {
+    	            if (battleDevelopment.equals("")) {
     	                System.out.println("No battle reports available.");
+    	            } else {
+    	                System.out.println(battleDevelopment);
     	            }
     	        }
     	    };
     	    
     	    // Programar tarea para que se ejecute periódicamente
-    	    timer.scheduleAtFixedRate(reportTask, 1000, 3000); // Cada 10 segundos
-    	    
-    	    System.out.println("Viewing Battle Reports");
-    	    
+    	    timer.scheduleAtFixedRate(reportTask, 50000, 6000); // Cada 10 segundos
     	    
     	}
 
@@ -404,17 +417,22 @@ public class Main {
         System.out.println("4) Go Back");
         System.out.print("Option > ");
     }
-    private static void savePlanetStats() {
+   private static void saveStats() {
         try {
-            Conexion conn = new Conexion();
+           
             Conexion.saveBattle(planet, new int[]{planet.getMetal(), planet.getDeuterium()});
-            System.out.println("Planet stats saved successfully.");
+            Conexion.saveBattleStats( planet.getMetal(), planet.getDeuterium());
+            Conexion.saveBattleLog( "sssssss");
+			Conexion.savePlanetBattleDefense( missileLauncherBuilt,planet.getUnitRemaining(4),ionCannonBuilt,planet.getUnitRemaining(5),plasmaCannonBuilt,planet.getUnitRemaining(6));
+            Conexion.savePlanetBattleArmy(lightHunterBuilt,planet.getUnitRemaining(0),heavyHunterBuilt, planet.getUnitRemaining(1),battleshipBuilt,planet.getUnitRemaining(2),armoredShipBuilt,planet.getUnitRemaining(3));
+            Conexion.saveEnemyArmy(lightHunterCount,heavyHunterCount,battleShipCount,armoredShipCount,lightHunterCount,heavyHunterCount,battleShipCount,armoredShipCount); 
         } catch (Exception e) {
             System.out.println("Error saving planet stats: " + e.getMessage());
         }
     }
 
 }
+
 
 
 

@@ -15,13 +15,10 @@ COMMIT;
 
 
 /*sequencias*/
-
 CREATE SEQUENCE planet_id_seq START WITH 1;
 CREATE SEQUENCE num_battle_seq START WITH 1;
-CREATE SEQUENCE num_line_seq START WITH 1;
 
-
-/*crear tablas*/
+/*-Crear tablas*/
 CREATE TABLE Planet_stats (
     planet_id NUMBER DEFAULT planet_id_seq.NEXTVAL PRIMARY KEY,
     name VARCHAR2(100),
@@ -37,8 +34,6 @@ CREATE TABLE Planet_stats (
     heavy_hunter_remaining NUMBER,
     battleship_remaining NUMBER,
     armored_ship_remaining NUMBER
- 
-
 );
 
 CREATE TABLE Battle_stats (
@@ -46,13 +41,13 @@ CREATE TABLE Battle_stats (
     planet_id NUMBER NOT NULL,
     resource_metal_acquired NUMBER,
     resource_deuterion_acquired NUMBER,
-    FOREIGN KEY (planet_id) REFERENCES Planet_stats(planet_id)
+    FOREIGN KEY (planet_id) REFERENCES Planet_stats(planet_id),
+    UNIQUE (planet_id, num_battle) -- Añadir clave única compuesta
 );
 
 CREATE TABLE Battle_log (
-    num_line NUMBER DEFAULT num_line_seq.NEXTVAL PRIMARY KEY,
+    num_battle NUMBER DEFAULT num_battle_seq.NEXTVAL PRIMARY KEY,
     planet_id NUMBER NOT NULL,
-    num_battle NUMBER NOT NULL,
     log_entry VARCHAR2(100),
     FOREIGN KEY (planet_id) REFERENCES Planet_stats(planet_id),
     FOREIGN KEY (num_battle) REFERENCES Battle_stats(num_battle)

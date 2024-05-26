@@ -364,6 +364,42 @@ public class Battle implements Variables {
 	    calculateInitialNumberUnits();
 	    updateActualNumberUnits();
 	    int counter= 0;
+	
+	    
+	    System.out.println("BATTLE STATISTICS");
+	    System.out.println(String.format("%-18s %-10s %-10s %-20s %-10s %-10s",
+	            "Army Planet", "Units", "Drops", "Initial Army Enemy", "Units", "Drops"));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Light Hunter", initialArmies[0][0], actualNumberUnitsPlanet[0], "Light Hunter", initialArmies[1][0], enemyDrops[0]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Heavy Hunter", initialArmies[0][1], planetDrops[1], "Heavy Hunter", initialArmies[1][1], enemyDrops[1]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Battle Ship", initialArmies[0][2], planetDrops[2], "Battle Ship", initialArmies[1][2], enemyDrops[2]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Armored Ship", initialArmies[0][3], planetDrops[3], "Armored Ship", initialArmies[1][3], enemyDrops[3]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Missile Launcher", initialArmies[0][4], planetDrops[4], "Missile Launcher", initialArmies[1][4], enemyDrops[4]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Ion Cannon", initialArmies[0][5], planetDrops[5], "Ion Cannon", initialArmies[1][5], enemyDrops[5]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Plasma Cannon", initialArmies[0][6], planetDrops[6], "Plasma Cannon", initialArmies[1][6], enemyDrops[6]));
+
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************");
+	    System.out.println(String.format("%-20s %-20s", "Cost Army Planet", "Cost Army Enemy"));
+	    System.out.println(String.format("%-20s %-20s", "Metal:", "Metal:"));
+	    System.out.println(String.format("%-20s %-20s", "Deuterium:", "Deuterium:"));
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************");
+	    System.out.println(String.format("%-20s %-20s", "Losses Army Planet", "Losses Army Enemy"));
+	    System.out.println(String.format("%-20s %-20s", "Metal:", "Metal:"));
+	    System.out.println(String.format("%-20s %-20s", "Deuterium:", "Deuterium:"));
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************"); 
+	    System.out.println("Waste Generated:");
+	    System.out.println(String.format("%-20s", "Metal:"));
+	    System.out.println(String.format("%-20s", "Deuterium:"));
+
 	    // Bucle de la batalla
 	    while (totalActualNumberUnitsPlanet > 0 && totalActualNumberUnitsEnemy > 0) {
 	    	counter =+1; 
@@ -395,6 +431,7 @@ public class Battle implements Variables {
 	                battleDevelopment.append("Winner Enemy\n");
 	    
 	            break; // Salir del bucle si se cumple alguna condición
+	            
 	        }
 	     	}
 	}

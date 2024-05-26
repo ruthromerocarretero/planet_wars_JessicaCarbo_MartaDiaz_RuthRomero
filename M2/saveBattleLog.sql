@@ -1,17 +1,32 @@
 CREATE OR REPLACE PROCEDURE SaveBattleLog (
-    p_planet_id IN NUMBER,
     p_log_entry IN VARCHAR2
 )
 AS
     v_num_battle NUMBER;
+    v_p_planet_id NUMBER;
 BEGIN
-    SELECT MAX(num_battle) INTO v_num_battle FROM Battle_Stats;
+  
+    SELECT num_battle, planet_id INTO v_num_battle, v_p_planet_id
+    FROM (
+        SELECT num_battle, planet_id
+        FROM Battle_Stats
+        ORDER BY num_battle DESC
+    )
+    WHERE ROWNUM = 1;
+
 
     INSERT INTO Battle_log (
         planet_id, num_battle, log_entry
     ) VALUES (
-        p_planet_id, v_num_battle, p_log_entry
+        v_p_planet_id, v_num_battle, p_log_entry
     );
-    COMMIT;
+
+
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Error: No se encontraron registros en Battle_Stats.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
 /
