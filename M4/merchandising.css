@@ -472,28 +472,20 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* Para centrar los elementos horizontalmente */
   width: 400px;
 }
 
 .redes_sociales a {
   text-align: center;
-  /* Para centrar el texto debajo de las imágenes */
   margin: 5px;
-  /* Espacio entre los elementos */
   flex: 0 0 calc(33.33% - 20px);
-  /* Calcula el ancho de cada elemento (1/3 del contenedor) con margen */
   max-width: calc(33.33% - 20px);
-  /* Limita el ancho máximo de cada elemento */
 }
 
 .redes_sociales img {
   display: block;
-  /* Para evitar espacios innecesarios debajo de las imágenes */
   margin: 0 auto;
-  /* Para centrar las imágenes horizontalmente */
   width: 35px;
-  /* Ajusta el tamaño máximo de las imágenes al ancho del contenedor */
 }
 
 footer .copyright {
@@ -626,29 +618,21 @@ label {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* Para centrar los elementos horizontalmente */
   width: 100%;
   max-width: 400px;
 }
 
 .redes_sociales a {
   text-align: center;
-  /* Para centrar el texto debajo de las imágenes */
   margin: 5px;
-  /* Espacio entre los elementos */
   flex: 0 0 calc(33.33% - 20px);
-  /* Calcula el ancho de cada elemento (1/3 del contenedor) con margen */
   max-width: calc(33.33%);
-  /* Limita el ancho máximo de cada elemento */
 }
 
 .redes_sociales img {
   display: block;
-  /* Para evitar espacios innecesarios debajo de las imágenes */
   margin: 0 auto;
-  /* Para centrar las imágenes horizontalmente */
   width: 35px;
-  /* Ajusta el tamaño máximo de las imágenes al ancho del contenedor */
 }
 
 footer .copyright {
@@ -781,7 +765,7 @@ input:checked:hover ~ .rating-counter:before {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-right: 20px; /* Espacio entre las imágenes y el carrusel */
+  margin-right: 20px;
   position: relative;
 }
 
@@ -793,7 +777,7 @@ input:checked:hover ~ .rating-counter:before {
 
 .side-images .imagenes img {
   margin-bottom: 10px;
-  max-width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+  max-width: 100px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
