@@ -73,8 +73,13 @@ public class Main {
                     break;
                 case 4:
                     viewBattleReports();
-                    /*saveStats();*/
+                    saveStats();
                     break;
+                case 5:
+                	iewThreadComming();
+                    
+                    break;   
+                   
                 case 0:
                     System.out.println("Saliendo del juego...");
                     break;
@@ -94,7 +99,9 @@ public class Main {
     }
 
 
-    private static ArrayList<MilitaryUnit>[] createPlanetArmy() {
+
+
+	private static ArrayList<MilitaryUnit>[] createPlanetArmy() {
         @SuppressWarnings("unchecked")
         ArrayList<MilitaryUnit>[] planetArmy = new ArrayList[7];
         for (int i = 0; i < 7; i++) {
@@ -166,6 +173,7 @@ public class Main {
         System.out.println("2) Build");
         System.out.println("3) Upgrade Technology");
         System.out.println("4) View Battle Reports");
+        System.out.println("5) View Thread Comming");
         System.out.println("0) Exit");
         System.out.print("Option > \n");
     }
@@ -376,6 +384,15 @@ public class Main {
     	    battle.startBattle();
     	    String battleDevelopment = battle.getBattleDevelopment();
     }
+    private static void iewThreadComming() {
+    	ArrayList<MilitaryUnit>[] enemyArmy = createEnemyArmy();
+	    battle.setEnemyArmy(enemyArmy);
+	    battle.setPlanetArmy(planet.getArmy());
+	    battle.startBattle();
+	    String battleDevelopment = battle.getBattleDevelopment();
+	    System.out.print(battleDevelopment );
+		
+	}
             
     private static void mostrarSubMenuBuild() {
         System.out.println("\nBuild\n");

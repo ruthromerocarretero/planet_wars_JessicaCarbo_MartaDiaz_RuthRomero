@@ -281,7 +281,7 @@ public class Battle implements Variables {
 		
 		String attackerType = getTypeByIndex(atacker);
 		String defenderType = getTypeByIndex(defense);
-		battleDevelopment.append( attackerType + " attacks " + defenderType + "\n");	
+		battleDevelopment.append( attackerType + " attacks " + defenderType + "\n\n");	
 		int attackPower =0;
 		boolean attackOccurred = false;
 		
