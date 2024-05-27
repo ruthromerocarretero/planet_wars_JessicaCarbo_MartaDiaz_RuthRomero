@@ -18,15 +18,15 @@ public class Battle implements Variables {
 	private int initialNumberUnitsPlanet, initialNumberUnitsEnemy;
 	private int totalActualNumberUnitsPlanet, totalActualNumberUnitsEnemy;
 	private int[] wasteMetalDeuterium;
-	private int[] enemyDrops;
-	private int[] planetDrops;
+	int[] enemyDrops;
+	int[] planetDrops;
 	private int[][] resourcesLooses;
 	private int[][] initialArmies;
 	private int[] actualNumberUnitsPlanet;
 	private int[] actualNumberUnitsEnemy;
 	private int turno;
 	private int Planet ;
-	private String name;
+	StringBuilder BattleReport;
 
 
      public Battle (ArrayList<MilitaryUnit>[] planetArmy, ArrayList<MilitaryUnit>[] enemyArmy) {
@@ -36,6 +36,7 @@ public class Battle implements Variables {
 	        this.armies = new ArrayList[2][7];
 	        this.initialArmies = new int[2][7];
 	        this.battleDevelopment = new StringBuilder();
+	        this.BattleReport= new StringBuilder();
 	        this.initialCostFleet = new int[2][2];
 	        this.initialNumberUnitsPlanet = 0;
 	        this.initialNumberUnitsEnemy = 0;
@@ -47,44 +48,38 @@ public class Battle implements Variables {
 	        this.actualNumberUnitsEnemy = new int[7];
 	        Random random = new Random();
 	        this.turno = random.nextInt(2);
-	
-	        
-	        //inicializo array armies
-
-
 	}
 
-	 //Método para ir agregando el desarrollo de la batalla
+
 	 public String getBattleDevelopment() {
 		 return battleDevelopment.toString();
 	 }
-	    
+	
 	 //calculamos el cost fleet
 	 private void calculateInitialCostFleet() {
-		    for (int i = 0; i <= 1; ++i) {
-		        for (int j = 0; j <= 6; ++j) {
-		            if (i == 0 && !planetArmy[j].isEmpty()) {
-		                initialCostFleet[i][0] += planetArmy[j].size() * planetArmy[j].get(0).getMetalCost();
-		                initialCostFleet[i][1] += planetArmy[j].size() * planetArmy[j].get(0).getDeuteriumCost();
-		            } else if (i == 1 && !enemyArmy[j].isEmpty()) {
-		                initialCostFleet[i][0] += enemyArmy[j].size() * enemyArmy[j].get(0).getMetalCost();
-		                initialCostFleet[i][1] += enemyArmy[j].size() * enemyArmy[j].get(0).getDeuteriumCost();
-		            }
+		    // Calcular el costo inicial de la flota del planeta
+		    for (int i = 0; i < 7; ++i) {
+		        if (!planetArmy[i].isEmpty()) {
+		            initialCostFleet[0][0] += planetArmy[i].size() * planetArmy[i].get(0).getMetalCost();
+		            initialCostFleet[0][1] += planetArmy[i].size() * planetArmy[i].get(0).getDeuteriumCost();
 		        }
 		    }
-
+		    for (int i = 0; i < 7; ++i) {
+		        if (!enemyArmy[i].isEmpty()) {
+		            initialCostFleet[1][0] += enemyArmy[i].size() * enemyArmy[i].get(0).getMetalCost();
+		            initialCostFleet[1][1] += enemyArmy[i].size() * enemyArmy[i].get(0).getDeuteriumCost();
+		        }
+		    }
 		    int[] unitMetalValue = Variables.METAL_COST_UNITS;
 		    int[] unitDeuteriumValue = Variables.DEUTERIUM_COST_UNITS;
-
-		    for (int i = 0; i <= 1; ++i) {
-		        for (int j = 0; j <= 6; ++j) {
-		            if (i >= 0 && i < initialArmies.length && j >= 0 && j < initialArmies[i].length) {
-		                initialCostFleet[i][0] += (initialArmies[i][j] * unitMetalValue[j]);
-		                initialCostFleet[i][1] += (initialArmies[i][j] * unitDeuteriumValue[j]);
-		            }
+		    for (int i = 0; i < 2; ++i) {
+		        for (int j = 0; j < 7; ++j) {
+		            initialCostFleet[i][0] += initialArmies[i][j] * unitMetalValue[j];
+		            initialCostFleet[i][1] += initialArmies[i][j] * unitDeuteriumValue[j];
 		        }
 		    }
 		}
+
 
 	 // Calculamos initialNumberUnitsPlanet y initialNumberUnitsEnemy
 	 // Dentro de la clase Battle
@@ -104,10 +99,9 @@ public class Battle implements Variables {
 		        }
 		    }
 
-		    // Crear copias de los valores iniciales para evitar problemas de referencia
-		    actualNumberUnitsPlanet = new int[initialArmies[0].length];
-		    actualNumberUnitsEnemy = new int[initialArmies[1].length];
-
+		 
+		    actualNumberUnitsPlanet = initialArmies[0];
+		     actualNumberUnitsEnemy = initialArmies[1];
 		    for (int j = 0; j <= 6; ++j) {
 		        actualNumberUnitsPlanet[j] = initialArmies[0][j];
 		        actualNumberUnitsEnemy[j] = initialArmies[1][j];
@@ -117,83 +111,44 @@ public class Battle implements Variables {
 	 //calculamos los residuos generados por la batalla /// preguntar a Jordi si tengo que calcular el metal o el metodo debe ser este 	public int getChanceGeneratinWaste()
 	 public int[] calculateWaste(ArrayList<MilitaryUnit> planetArmy, ArrayList<MilitaryUnit> enemyArmy) {
 		 int metalWaste = 0;
-		 int deuteriumWaste = 0;
-		 int probability= 0;
+		 int deuteriumWaste = 1;
 		 //calculo lo que me cuesta   metal y deuterio nuestro
 		 for (MilitaryUnit unit : planetArmy) {
-			 probability += unit.getChanceGeneratinWaste() * Variables.PERCENTATGE_WASTE;
-			 metalWaste += probability*unit.getMetalCost();
-			 deuteriumWaste += probability* unit.getDeuteriumCost();
-				 
-			 
+
+			 int probability = unit.getChanceGeneratinWaste() * Variables.PERCENTATGE_WASTE;
+			 int unitMetalWaste = probability * unit.getMetalCost();
+		     int unitDeuteriumWaste = unit.getDeuteriumCost()*probability;
+			 metalWaste += unitMetalWaste;
+			 deuteriumWaste += unitDeuteriumWaste ; 
 		 }
 
-		 //calculo lo que me cuesta   metal y deuterio enemigo
 		 for (MilitaryUnit unit : enemyArmy) {
 		
-			 probability += unit.getChanceGeneratinWaste() * Variables.PERCENTATGE_WASTE;
-			 metalWaste += probability*unit.getMetalCost();
-			 deuteriumWaste += probability* unit.getDeuteriumCost();
+			 int probability = unit.getChanceGeneratinWaste() * Variables.PERCENTATGE_WASTE;
+			 int unitMetalWaste = probability * unit.getMetalCost();
+		     int unitDeuteriumWaste = probability * unit.getDeuteriumCost()*probability ;
+			 metalWaste += unitMetalWaste;
+			 deuteriumWaste += unitDeuteriumWaste ;
 			 
 		 }
 	       
 		 metalWaste -= initialCostFleet[0][0] + initialCostFleet[1][0];
 		 deuteriumWaste -= initialCostFleet[0][1] + initialCostFleet[1][1];
-	        
-		 this.actualNumberUnitsPlanet = initialArmies[0];
-		 this.actualNumberUnitsEnemy = initialArmies[1];
+	     if(deuteriumWaste <0) {
+	    	deuteriumWaste =0;
+	     }
 		 wasteMetalDeuterium[0] = metalWaste;
 		 wasteMetalDeuterium[1] = deuteriumWaste;
 	        
 	    return wasteMetalDeuterium ;
 	 }
 	    
-	 public int[][] calculateDrops() {
-	        
-		 // Calcula las pérdidas materiales del ejército del planeta
-		 for (ArrayList<MilitaryUnit> units : planetArmy) {
-			 for (MilitaryUnit unit : units) {
-				 int actualArmor = unit.getActualArmor();
-				 if (actualArmor <= 0) {
-					 planetDrops[0] += unit.getMetalCost();
-					 planetDrops[1] += unit.getDeuteriumCost();
-				 }
-			 }
-		 }
-		 // Calcula las pérdidas materiales del ejército enemigo
-		 for (ArrayList<MilitaryUnit> units : enemyArmy) {
-			 for (MilitaryUnit unit : units) {
-				 int actualArmor = unit.getActualArmor();
-				 if (actualArmor <= 0) {
-					 enemyDrops[0] += unit.getMetalCost();
-					 enemyDrops[1] += unit.getDeuteriumCost();
-				 }
-			 }
-		 }
-		 int[][] drops = {enemyDrops, planetDrops};
-		 return drops;
-	 }
 
-	public String destroyShip(MilitaryUnit unit, int attackingArmy) {
-		 // Actualizar las pérdidas de recursos
-		 resourcesLooses[turno][0] += unit.getMetalCost();
-		 resourcesLooses[turno][1] += unit.getDeuteriumCost();
-		 resourcesLooses[turno][2] += unit.getMetalCost() + 5 * unit.getDeuteriumCost();
-
-	  
-		 if (turno == 0) {
-			 enemyArmy[attackingArmy].remove(unit);
-		 	 actualNumberUnitsEnemy[attackingArmy] -= 1;
-		 	 return "We eliminate " + unit.getClass().getSimpleName();
-		 } else {
-			 planetArmy[attackingArmy].remove(unit);
-			 actualNumberUnitsPlanet[attackingArmy] -= 1;
-			 return "We eliminate " + unit.getClass().getSimpleName();
-		 } 
-	 }
-	
-	
-
+	 private void updateResourceLosses(MilitaryUnit unit) {
+		    resourcesLooses[turno][0] += unit.getMetalCost();
+		    resourcesLooses[turno][1] += unit.getDeuteriumCost();
+		    resourcesLooses[turno][2] += unit.getMetalCost() + 5 * unit.getDeuteriumCost();
+		}
 
 	public int getGroupDefender(ArrayList<MilitaryUnit>[] army) {
         if (army == null || army.length == 0) {
@@ -246,8 +201,7 @@ public class Battle implements Variables {
 				return i;
 			}
 		}
-
-		return chanceAttackUnits.length - 1; // Si no se encuentra un grupo atacante válido, devuelve -1
+		return chanceAttackUnits.length - 1; 
 	}
 
 	
@@ -263,8 +217,7 @@ public class Battle implements Variables {
 	            if (index != -1) actualNumberUnitsPlanet[index]++;
 	        }
 	    }
-
-	    // Contar las unidades en el ejército enemigo
+ 
 	    for (ArrayList<MilitaryUnit> units : enemyArmy) {
 	        for (MilitaryUnit unit : units) {
 	            int index = getUnitTypeIndex(unit);
@@ -272,9 +225,46 @@ public class Battle implements Variables {
 	        }
 	    }
 
-	    // Sumar todas las unidades actuales
 	    totalActualNumberUnitsPlanet = Arrays.stream(actualNumberUnitsPlanet).sum();
 	    totalActualNumberUnitsEnemy = Arrays.stream(actualNumberUnitsEnemy).sum();
+	}
+	public void printBattleStadistics() {
+
+	    System.out.println("BATTLE STADISTICS");
+	    System.out.println(String.format("%-18s %-10s %-10s %-20s %-10s %-10s",
+	            "Army Planet", "Units", "Drops", "Initial Army Enemy", "Units", "Drops"));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Light Hunter", initialArmies[0][0], planetDrops[0], "Light Hunter", initialArmies[1][0], enemyDrops[0]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Heavy Hunter", initialArmies[0][1], planetDrops[1], "Heavy Hunter", initialArmies[1][1], enemyDrops[1]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Battle Ship", initialArmies[0][2], planetDrops[2], "Battle Ship", initialArmies[1][2], enemyDrops[2]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
+	            "Armored Ship", initialArmies[0][3], planetDrops[3], "Armored Ship", initialArmies[1][3], enemyDrops[3]));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10s %-10s",
+	            "Missile Launcher", initialArmies[0][4], planetDrops[4], "", "-", "-"));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10s %-10s",
+	            "Ion Cannon", initialArmies[0][5], planetDrops[5], "", "-", "-"));
+	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10s %-10s",
+	            "Plasma Cannon", initialArmies[0][6], planetDrops[6], "", "-", "-"));
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************");
+	    System.out.println(String.format("%-40s %-40s", "Cost Army Planet", "Cost Army Enemy"));
+	    System.out.println(String.format("%-20s %-20s %-20s %-20s", "Metal:", initialCostFleet[0][0], "Metal:", initialCostFleet[1][0]));
+	    System.out.println(String.format("%-20s %-20s %-20s %-20s", "Deuterium:", initialCostFleet[0][1], "Deuterium:", initialCostFleet[1][1]));
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************");
+	    System.out.println(String.format("%-40s %-40s", "Losses Army Planet", "Losses Army Enemy"));
+	    System.out.println(String.format("%-20s %-20s %-20s %-20s", "Metal:", resourcesLooses[0][0] , "Metal:", resourcesLooses[1][0] ));
+	    System.out.println(String.format("%-20s %-20s %-20s %-20s", "Deuterium:", resourcesLooses[0][1] , "Deuterium:",resourcesLooses[1][1] ));
+	    System.out.println("\n");
+	    System.out.println("**********************************************************************************"); 
+	    System.out.println("Waste Generated:");
+	    System.out.println(String.format("Metal: %d", wasteMetalDeuterium[0]));
+	    System.out.println(String.format("Deuterium: %d", wasteMetalDeuterium[1]));
+	    System.out.println("\n");
+	    System.out.println("##################################################################################"); 
+	    System.out.println("\n");
 	}
 
 	private int getUnitTypeIndex(MilitaryUnit unit) {
@@ -285,8 +275,7 @@ public class Battle implements Variables {
 	    if (unit instanceof MissileLauncher) return 4;
 	    if (unit instanceof IonCannon) return 5;
 	    if (unit instanceof PlasmaCannon) return 6;
-	    return -1; // Si el tipo de unidad no coincide
-	}
+	    return -1; }
 	
 	private void attack(int atacker, int defense, int attackerChance,ArrayList<MilitaryUnit>[] attackingArmy, ArrayList<MilitaryUnit>[] defenseArmy) {
 		
@@ -308,8 +297,8 @@ public class Battle implements Variables {
 
 						attackPower += unit.attack();
 						unit.takeDamage(attackPower);
-						battleDevelopment.append(attackerType + " generates damage = " +  attackPower +"--------------\n");
-						attackOccurred = true;  // Indica que el ataque ha ocurrido
+						battleDevelopment.append(attackerType + " generates damage = " +  attackPower +"\n");
+						attackOccurred = true;
 			            break; 
 				}
 			}
@@ -330,14 +319,27 @@ public class Battle implements Variables {
 		                
 		                unit.getActualArmor();
 		                int actualArmor = unit.attack() - attackPower;
-		                battleDevelopment.append(defenderType + " stays with armor = " + actualArmor + "\n");
-		               
-		                
+		                battleDevelopment.append(defenderType + " stays with armor = " + actualArmor + "\n\n");
+		             
 		               
 		                if (actualArmor <= 0) {
-		                    battleDevelopment.append("We eliminate : " + unit.getClass().getSimpleName() + "\n");
-		                    iterator.remove(); // Eliminamos la unidad de forma segura usando el iterador
-		                    calculateWaste(new ArrayList<>(Arrays.asList(unit)), new ArrayList<>());
+		                    battleDevelopment.append("We eliminate : " + unit.getClass().getSimpleName() + "\n\n");
+		                   /*  // Eliminamos la unidad de forma segura usando el iterador
+		                    */
+		                    iterator.remove();
+		                    int index = getUnitTypeIndex(unit);
+		                    
+		                    if (turno == 0) {
+		                    	
+		                    	updateResourceLosses(unit);
+			                    calculateWaste(new ArrayList<>(Arrays.asList(unit)), new ArrayList<>());
+			                    planetDrops[index]++;
+		                    }else {
+		                    	 updateResourceLosses(unit);
+				                 calculateWaste(new ArrayList<>(Arrays.asList(unit)), new ArrayList<>());
+				                 enemyDrops[index]++;
+		                    }
+		                   
 		                }
 		                break;
 		            }
@@ -347,57 +349,23 @@ public class Battle implements Variables {
 	    }
 	}
 	public void startBattle() {
-	    initialArmies();
+		 
+	    initialitzeArmies();
 	    setArmies();
 	    calculateInitialCostFleet();
 	    calculateInitialNumberUnits();
 	    updateActualNumberUnits();
-	    int counter= 0;
-	
 	    
-	    System.out.println("BATTLE STATISTICS");
-	    System.out.println(String.format("%-18s %-10s %-10s %-20s %-10s %-10s",
-	            "Army Planet", "Units", "Drops", "Initial Army Enemy", "Units", "Drops"));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Light Hunter", initialArmies[0][0], actualNumberUnitsPlanet[0], "Light Hunter", initialArmies[1][0], actualNumberUnitsEnemy[0]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Heavy Hunter", initialArmies[0][1], actualNumberUnitsPlanet[1], "Heavy Hunter", initialArmies[1][1], actualNumberUnitsEnemy[1]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Battle Ship", initialArmies[0][2], actualNumberUnitsPlanet[2], "Battle Ship", initialArmies[1][2], actualNumberUnitsEnemy[2]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Armored Ship", initialArmies[0][3], actualNumberUnitsPlanet[3], "Armored Ship", initialArmies[1][3], actualNumberUnitsEnemy[3]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Missile Launcher", initialArmies[0][4], actualNumberUnitsPlanet[4]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Ion Cannon", initialArmies[0][5], actualNumberUnitsPlanet[5]));
-	    System.out.println(String.format("%-18s %-10d %-10d %-20s %-10d %-10d",
-	            "Plasma Cannon", initialArmies[0][6], actualNumberUnitsPlanet[6]));
 
-	    System.out.println("\n");
-	    System.out.println("**********************************************************************************");
-	    System.out.println(String.format("%-20s %-20s", "Cost Army Planet", "Cost Army Enemy"));
-	    System.out.println(String.format("%-20s %-20s", "Metal:", "Metal:"));
-	    System.out.println(String.format("%-20s %-20s", "Deuterium:", "Deuterium:"));
-	    System.out.println("\n");
-	    System.out.println("**********************************************************************************");
-	    System.out.println(String.format("%-20s %-20s", "Losses Army Planet", "Losses Army Enemy"));
-	    System.out.println(String.format("%-20s %-20s", "Metal:", "Metal:"));
-	    System.out.println(String.format("%-20s %-20s", "Deuterium:", "Deuterium:"));
-	    System.out.println("\n");
-	    System.out.println("**********************************************************************************"); 
-	    System.out.println("Waste Generated:");
-	    System.out.println(String.format("%-20s", "Metal:"));
-	    System.out.println(String.format("%-20s", "Deuterium:"));
-
-	    // Bucle de la batalla
-	    while (totalActualNumberUnitsPlanet > 0 && totalActualNumberUnitsEnemy > 0) {
-	    	counter =+1; 
+	 
+	    while (totalActualNumberUnitsPlanet >= (initialNumberUnitsEnemy * 0.2) && totalActualNumberUnitsEnemy >= (initialNumberUnitsPlanet * 0.2)) {
+	    	battleDevelopment.append("******************** CHANGE ATTACKER ********************\n");
 	    	if (turno == 0) {
-	    		battleDevelopment.append("******************** CHANGE ATTACKER ********************\n");
+	    		
 	            battleDevelopment.append("Attacks fleet Planet: ");
 	            attack(getPlanetGroupAttacker(), getGroupDefender(enemyArmy), Variables.CHANCE_ATTACK_PLANET_UNITS[getPlanetGroupAttacker()], planetArmy, enemyArmy);
 	        } else {
-	        	battleDevelopment.append("******************** CHANGE ATTACKER ********************\n");
+	        	
 	            battleDevelopment.append("Attacks fleet Enemy: ");
 	            attack(getEnemyGroupAttacker(), getGroupDefender(planetArmy), Variables.CHANCE_ATTACK_ENEMY_UNITS[getEnemyGroupAttacker()], enemyArmy, planetArmy);
 	        }
@@ -405,28 +373,16 @@ public class Battle implements Variables {
 
 	        // Alternar el turno
 	        turno = turno == 0 ? 1 : 0;
-
-	        // Actualizar las cantidades actuales de unidades después de cada ataque
+	       
+	     
+	        
 	        updateActualNumberUnits();
-	        // Calcular y verificar si alguna de las condiciones de fin de batalla se cumple
-	        if (totalActualNumberUnitsPlanet < initialNumberUnitsEnemy * 0.2 || totalActualNumberUnitsEnemy < initialNumberUnitsPlanet * 0.2) {
-	            // Realizar cálculos adicionales o finalizar la batalla
-
-	            if (totalActualNumberUnitsPlanet > totalActualNumberUnitsEnemy) {
-	                battleDevelopment.append("Winner Planet\n");	               
-	            }
-	                
-	            } else if (totalActualNumberUnitsPlanet < totalActualNumberUnitsEnemy) {
-	                battleDevelopment.append("Winner Enemy\n");
-	    
-	            break; // Salir del bucle si se cumple alguna condición
-	            
-	        }
-	     	}
-	}
-	    
-        
-
+	       
+	      
+	     }printBattleStadistics();
+	} 
+	
+	
 	 
 	 private String getTypeByIndex(int index) {
 		 switch (index) {
@@ -441,7 +397,7 @@ public class Battle implements Variables {
 		}
 	 }
 
-	 private void initialArmies() {
+	 private void initialitzeArmies() {
 		 for (ArrayList<MilitaryUnit> unitType : planetArmy) {
 			for (MilitaryUnit unit : unitType) {
 				if (unit instanceof LigthHunter) initialArmies[0][0] += 1;
@@ -453,12 +409,10 @@ public class Battle implements Variables {
 				if (unit instanceof PlasmaCannon) initialArmies[0][6] += 1;
 			}
 		}
-
-		 if (enemyArmy != null) {
 			 for (ArrayList<MilitaryUnit> unitType : enemyArmy) {
 				 if (unitType != null) {
 					 for (MilitaryUnit unit : unitType) {
-						 if (unit instanceof LigthHunter) initialArmies[1][0] += 1;
+						 if (unit instanceof LigthHunter) initialArmies[1][0] +=1 ;
 						 if (unit instanceof HeavyHunter) initialArmies[1][1] += 1;
 						 if (unit instanceof BattleShip) initialArmies[1][2] += 1;
 						 if (unit instanceof ArmoredShip) initialArmies[1][3] += 1;
@@ -468,7 +422,6 @@ public class Battle implements Variables {
 					 }
 				 }
 			 }
-		 }
 	 }
 	 
 	 private void setArmies() {
@@ -591,12 +544,6 @@ public class Battle implements Variables {
 		public void setTurno(int turno) {
 			this.turno = turno;
 		}
-
-		public String getBattleReport(int i) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
 		
 		
 		
